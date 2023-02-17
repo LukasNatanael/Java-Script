@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: normal 1.8em Arial;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        var nome = prompt('Qual é o seu nome ?')
+        var salário = Number(prompt('Qual o seu salário atual ?'))
+        document.write(`Olá <strong>${nome}</strong>, seu nome tem ${nome.length} letras.<br>`)
+        document.write(`Seu nome em letras maíusculas é ${nome.toUpperCase()}.<br>`)
+        document.write(`Seu nome em letras minúsculas é ${nome.toLowerCase()}.<br>`)
+        
+        document.write(`Seu salário atualmente é ${salário.toFixed(2).replace('.', ',')}.<br>`) // Mostra duas casa decimais e troca o . por ,
+        document.write(`Seu salário em reais é: ${salário.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}<br>`)
+        document.write(`Seu salário em dolar é: ${salário.toLocaleString('pt-BR', {style: 'currency', currency: 'EUR'})}<br>`)
+        document.write(`Seu salário em euro é: ${salário.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})}<br>`)
+    </script>
+</body>
+</html>

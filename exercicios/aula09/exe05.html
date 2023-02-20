@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passo com DOM</title>
+    <style>
+        body {
+            background-color: rgb(51, 141, 214);
+            color: white;
+            font: normal 1.3em Arial;
+        }
+        div.botão {
+            border: 2px solid rgba(0, 0, 0, 0.315);
+            padding: 10px;
+            text-align: center;
+            width: 150px;
+            border-radius: 15px;
+            margin: 15px 0px;
+        }
+        div.botão:hover {
+            background-color: azure;
+            border: 2px solid rgba(0, 0, 0, 0.726);
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p id="msg">Aprendendo a usar <strong>DOM</strong> em JavaScript</p>
+    <div class="botão">Clique em mim</div>
+    <script>
+        var corpo = window.document.body
+        var p1 = document.getElementsByTagName('p')[1]
+        var msg = document.getElementById('msg')
+        var botão = document.querySelector('div.botão')
+        window.document.write(`Está escrito assim: ${p1.innerText}.<br>`) // Sem formatação
+        window.document.write(`Está escrito assim: ${p1.innerHTML}.`) // Com formatação
+        botão.style.background = 'red'
+    </script>
+</body>
+</html>

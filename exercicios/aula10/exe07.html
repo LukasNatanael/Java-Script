@@ -56,7 +56,7 @@
         #resultado {
             margin: auto;
             text-align: center;
-            margin-left: 45%;
+            margin-left: 30%;
             font-size: 1.5em;
         }
 
@@ -66,18 +66,14 @@
     <div id="calculadora">
         <h1>Somando valores</h1>
         <div>
-            <input type="Number" name="val1" id="ival1" placeholder="5" onclick="zerar()"> <span>+</span>
-            <input type="Number" name="val2" id="ival2" placeholder="5" onclick="zerar()">
+            <input type="Number" name="val1" id="ival1" placeholder="5"> <span>+</span>
+            <input type="Number" name="val2" id="ival2" placeholder="5">
             <input type="button" value="Somar" onclick="somar()">
-            <span id="resultado" <!-- Resultado --> 10 </span>
+            <span id="resultado" <!-- Resultado --></span>
         </div>
     </div>
 
     <script>
-        function zerar(){
-            var resultado = window.document.querySelector('span#resultado')
-            resultado.innerHTML = 0
-        }
         
         function somar() {
             var tn1 = window.document.getElementById('ival1')
@@ -88,7 +84,8 @@
             var n2 = Number(tn2.value)
             var soma = n1 + n2
             // resultado.innerHTML = `A soma entra ${n1} e ${n2} é igual a ${soma}`
-            resultado.innerHTML = `${soma}`
+            resultado.innerHTML = soma % 2 == 0 ? `${soma} é PAR`: `${soma} é IMPAR`
+            // resultado.innerHTML = `${soma}`
         }
     </script>
 </body>

@@ -1,8 +1,7 @@
 @charset 'UTF-8';
 
 body {
-    background-color: rgb(70, 175, 236);
-    background-image: linear-gradient(to right, rgb(9, 157, 243), rgb(70, 175, 236));
+    background-image: linear-gradient(to right, rgb(6, 31, 83), rgb(28, 63, 128));
     font: normal 1.2em Arial;
     color: white;
 }
@@ -18,6 +17,18 @@ section {
     margin: auto;
     color: black;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.322);
+}
+
+div {
+    text-align: center;
+    margin: auto;
+    padding: 8px;
+}
+
+#img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
 }
 
 footer{

@@ -4,7 +4,6 @@ function carregar() {
     var cump = window.document.getElementById('cumprimento')
     var data = new Date()
     var hora = data.getHours()
-    hora = 18
     msg.innerHTML = `Agora são ${hora} horas`
 
     if (hora >= 0 && hora < 12) {

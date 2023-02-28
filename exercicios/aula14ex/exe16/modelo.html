@@ -6,37 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Super contador</title>
-    <style>
-        div {
-            margin-bottom: 15px;
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>Vamos contar</h1>
     </header>
     <section>
-        <div>
+        <div id="dados">
             <label for="inicio">
-                <span>Início:</span> <input type="number" id="inicio" placeholder="Digite um valor" value="1">
+                <p>Início: <input type="number" id="inicio"></p>
             </label>
-        </div>
-        <div>
             <label for="fim">
-                <span>Fim:</span> <input type="number" id="fim">
+                <p>Fim: <input type="number" id="fim"></p>
             </label>
-        </div>
-        <div>
             <label for="passo">
-                <span>Passo:</span> <input type="number" id="passo">
+                <p>Passo: <input type="number" id="passo"></p>
             </label>
+            <p><input type="button" value="Contar" onclick="contar()"></p>
         </div>
-        <p>
-            <input type="button" value="Contar" onclick="contar()">
-        </p>
         <div id="resultado">
-            <p>Preparando a contagem...</p>
+            Preparando a contagem...
         </div>
     </section>
     <footer>

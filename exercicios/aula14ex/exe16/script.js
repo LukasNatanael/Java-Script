@@ -1,15 +1,34 @@
-// Criando variáveis
-var form_inicio = document.querySelector('input#inicio')
-var form_fim = document.querySelector('input#fim')
-var form_passo = document.querySelector('input#passo')
-var resultado = document.querySelector('div#resultado')
-
-// Iniciando o laço
-
 function contar() {
-    // alert(`início: ${form_inicio.value}; fim: ${form_fim.value}: passo: ${form_passo.value}`)
+    let inicio = document.getElementById('inicio')
+    let fim = document.getElementById('fim')
+    let passo = document.getElementById('passo')
+    let resultado = document.getElementById('resultado')
 
-    for (form_inicio.value++; form_inicio.value <= form_fim.value; form_passo.value) {
-        resultado.innerHTML = form_inicio.value
+    if (inicio.value.length == 0 || fim.value <=0 || passo.value.length == 0) {
+        resultado.innerHTML = 'Impossível contar!'
+        window.alert('[ERRO] Faltam dados!')
+    } else {
+        resultado.innerHTML = 'Contando: <br>'
+        let i = Number(inicio.value)
+        let f = Number(fim.value)
+        let p = Number(passo.value)
+
+        if (p <= 0) {
+            window.alert('Passo inválido! Considerando PASSO 1.')
+            p = 1
+        }
+
+        if (i < f) {
+            // Contagem crescente
+            for(let c = i; c <= f; c+= p) {
+                resultado.innerHTML += `${c} \u{1F449}	`
+            }
+        } else {
+            // Contagem regressiva
+            for(let c = i; c >= f; c-= p) {
+                resultado.innerHTML += `${c} \u{1F449} `
+            }
+        }
+        resultado.innerHTML += `\u{1F3C1}`
     }
 }

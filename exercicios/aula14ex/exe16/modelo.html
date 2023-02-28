@@ -5,18 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Modelo de exercício</title>
+    <title>Super contador</title>
+    <style>
+        div {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Vamos contar</h1>
     </header>
     <section>
         <div>
-            Testando...
+            <label for="inicio">
+                <span>Início:</span> <input type="number" id="inicio" placeholder="Digite um valor" value="1">
+            </label>
         </div>
         <div>
-            Hello!
+            <label for="fim">
+                <span>Fim:</span> <input type="number" id="fim">
+            </label>
+        </div>
+        <div>
+            <label for="passo">
+                <span>Passo:</span> <input type="number" id="passo">
+            </label>
+        </div>
+        <p>
+            <input type="button" value="Contar" onclick="contar()">
+        </p>
+        <div id="resultado">
+            <p>Preparando a contagem...</p>
         </div>
     </section>
     <footer>

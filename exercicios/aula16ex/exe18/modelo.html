@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Analisador de números</title>
+</head>
+<body>
+    <header>
+        <h1>Analisador de números</h1>
+    </header>
+    <section>
+        <div>
+            <label for="fnum">
+                Número (entre 1 e 100): <input type="number" id="fnum">
+            </label>
+            <p>
+                <input type="button" value="Adicionar" id="add" onclick="adicionar()">
+            </p>
+            <select id="flista" size="6">
+                <!-- <option>Digite um valor acima</option> -->
+            </select>
+            <p>
+                <input type="button" value="Finalizar" id="finalizar" onclick="finalizar()">
+            </p>
+        </div>
+        <div id="resultado">
+            <!-- resultado -->
+        </div>
+    </section>
+    <footer>
+        <p>&copy; LukasNatanael</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: rgb(44, 58, 58);
+    padding: .8em;
+    width: 50%;
+    margin: auto;
+    border-radius: .5em;
+    margin-bottom: 1em;
+}
+
+.card img{
+    width: 100%;
+    border-radius: .5em;
+}
+
+.card p {
+    line-height: .5em;
+    font-size: 1em;
+    background-color: aliceblue;
+    padding: .5em;
+    margin: .2em;
+    border-radius: .5em;
+}
+
+
+.citacao {
+    background-color: rgb(211, 142, 64);
+    border-radius: .5em;
+    padding: .5em;
+    background-image: linear-gradient(to right, rgb(196, 76, 7), rgb(211, 142, 64));
+    margin: auto;
+}
+
+.citacao h2 {
+    margin: .3em;
+}
+
+.citacao #data {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1em;
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.citacao blockquote {
+    width: 80%;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.citacao #autor {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.meses h3 {
+    background-color: orange;
+}
+
+.meses{
+    background-color: azure;
+}
+
+.meses p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    max-width: 10em;
+    line-height: 5px;
+
+}
+
+.jogo {
+    background-image: url(https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/LOL_2560x1440-98749e0d718e82d27a084941939bc9d3);
+    background-size: cover;
+    background-position: center center;
+    border-radius: .5em;
+    padding: 1em;
+    color: white;
+}
+
+.jogo p{
+    font-size: 1.5em;
+}
+
+.jogo span {
+    font-weight: bolder;
+    background-color: white;
+    color: black;
+    padding: .5em;
+    border-radius: .5em;
+}

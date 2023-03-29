@@ -15,7 +15,7 @@ produtos.push('Açucar', 'Trigo')
 codigos.push(40, 50, 60, 70)
 meses.push('Mai', 'Jun', 'Ago', '07')
 
-// REMOVER do FIANL
+// REMOVER do FINAL
 // pop = estourar
 produtos.pop()
 codigos.pop()

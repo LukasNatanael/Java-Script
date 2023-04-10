@@ -1,194 +1,201 @@
-/* Aula 20 MaiaQuiz  */
-
+// Selecionando elementos do DOM
 let titulo = document.querySelector('h1')
 let instrucoes = document.querySelector('#instrucoes')
 let aviso = document.querySelector('#aviso')
-//let respostaEsta = document.querySelector('#respostaEsta')
-let pontos = 0 // pontos para o placar
-let placar = 0 // placar
 
-// PERGUNTA
+let pontos = 0 // Pontos para o placar
+let placar = 0 // Placar
+
+// Pergunta
 let numQuestao = document.querySelector('#numQuestao')
-let pergunta   = document.querySelector('#pergunta')
+let pergunta = document.querySelector('#pergunta')
 
-// ALTERNATIVAS
+// Alternativas
 let a = document.querySelector('#a')
 let b = document.querySelector('#b')
 let c = document.querySelector('#c')
 
-// article com a class questoes
+// Article com class questoes
 let articleQuestoes = document.querySelector('.questoes')
 // ol li com as alternativas
 let alternativas = document.querySelector('#alternativas')
 
+// Formato base para questões
+
 const q0 = {
-    numQuestao   : 0,
-    pergunta     : "Pergunta",
-    alternativaA : "Alternativa A",
-    alternativaB : "Alternativa B",
-    alternativaC : "Alternativa C",
-    correta      : "0",
+    numQuestao: 0,
+    perg: 'Pergunta',
+    altA: 'Alternativa A',
+    altB: 'Alternativa B',
+    altC: 'Alternativa C',
+    correta: '0'
 }
 
 const q1 = {
-    numQuestao   : 1,
-    pergunta     : "Boreal é o mesmo que...",
-    alternativaA : "Sul",
-    alternativaB : "Leste",
-    alternativaC : "Norte",
-    correta      : "Norte",
+    numQuestao: 1,
+    perg: 'DC é responsavel pelo...',
+    altA: 'Homem-Aranha',
+    altB: 'Batman',
+    altC: 'Homem de Ferro',
+    correta: 'Batman'
 }
 
 const q2 = {
-    numQuestao   : 2,
-    pergunta     : "Austral é o mesmo que...",
-    alternativaA : "Oeste",
-    alternativaB : "Sul",
-    alternativaC : "Norte",
-    correta      : "Sul",
+    numQuestao: 2,
+    perg: 'Stan Lee é o criador de...',
+    altA: 'Flash',
+    altB: 'Robin',
+    altC: 'Homem-Aranha',
+    correta: 'Homem-Aranha'
 }
 
 const q3 = {
-    numQuestao   : 3,
-    pergunta     : "Nascente é o mesmo que...",
-    alternativaA : "Sul",
-    alternativaB : "Leste",
-    alternativaC : "Oeste",
-    correta      : "Leste",
+    numQuestao: 3,
+    perg: 'Tony Stark na verdade é...',
+    altA: 'O Batman',
+    altB: 'O Homem de Ferro',
+    altC: 'O Mercúrio',
+    correta: 'O Homem de Ferro'
 }
 
 const q4 = {
-    numQuestao   : 4,
-    pergunta     : "Poente é o mesmo que...",
-    alternativaA : "Norte",
-    alternativaB : "Leste",
-    alternativaC : "Oeste",
-    correta      : "Oeste",
+    numQuestao: 4,
+    perg: 'Henry Cavil interpreta....',
+    altA: 'Thor',
+    altB: 'Hulk',
+    altC: 'Superman',
+    correta: 'Superman'
 }
 
 const q5 = {
-    numQuestao   : 5,
-    pergunta     : "O Brasil se localiza em qual continente?",
-    alternativaA : "África",
-    alternativaB : "Europa",
-    alternativaC : "América",
-    correta      : "América",
+    numQuestao: 5,
+    perg: 'O flash é interpretado por...',
+    altA: 'Dwayne Johnson',
+    altB: 'Bruce Wayne',
+    altC: 'Grant Gustin',
+    correta: 'Grant Gustin'
 }
 
-// CONSTANTE COM UM ARRAY DE OBJETOS COM TODAS AS QUESTOES
-const questoes = [q0, q1, q2, q3, q4, q5]
+// Constante com um array de objetos das questões
+const questoes = [q0, q1, q2, q3, q4, q5] // Falta q0
 
 let numero = document.querySelector('#numero')
-let total  = document.querySelector('#total')
+let total = document.querySelector('#total')
 
-numero.textContent = q1.numQuestao
+numero.innerHTML = q1['numQuestao']
 
-let totalDeQuestoes = (questoes.length)-1
-console.log("Total de questões " + totalDeQuestoes)
+let totalDeQuestoes = (questoes.length) - 1 // Tira 1 do valor total
+console.log(`Total de questões: ${totalDeQuestoes}`)
 total.textContent = totalDeQuestoes
 
-// MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
-numQuestao.textContent = q1.numQuestao
-pergunta.textContent   = q1.pergunta
-a.textContent = q1.alternativaA
-b.textContent = q1.alternativaB
-c.textContent = q1.alternativaC
+// Montar a 1ª questão COMPLETA, para iniciar o quiz
+numQuestao.textContent = q1['numQuestao']
+pergunta.textContent = q1['perg']
+a.textContent = q1.altA
+b.textContent = q1.altB
+c.textContent = q1.altC
 
-// CONFIGURAR O VALUE INICIAL DA 1a QUESTAO COMPLETA
+// Configurando o VALUE inicial da questão completa
 a.setAttribute('value', '1A')
 b.setAttribute('value', '1B')
 c.setAttribute('value', '1C')
 
-// PARA MONTAR AS PROXIMAS QUESTOES
-function proximaQuestao(nQuestao) {
-    numero.textContent = nQuestao
-    numQuestao.textContent = questoes[nQuestao].numQuestao
-    pergunta.textContent   = questoes[nQuestao].pergunta
-    a.textContent = questoes[nQuestao].alternativaA
-    b.textContent = questoes[nQuestao].alternativaB
-    c.textContent = questoes[nQuestao].alternativaC
-    a.setAttribute('value', nQuestao+'A')
-    b.setAttribute('value', nQuestao+'B')
-    c.setAttribute('value', nQuestao+'C')
+// Para montar as proximas questões
+function proxQuestao(nQuestao) {
+    numero.innerHTML = nQuestao
+    numQuestao.innerHTML = questoes[nQuestao].numQuestao
+    pergunta.innerHTML = questoes[nQuestao].perg
+    a.innerHTML = questoes[nQuestao].altA
+    b.innerHTML = questoes[nQuestao].altB
+    c.innerHTML = questoes[nQuestao].altC
+    
+    // Definindo atributo value
+    a.setAttribute('value', `${nQuestao}A`)
+    b.setAttribute('value', `${nQuestao}B`)
+    c.setAttribute('value', `${nQuestao}C`)
 }
 
+// Função para bloquear as alternativas
 function bloquearAlternativas() {
     a.classList.add('bloqueado')
     b.classList.add('bloqueado')
     c.classList.add('bloqueado')
 }
 
+// Função para desbloquear as alternativas
 function desbloquearAlternativas() {
     a.classList.remove('bloqueado')
     b.classList.remove('bloqueado')
     c.classList.remove('bloqueado')
 }
 
-function verificarSeAcertou(nQuestao, resposta) {
-
-    let numeroDaQuestao = nQuestao.value
-    console.log("Questão " + numeroDaQuestao)
-
-    let respostaEscolhida = resposta.textContent
-    //console.log("RespU " + respostaEscolhida)
-
-    let certa = questoes[numeroDaQuestao].correta
-    //console.log("RespC " + certa)
-
-    if(respostaEscolhida == certa) {
-        //console.log("Acertou")
-        //respostaEsta.textContent = "Correta 😊"
-        pontos += 10 // pontos = pontos + 10
-    } else {
-        //console.log("Errou!")
-        //respostaEsta.textContent = "Errada 😢"
-    }
-
-    // atualizar placar
-    placar = pontos
-    instrucoes.textContent = "Pontos " + placar
-
-    // bloquear a escolha de opcoes
-    bloquearAlternativas()
-
-    setTimeout(function() {
-        //respostaEsta.textContent = '...'
-        proxima = numeroDaQuestao+1
-
-        if(proxima > totalDeQuestoes) {
-            console.log('Fim do Jogo!')
-            fimDoJogo()
-        } else {
-            proximaQuestao(proxima)
-        }
-    }, 250)
-    desbloquearAlternativas()
-}
-
+// Função para finalizar o jogo
 function fimDoJogo() {
-    instrucoes.textContent = "Fim de Jogo!"
-    numQuestao.textContent = ""
+    instrucoes.innerHTML = 'Fim de Jogo!'
+    numQuestao.innerHTML = ''
 
     let pont = ''
-    pontos == 0 ? pont = 'ponto' : pont = 'pontos'
+    pontos == 0 ? 'ponto': pont = 'pontos'
 
-    pergunta.textContent   = "Você conseguiu " + pontos + " " + pont
+    pergunta.textContent = `Você conseguiu ${pontos} ${pont}`
+    aviso.textContent = `Você conseguiu ${pontos} ${pont}`
 
-    aviso.textContent = "Você conseguiu " + pontos + " " + pont
-
-    a.textContent = ""
-    b.textContent = ""
-    c.textContent = ""
+    a.textContent = ''
+    b.textContent = ''
+    c.textContent = ''
 
     a.setAttribute('value', '0')
     b.setAttribute('value', '0')
     c.setAttribute('value', '0')
 
-    // OCULTAR O ARTICLE DA QUESTAO
+    // Ocultar article da questão
     articleQuestoes.style.display = 'none'
 
     setTimeout(function() {
-        pontos = 0 // zerar placar
-        location.reload();
+        pontos = 0 // Zerar pontos
+        location.reload()
     }, 2000)
 }
+
+
+
+
+
+
+// Verificando se acertou
+function verificarSeAcertou(nQuestao, resposta) {
+    let numeroDaQuestao = nQuestao.value
+    console.log(`Questão ${numeroDaQuestao}`)
+
+    let respEscolhida = resposta.textContent
+    // console.log(`Resposta do usuário: ${respEscolhida}`)
+
+    let certa = questoes[numeroDaQuestao].correta
+    // console.log(`Resposta correta: ${certa}`)
+
+    if (respEscolhida == certa) {
+        console.log('Acertou!')
+        pontos += 10
+    } else {
+        console.log('Errou!')
+    }
+    // Atualizando o placar
+    placar = pontos
+    instrucoes.textContent = `Pontos ${placar}`
+    
+    // Bloquear escolha de opções
+    bloquearAlternativas()
+
+    setTimeout(function() {
+        proxima = numeroDaQuestao + 1
+
+        if (proxima > totalDeQuestoes) {
+            console.log('Fim do Jogo!')
+            fimDoJogo()
+        } else {
+            proxQuestao(proxima)
+        }
+    }, 250)
+    desbloquearAlternativas()
+}
+

@@ -1,0 +1,136 @@
+{
+   "questoes": [
+      {
+         "numQuestao": 0,
+         "nivel": "nivel",
+         "perg": "pergunta",
+         "resposta": "resposta",
+         "altA": "Alternativa A",
+         "altB": "Alternativa B",
+         "altC": "Alternativa C",
+         "altD": "Alternativa D",
+         "correta": "0"
+
+      },
+      {
+         "numQuestao": 1,
+         "nivel": "Fácil",
+         "perg": "Qual o nome do Homem Aranha ?",
+         "altA": "Tony Stark",
+         "altB": "Peter Parker",
+         "altC": "Barry Allen",
+         "altD": "Steve Rogers",
+         "correta": "Peter Parker"
+      },
+      {
+         "numQuestao": 2,
+         "nivel": "Fácil",
+         "perg": "Qual o nome do Superman ?",
+         "altA": "Bruce Wayne",
+         "altB": "James Gordon",
+         "altC": "Barry Allen",
+         "altD": "Clark Kent",
+         "correta": "Clark Kent"
+      },
+      {
+         "numQuestao": 3,
+         "nivel": "Fácil",
+         "perg": "Qual o nome do Capitão América ?",
+         "altA": "Tony Stark",
+         "altB": "Steve Rogers",
+         "altC": "Victor Shade",
+         "altD": "James Gordon",
+         "correta": "Steve Rogers"
+      },
+      {
+         "numQuestao": 4,
+         "nivel": "Fácil",
+         "perg": "Qual o nome do Flash ?",
+         "altA": "Barry Allen",
+         "altB": "Bruce Wayne",
+         "altC": "Clark Kent",
+         "altD": "James Gordon",
+         "correta": "Barry Allen"
+      },
+      {
+         "numQuestao": 5,
+         "nivel": "Médio",
+         "perg": "Qual é o nome do martelo do Thor?",
+         "altA": "Futãs",
+         "altB": "Mjölnir",
+         "altC": "Coãs",
+         "altD": "Mjolin",
+         "correta": "Mjölnir"
+      },
+      {
+         "numQuestao": 6,
+         "nivel": "Médio",
+         "perg": "Em que ano foi lançado o 1º filme da Marvel ?",
+         "altA": "2007",
+         "altB": "2005",
+         "altC": "2008",
+         "altD": "2006",
+         "correta": "2008"
+      },
+      {
+         "numQuestao": 7,
+         "nivel": "Médio",
+         "perg": "Em que ano foi lançado o 1º filme da DC ?",
+         "altA": "1945",
+         "altB": "1947",
+         "altC": "1941",
+         "altD": "1958",
+         "correta": "1941"
+      },
+      {
+         "numQuestao": 8,
+         "nivel": "Médio",
+         "perg": "Qual o verdadeiro nome do Pinguim?",
+         "altA": "Harvey Dent",
+         "altB": "Oswald Cobblepot",
+         "altC": "Bruce Wayne",
+         "altD": "Clark Kent",
+         "correta": "Oswald Cobblepot"
+      },
+      {
+         "numQuestao": 9,
+         "nivel": "Difícil",
+         "perg": "Qual é o nome da cidade submersa do Namor?",
+         "altA": "Lotakan",
+         "altB": "Atlantis",
+         "altC": "Talokan",
+         "altD": "Atlantida",
+         "correta": "Talokan"
+      },
+      {
+         "numQuestao": 10,
+         "nivel":"Difícil",
+         "perg": "Duas caras antes de se tornar um vilão era ...",
+         "altA": "Vice prefeito",
+         "altB": "Detetive",
+         "altC": "Promotor público de Gotham",
+         "altD": "Advogado",
+         "correta": "Promotor público de Gotham"
+      },
+      {
+         "numQuestao": 11,
+         "nivel": "Difícil",
+         "perg": "Qual cidade Tony Stark fica preso no seu primeiro filme?",
+         "altA": "Afeganistão",
+         "altB": "New York",
+         "altC": "Síria",
+         "altD": "Irã",
+         "correta": "Afeganistão"
+      },
+      {
+         "numQuestao": 12,
+         "nivel": "Difícil",
+         "perg": "Qual é o nome do Coringa",
+         "altA": "Jack Oswald White",
+         "altB": "Arthur Fleck",
+         "altC": "Oswald Cobblepot",
+         "altD": "Harvey Dent",
+         "correta": "Arthur Fleck"
+      }
+   ]
+}

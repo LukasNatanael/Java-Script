@@ -1,0 +1,127 @@
+/* Aula 23 de JS Relogio Digital */
+
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100;300;500&family=DM+Mono:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+font-family: 'Azeret Mono', monospace;
+font-family: 'DM Mono', monospace;
+*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to top, #2B2D42, #4A4E69);
+    font-family: 'Poppins', monospace;
+    /* background: linear-gradient(0deg, blue, green 40%, red); */
+}
+
+.tela-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 550px;
+    position: relative;
+    /* background-image: linear-gradient(to top, #2B2D42, #4A4E69); */
+    background-color: transparent;
+    box-shadow: 10px 10px 10px #2B2D42;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.tela-principal::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background-image: conic-gradient(transparent, transparent, transparent, #3A86FF);
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.border {
+    border: 1px solid red;
+}
+
+#relogioDigital {
+    display: none;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    width: 340px;
+    height: 540px;
+    border-radius: 15px;
+    padding: 1em;
+    font-weight: bold;
+    
+    background-image: linear-gradient(to top, #2B2D42, #4A4E69);
+    z-index: 2;
+}
+
+.doisPontos {
+    display: none;
+}
+
+#dataSmart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5em;
+    line-height: .8em;
+    margin-top: .5em;
+}
+
+#telaSmart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: white;
+
+}
+
+#relogioSmart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 4em;
+    font-weight: bold;
+}
+
+#mSmart {
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+}
+
+#temperatura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

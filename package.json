@@ -1,0 +1,20 @@
+{
+  "name": "java-script",
+  "version": "1.0.0",
+  "description": "Curso de JavaScript do CursoEmVideo\r # Bem Vindo a minha página inicial de JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasNatanael/Java-Script.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukasNatanael/Java-Script/issues"
+  },
+  "homepage": "https://github.com/LukasNatanael/Java-Script#readme"
+}

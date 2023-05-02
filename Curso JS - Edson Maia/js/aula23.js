@@ -1,8 +1,9 @@
-let relogio = document.querySelector('#relogio')
-let h = document.querySelector('#h')
-let m = document.querySelector('#m')
-let s = document.querySelector('#s')
+// let relogio = document.querySelector('#relogio')
+// let h = document.querySelector('#h')
+// let m = document.querySelector('#m')
+// let s = document.querySelector('#s')
 
+// Pegando os elementos no DOM
 let hSmart = document.querySelector('#hSmart')
 let mSmart = document.querySelector('#mSmart')
 let sSmart = document.querySelector('#sSmart')
@@ -10,128 +11,134 @@ let sSmart = document.querySelector('#sSmart')
 let data = document.querySelector('#data')
 let semana = document.querySelector('#semana')
 
+//_______ Pegando data e hora atuais do computador _______
+// Pegando hora atual do computador
+
 let dataHora = new Date()
-// console.log(dataHora)
-function moveRelogio() { 
+console.log(dataHora)
 
-    let momentoAtual = new Date()
+function moveRelogio() {
 
-    let hora    = momentoAtual.getHours() 
-    let minuto  = momentoAtual.getMinutes() 
-    let segundo = momentoAtual.getSeconds() 
+  let momentoAtual = new Date()
+  let hora = momentoAtual.getHours()
+  let minuto = momentoAtual.getMinutes()
+  let segundo = momentoAtual.getSeconds()
 
-    let strHora    = new String(hora)
-    let strMinuto  = new String(minuto)
-    let strSegundo = new String(segundo)
+  // Transformando dados em uma NOVA STRING
+  let strHora = new String(hora)
+  let strMinuto = new String(minuto)
+  let strSegundo = new String(segundo)
 
-    if (strSegundo.length == 1) segundo = "0" + segundo 
-    if (strMinuto.length == 1) minuto = "0" + minuto 
-    if (strHora.length == 1) hora = "0" + hora 
+  // Verificando se a string tem 1 ou 2 elementos: [8 => 08], [12 => 12]
+  if (strSegundo.length == 1) segundo = "0" + segundo 
+  if (strMinuto.length == 1) minuto = "0" + minuto 
+  if (strHora.length == 1) hora = "0" + hora 
 
-    h.textContent = hora
-    m.textContent = minuto
-    s.textContent = segundo
+  // Adicionando variáveis na página
+  // Decidi não mostrar
+  h.textContent = hora
+  m.textContent = minuto
+  s.textContent = segundo
+  
+  // Esse é o que aparece
+  hSmart.textContent = hora
+  mSmart.textContent = minuto
+  sSmart.textContent = segundo
 
-    hSmart.textContent = hora
-    mSmart.textContent = minuto
-    sSmart.textContent = segundo
-
-    setTimeout("moveRelogio()",100) 
+  // Adicionando tempo de atualização para o relógio
+  setTimeout("moveRelogio()", 100)
 }
+
+// Pegando hora atual do computador
 
 function pegarData() {
 
-    let diaDaSemana = dataHora.getDay()
-    let dia = dataHora.getDate()
-    let mes = dataHora.getMonth()+1
-    let ano = dataHora.getFullYear()
+  let diaDaSemana = dataHora.getDay()
+  let dia = dataHora.getDate()
+  let mes = dataHora.getMonth()+1 // Adiciona +1 porque começa com 0
+  let ano = dataHora.getFullYear()
 
-    let strDia = new String(dia)
-    let strMes = new String(mes)
-    console.log(strDia)
-    
-    if(strDia.length == 1) dia = `0${dia}`
-    if(strMes.length == 1) mes = `0${mes}`
+  // Transformando dados em uma NOVA STRING
+  let strDia = new String(dia)
+  let strMes = new String(mes)
 
-    switch(diaDaSemana) {
-        case 0:
-            diaDaSemana = 'Domingo'
-            break;
-        case 1:
-            diaDaSemana = 'Segunda-Feira'
-            break;
-        case 2:
-            diaDaSemana = 'Terça-Feira'
-            break;
-        case 3:
-            diaDaSemana = 'Quarta-Feira'
-            break;
-        case 4:
-            diaDaSemana = 'Quinta-Feira'
-            break;
-        case 5:
-            diaDaSemana = 'Sexta-Feira'
-            break;
-        case 6:
-            diaDaSemana = 'Sábado'
-            break;
-    } // fim switch case
+  // Verificando se a string tem 1 ou 2 elementos: [8 => 08], [12 => 12]
+  if (strDia.length == 1 ) dia = `0${dia}`
+  if (strMes.length == 1 ) mes = `0${mes}`
 
-    // let dataAtual = dia + '/' + mes + '/' + ano
-    let dataAtual = `${dia}/${mes}/${ano}`
+  // Poderia usar o switch case, mas ficaria muito extenso
+  diaDaSemanaExtenso = [
+    'Domingo',
+    'Segunda - feira',
+    'Terça - feira',
+    'Quarta - feira',
+    'Quinta - feira',
+    'Sexta - feira',
+    'Sábado'
+  ]
 
-    semana.textContent = diaDaSemana
-    data.textContent = dataAtual
+  diaDaSemana = diaDaSemanaExtenso[diaDaSemana]
+  let dataAtual = `${dia}/${mes}/${ano}`
+
+  semana.textContent = diaDaSemana
+  data.textContent = dataAtual
 
 }
-// evocar a funcao
+
+// Evocar a função
 pegarData()
 
 var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-    }
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}
 
+//________________________ Testes ________________________
 let teste = new Date()
 
 console.log(teste.toLocaleString('pt-BR'))
 console.log(teste.toLocaleString('pt-BR', options))
-console.log(teste.toLocaleDateString('pt-BR'))
-console.log(teste.toLocaleTimeString('pt-BR'))
+console.log(teste.toLocaleDateString('pt-BR', options))
+console.log(teste.toLocaleTimeString('pt-BR', options))
 
+// _____________ Pegando a temperatura ___________________
 function getUserPosition() {
   let url = ''
   navigator.geolocation.getCurrentPosition((pos) => {
-    let lat = pos.coords.latitude
-    let long = pos.coords.longitude
-    url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&APPID=622296cd4fda08b69c46ccfa980f968d`
+    let latitude = pos.coords.latitude
+    let longitude = pos.coords.longitude
+    
+    // API de CLIMA
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&APPID=622296cd4fda08b69c46ccfa980f968d`
+
     fetchApi(url)
     console.log(url)
   })
 }
 
 function fetchApi(url) {
-  let city = document.querySelector('.city')
-  let temperature = document.querySelector('#temp')
-  let humidity = document.querySelector('#umidad')
+  let cidade = document.querySelector('.cidade')
+  let temperatura = document.querySelector('#temperatura')
+  let umidade = document.querySelector('#umidade')
 
-  fetch(url)
-  .then((data) => {
+  fetch(url).then((data) => {
     return data.json()
-  })
-  .then((data) => {
-    let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1);
-    
-    city.textContent      = data.name
-    temperature.innerHTML = tempInCelsius
-    humidity.innerHTML    = data.main.humidity
-  })
-  .catch((err) => {
-    city.innerText = `Impossível acessar o OpenWeather. Verifique a sua conexão.`;
-    temperature.innerHTML = `-`;
+  }).then((data) => {
+    let tempEmCelsius = ((5/9) * (data.main.temp-32)).toFixed(1)
+    // Por algum motivo esses dados não são exibidos
+    cidade.textContent = data.name
+    console.log(data.name)
+    umidade.textContent = data.main.humidity
+    console.log(data.main.humidity)
+    temperatura.textContent = tempEmCelsius
+
+  }).catch((err) => {
+    cidade.textContent = `Impossível acessar o OpenWeather. Verifique sua conexão.`
+    temperatura.textContent = '-'
   })
 }
 
-getUserPosition();
+// Evocar a função
+getUserPosition()

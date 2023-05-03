@@ -1,0 +1,67 @@
+:root {
+    --azul: #049CD8;
+    --vermelho: #E52521;
+
+    --amarelo-100: #9F8505;
+    --amarelo-25: #D8B404;
+    --amarelo-50: #FBD000;
+    --verde-50: #43B047;
+    --verde-100: #1A7226;
+
+}
+
+body {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde-50);
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+    gap: 1em;
+    height: fit-content;
+}
+
+.card {
+    height: 18em;
+    width: 12em;
+    background-color: var(--amarelo-100);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px var(--verde-100);
+
+    transition: all .5s;
+}
+
+.card::before {
+    position: absolute;
+    content: '';
+    background-color: var(--amarelo-25);
+    width: 12em;
+    height: 1em;
+
+    border-radius: 20px 20px 0 0;
+
+}
+
+.card::after {
+    position: absolute;
+    content: '';
+    background-color: var(--amarelo-50);
+    width: 11em;
+    height: 17em;
+
+    transform: translate(4.5%, 3%);
+    border-radius: 20px;
+
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: none;
+}

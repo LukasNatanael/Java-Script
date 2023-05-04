@@ -1,0 +1,32 @@
+body {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 2em;
+    width: 30%;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+input {
+    display: flex;
+    margin: 1em 0;
+    padding: .5em;
+}
+
+input:last-of-type {
+    position: relative;
+    display: flex;
+    width: 50%;
+    margin-left: 50%;
+    font-size: .8rem;
+    justify-content: center;
+}

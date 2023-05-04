@@ -1,0 +1,40 @@
+{
+    "dados": [
+        {
+            "img": "../images/personagens/mario.png",
+            "nome": "Mário",
+            "altura": 1.60,
+            "status": "Mocinho"
+        },
+        {
+            "img": "../images/personagens/luigi.png",
+            "nome": "Luigi",
+            "altura": 1.65,
+            "status": "Mocinho"
+        },
+        {
+            "img": "../images/personagens/peach.png",
+            "nome": "Peach",
+            "altura": 1.73,
+            "status": "Mocinho"
+        },
+        {
+            "img": "../images/personagens/yoshi.png",
+            "nome": "Yoshi",
+            "altura": "---",
+            "status": "Mocinho"
+        },
+        {
+            "img": "../images/personagens/bowser.png",
+            "nome": "Bowser",
+            "altura": 1.80,
+            "status": "Vilão"
+        },
+        {
+            "img": "../images/personagens/waluigi.png",
+            "nome": "Waluigi",
+            "altura": 1.85,
+            "status": "Vilão"
+        }
+    ]
+}

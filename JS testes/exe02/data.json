@@ -1,0 +1,54 @@
+{
+    "personagens": [
+        {
+            "img": "img/ash.png",
+            "nome": "Ash",
+            "tipo": "Treinador",
+            "ataque": 10,
+            "defesa": 5
+        },
+        {
+            "img": "img/misty.png",
+            "nome": "Misty",
+            "tipo": "Treinadora",
+            "ataque": 10,
+            "defesa": 5
+        },
+        {
+            "img": "img/brook.png",
+            "nome": "Brook",
+            "tipo": "Treinador",
+            "ataque": 10,
+            "defesa": 5
+        },
+        {
+            "img": "img/pikachu.png",
+            "nome": "Pikachu",
+            "tipo": "Eletricidade",
+            "ataque": 150,
+            "defesa": 120
+        },
+        {
+            "img": "img/squirtle.png",
+            "nome": "Squirtle",
+            "tipo": "Água",
+            "ataque": 150,
+            "defesa": 120
+        },
+        {
+            "img": "img/bulbasauro.png",
+            "nome": "Bulbasauro",
+            "tipo": "Natureza",
+            "ataque": 150,
+            "defesa": 120
+        },
+        {
+            "img": "img/charmander.png",
+            "nome": "Charmander",
+            "tipo": "Fogo",
+            "ataque": 150,
+            "defesa": 120
+        }
+        
+    ]
+}

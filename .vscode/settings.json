@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/exercicios/aula06/exe02.html"
+    "livePreview.defaultPreviewPath": "/exercicios/aula06/exe02.html",
+    "git.ignoreLimitWarning": true
 }

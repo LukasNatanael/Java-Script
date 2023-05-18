@@ -119,3 +119,20 @@ pegarDadosPorCategoria(6, ul6)
 function dadosPorCategoria(categoria) {
     console.log(categoria)
 }
+
+// Usamos as funções createElement e appendChild
+// Para criarmos li (elemento HTML que vai acomodar cada vídeo)
+// Criamos também img. Depois colocamnos eles dentro deo article
+function criarLiImg(categoriaId, idVideo, nLista) {
+    let lista = nLista
+    // Li
+    let item = document.createElement('li')
+    console.log(item)
+    lista.appendChild(item)
+
+    let imagem = document.createElement('img')
+    imagem.setAttribute('src', `https://img.youtube.com/vi/${idVideo}/maxresdefault.jpg`)
+    imagem.setAttribute('class', 'capa-thumb')
+    imagem.setAttribute('onClick', `abrirModal('${idVideo}')`)
+    item.appendChild(imagem)
+}

@@ -1,0 +1,56 @@
+{
+    "animação": [
+        {
+            "titulo": "Os Simpsons",
+            "img": "../imgs/simpsons.jpeg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Family Guy",
+            "img": "../imgs/familyGuy.jpeg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Big Mouth",
+            "img": "../imgs/bigMouth.jpg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Homem Aranha",
+            "img": "../imgs/homemAranha.jpg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Batman",
+            "img": "../imgs/batman.webp",
+            "descrição": ""
+        }
+    ],
+    "ficção": [
+        {
+            "titulo": "Harry Potter",
+            "img": "../imgs/harryPotter.jpg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Star Wars",
+            "img": "../imgs/starWars.jpg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Senhor dos Anéis",
+            "img": "../imgs/senhorAneis.jpeg",
+            "descrição": ""
+        },
+        {
+            "titulo": "De Volta para o Futuro",
+            "img": "../imgs/deVoltaFuturo.jpg",
+            "descrição": ""
+        },
+        {
+            "titulo": "Vingadores",
+            "img": "../imgs/ultimato.jpg",
+            "descrição": ""
+        }
+    ]
+}

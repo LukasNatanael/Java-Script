@@ -5,6 +5,12 @@ function createVideo(idContainer=0) {
     let video = document.createElement('section')
     video.setAttribute('class', 'video')
     container[idContainer].appendChild(video)
+
+    container[idContainer].addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        // container[idContainer].scrollLeft += evt.deltaY;
+        container[idContainer].scrollLeft += evt.deltaY;
+    })
     
     let titulo = document.createElement('p')
     titulo.setAttribute('class', 'titulo')
@@ -14,6 +20,7 @@ function createVideo(idContainer=0) {
     let thumbVideo = document.createElement('div')
     thumbVideo.setAttribute('class', 'thumb-video')
     // thumbVideo.textContent = 'IMG'
+    thumbVideo.style.backgroundImage = 'url(imgs/batman.webp)'
     video.appendChild(thumbVideo)
     
     let descricao = document.createElement('p')
@@ -22,7 +29,7 @@ function createVideo(idContainer=0) {
     video.appendChild(descricao)
 }
 
-function createCarousel() {
+function createCarousel(idCategoria) {
     let container = document.querySelectorAll('.container')
 
     let boxCarousel = document.createElement('fieldset')
@@ -31,7 +38,7 @@ function createCarousel() {
 
     let categoria = document.createElement('h1')
     categoria.setAttribute('class', 'categoria')
-    categoria.textContent = 'Categoria'
+    categoria.textContent = idCategoria
     boxCarousel.appendChild(categoria)
 
     let carousel = document.createElement('article')
@@ -56,13 +63,18 @@ function show(indice, indiceLista) {
 }
 
 
-createCarousel()
-
+createCarousel('animação')
+createVideo()
+createVideo()
+createVideo()
 createVideo()
 createVideo()
 createVideo()
 
-
+createCarousel('ficção')
+createVideo(1)
+createVideo(1)
+createVideo(1)
 createVideo(1)
 createVideo(1)
 createVideo(1)
@@ -70,3 +82,24 @@ createVideo(1)
 
 let qtdVideos = document.querySelectorAll('.video')
 console.log(qtdVideos)
+
+// ---------------------------------------------------
+
+let url = 'data.json'
+function pegarDados(categoria) {
+    fetch(url)
+    .then(response => response.json())
+    .then(dados => {
+        console.log(`Qtd. ${categoria}: ` + dados[`${categoria}`].length)
+        // console.log(dados.animação[0])
+        // console.log(`Categoria: ${categoria}`)
+        // dados[`${categoria}`].forEach((id, pos) => {
+        //     console.log(id.titulo)
+        //     console.log(id.img)
+        //     console.log(id.descrição)
+        // });
+    })
+}
+
+pegarDados('animação')
+pegarDados('ficção')

@@ -26,7 +26,8 @@ main {
 .container {
     /* border: 1px solid black; */
     user-select: none;
-    width: 80em;
+    /* width: 80em; */
+    width: 100%;
     display: flex;
     overflow: hidden;
     padding: 0 1em;
@@ -49,6 +50,7 @@ main {
     /* border: 1px solid blue; */
     width: fit-content;
     padding: .2em .5em;
+    height: 10em;
     transition: transform .5s;
     cursor: pointer;
 }
@@ -58,14 +60,14 @@ main {
 }
 
 .descricao{
-    opacity: 0;
     /* outline: 1px solid black; */
 
     transition: opacity .5s;
+    display: none;
 }
 
 .video:hover .descricao {
-    opacity: 100%;
+    display: flex;
 }
 
 .titulo {

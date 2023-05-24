@@ -1,6 +1,6 @@
 let main = document.querySelector('main')
 
-function createVideo(idContainer=0) {
+function createVideo(idContainer=0, t, img, descrição) {
     let container = document.querySelectorAll('.container')
     let video = document.createElement('section')
     video.setAttribute('class', 'video')
@@ -14,22 +14,23 @@ function createVideo(idContainer=0) {
     
     let titulo = document.createElement('p')
     titulo.setAttribute('class', 'titulo')
-    titulo.textContent = 'Título'
+    titulo.textContent = t
     video.appendChild(titulo)
     
     let thumbVideo = document.createElement('div')
     thumbVideo.setAttribute('class', 'thumb-video')
     // thumbVideo.textContent = 'IMG'
-    thumbVideo.style.backgroundImage = 'url(imgs/batman.webp)'
+    // thumbVideo.style.backgroundImage = 'url(imgs/batman.webp)'
+    thumbVideo.style.backgroundImage = `url(${img})`
     video.appendChild(thumbVideo)
     
     let descricao = document.createElement('p')
     descricao.setAttribute('class', 'descricao')
-    descricao.textContent = 'Descrição'
+    descricao.textContent = descrição
     video.appendChild(descricao)
 }
 
-function createCarousel(idCategoria) {
+function createCarousel(idCategoria, titulo, img, descrição) {
     let container = document.querySelectorAll('.container')
 
     let boxCarousel = document.createElement('fieldset')
@@ -39,45 +40,32 @@ function createCarousel(idCategoria) {
     let categoria = document.createElement('h1')
     categoria.setAttribute('class', 'categoria')
     categoria.textContent = idCategoria
-    boxCarousel.appendChild(categoria)
+    // boxCarousel.appendChild(categoria)
 
     let carousel = document.createElement('article')
     carousel.setAttribute('class', 'container')
     boxCarousel.appendChild(carousel)
 
-    createVideo(container.length)
+    createVideo(boxCarousel.length, titulo, img, descrição)
 }
 
 
-function show(indice, indiceLista) {
-    // Seleciona a lista com base no nome #lista + número da lista (categoria)
-    let listaUl = document.querySelector(`#lista${indiceLista}`)
-    console.log(listaUl)
 
-    let mover = 100
-    let posicaoXDireita = mover
-    let posicaoXEsquerda = -mover
+// createCarousel('animação')
+// createVideo()
+// createVideo()
+// createVideo()
+// createVideo()
+// createVideo()
+// createVideo()
 
-    if (indice == +1) listaUl.scrollBy(posicaoXDireita, 0)
-    if (indice == -1) listaUl.scrollBy(posicaoXEsquerda, 0)
-}
-
-
-createCarousel('animação')
-createVideo()
-createVideo()
-createVideo()
-createVideo()
-createVideo()
-createVideo()
-
-createCarousel('ficção')
-createVideo(1)
-createVideo(1)
-createVideo(1)
-createVideo(1)
-createVideo(1)
-createVideo(1)
+// createCarousel('ficção')
+// createVideo(1)
+// createVideo(1)
+// createVideo(1)
+// createVideo(1)
+// createVideo(1)
+// createVideo(1)
 
 
 let qtdVideos = document.querySelectorAll('.video')
@@ -91,15 +79,24 @@ function pegarDados(categoria) {
     .then(response => response.json())
     .then(dados => {
         console.log(`Qtd. ${categoria}: ` + dados[`${categoria}`].length)
-        // console.log(dados.animação[0])
-        // console.log(`Categoria: ${categoria}`)
-        // dados[`${categoria}`].forEach((id, pos) => {
-        //     console.log(id.titulo)
-        //     console.log(id.img)
-        //     console.log(id.descrição)
-        // });
+        console.log(dados[categoria].length)
+        // createCarousel(categoria)
+        console.log(`Categoria: ${categoria}`)
+        console.log(dados[categoria])
+        dados[`${categoria}`].forEach((id, pos) => {
+            createCarousel(categoria, id.titulo, id.img, id.descrição)
+            // console.log(id.titulo)
+            // console.log(id.img)
+            // console.log(id.descrição)
+        });
+
     })
+    .catch(error => {
+        console.error(error);
+    });
+
 }
+
 
 pegarDados('animação')
 pegarDados('ficção')

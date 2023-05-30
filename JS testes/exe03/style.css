@@ -110,9 +110,11 @@ main {
     right: 6em;
 }
 
-fieldset {
+.boxCarousel {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: none;
+
+    border: 1px solid red;
 }

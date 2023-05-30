@@ -30,9 +30,27 @@ function createVideo(idContainer=0, t, img, descrição) {
     video.appendChild(descricao)
 }
 
-function createCarousel(idCategoria, titulo, img, descrição) {
-    let container = document.querySelectorAll('.container')
+// function createCarousel(idCategoria, titulo, img, descrição) {
+//     let container = document.querySelectorAll('.container')
 
+//     let boxCarousel = document.createElement('fieldset')
+//     boxCarousel.setAttribute('class', 'boxCarousel')
+//     main.appendChild(boxCarousel)
+
+//     let categoria = document.createElement('h1')
+//     categoria.setAttribute('class', 'categoria')
+//     categoria.textContent = idCategoria
+//     // boxCarousel.appendChild(categoria)
+
+//     let carousel = document.createElement('article')
+//     carousel.setAttribute('class', 'container')
+//     boxCarousel.appendChild(carousel)
+
+//     createVideo(boxCarousel.length, titulo, img, descrição)
+// }
+
+
+function createCarousel(idCategoria, titulo, img, descrição) {
     let boxCarousel = document.createElement('fieldset')
     boxCarousel.setAttribute('class', 'boxCarousel')
     main.appendChild(boxCarousel)
@@ -48,7 +66,6 @@ function createCarousel(idCategoria, titulo, img, descrição) {
 
     createVideo(boxCarousel.length, titulo, img, descrição)
 }
-
 
 
 // createCarousel('animação')
@@ -99,4 +116,4 @@ function pegarDados(categoria) {
 
 
 pegarDados('animação')
-pegarDados('ficção')
+// pegarDados('ficção')

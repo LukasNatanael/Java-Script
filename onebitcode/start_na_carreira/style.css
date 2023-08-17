@@ -16,7 +16,7 @@ body {
     height: 525px;
     width: 360px;
     background-color: #f7f7f7;
-    box-shadow: 3px 3px 3px gray;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.329);
     border-radius: 1em;
     margin: auto;
 }
@@ -38,9 +38,10 @@ body {
 
 .formInput {
     background: white;
-    width: 3em;
+    width: 4.1em;
     padding: 5px 8px;
     border: 1px solid black;
+    border-radius: .5em;
 }
 
 .formInput:focus {
@@ -51,6 +52,8 @@ body {
 .formSelect {
     width: 15em;
     padding: .3em;
+    border-radius: .5em;
+
 }
 
 .formSubmit {
@@ -59,7 +62,7 @@ body {
     display: block;
     margin: 0 auto;
     border: 1px solid black;
-    border-radius: .2em;
+    border-radius: .5em;
     width: 200px;
     height: 30px;
     color: white;
@@ -72,4 +75,10 @@ body {
     color: var(--primary-color);
     background: #f7f7f7;
     cursor: pointer;
+}
+
+#totalTip {
+    font-size: 1.3em;
+    margin-top: 1em;
+    text-align: center;
 }

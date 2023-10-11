@@ -61,7 +61,25 @@
             <label for="fotoPerfil">Foto de perfil: </label>
             <input type="file" name="avatar" id="fotoPerfil">
         </p>
-
+        
+        <!-- Campo de caixa de seleção -->
+        <p>
+            <label for="situacao">Situação</label>
+            <select name="situacao" id="situacao">
+                <option selected disabled>Selecione uma das opções</option>
+                <option value="estudante">Estudando para me tornar um programador</option>
+                <option value="estagiario">Atuando como estagiário/traineer</option>
+                <option value="junior">Atuando como desenvolvedor júnior</option>
+                <option value="pleno">Atuando como desenvolvedor pleno</option>
+                <option value="senior">Atuando como desenvolvedor sênior</option>
+            </select>
+        </p>
+        
+        <!-- Campo de área de texto de múltiplas linhas -->
+        <p>
+            <label for="sobre">Sobre mim</label>
+            <textarea name="sobre" id="sobre" cols="30" rows="10" placeholder="Me fale um pouco sobre você..."></textarea>            
+        </p>
         <button type="submit">Enviar</button>
 
     </form>

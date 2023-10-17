@@ -1,3 +1,14 @@
+h1 {
+    color: purple;
+    background-color: gray;
+}
+
 li {
     color: green;
+}
+
+body{
+    background-image: url('https://www.spacex.com/static/images/falcon-9/refresh/F9_DM2_LAUNCH_3840x2560.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

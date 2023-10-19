@@ -1,0 +1,15 @@
+li > a {
+    color: red;
+}
+
+h1 + section > strong {
+    border: 4px dashed;
+}
+
+a[href='#'] {
+    color: orange;
+}
+
+li:nth-of-type(2) {
+    color: purple;
+}

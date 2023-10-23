@@ -1,0 +1,34 @@
+:root {
+    --amarelo:#f1c40f;
+    --azul: #2c3e50;
+    --vermelho: #e74c3c;
+}
+
+body {
+    background-color: var(--azul);
+}
+
+h1 {
+    color: white;
+}
+
+#days-of-week > h3 {
+    color: var(--amarelo);
+}
+
+#days-of-week {
+    color: white;
+}
+
+#activities > h2 {
+    background-color: var(--amarelo);
+}
+
+#activities > ul {
+    color: white;
+}
+
+.astronomy-class {
+    color: var(--vermelho);
+    font-weight: bold;
+}

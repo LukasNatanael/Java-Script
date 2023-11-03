@@ -1,0 +1,31 @@
+main {
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+ul li {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 15px;
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.856);
+    color: white;
+    text-align: justify;
+    border-radius: 3px;
+}
+
+.selected {
+    border: 3px solid blue;
+    background-color: rgba(0, 0, 0, 0.774);
+}
+
+li > h2 {
+    text-align: center;
+}

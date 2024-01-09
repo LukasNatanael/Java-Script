@@ -1,0 +1,47 @@
+/* seletor :nth-child() */
+
+li:nth-child(2) {
+    color: #f00;
+}
+
+/* 
+odd - seleciona apenas valores pares
+even - seleciona apenas valores impares
+*/
+li:nth-child(3n) {
+    color: #00f;
+}
+
+li:hover {
+    background-color: #23232356;
+}
+
+input:focus {
+    background-color: #f00;
+}
+
+/*
+::before - antes
+::after  - depois
+*/
+
+li::before {
+    content: '-=-= ';
+}
+
+li::after {
+    content: ' =-=-';
+}
+
+li:first-child {
+    color: orange;
+}
+
+li:last-child {
+    color: rgb(255, 0, 221);
+}
+
+/* Aplica o estilo em todos que não sejam os primeiros itens */
+li:not(:first-child) {
+    color: pink;
+}

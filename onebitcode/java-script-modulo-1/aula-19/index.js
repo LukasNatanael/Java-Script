@@ -1,17 +1,21 @@
-const idade = prompt('Informe sua idade: ')
+const result = prompt('Escolha uma alternativas:\n1 -\n2 -\n3 -')
 
-if (idade >= 18) {
-    console.log('Maior de idade')
-}
-else if (idade >= 13 && idade <18) {
-    console.log('Adolescente')
-}
-else {
-    console.log('Criança')
-}
+const numericResult = parseFloat(result)
 
-x = 5
-y = 12
-// operador ternário
-const resultado = (x == y) ? `${x} é igual a ${y}` : `${x} é diferente de ${y}`
-console.log(resultado)
+switch(numericResult) {
+    case 1:
+        console.log('O resultado é: 1')
+        alert('O resultado é: 1')
+        break
+    case 2:
+        console.log('O resultado é: 2')
+        alert('O resultado é: 2')
+        break
+    case 3:
+        console.log('O resultado é: 3')
+        alert('O resultado é: 3')
+        break
+    default:
+        console.log('Finalizando...')
+        alert('Finalizando...')
+}

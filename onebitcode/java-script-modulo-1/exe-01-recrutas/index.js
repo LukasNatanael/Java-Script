@@ -3,18 +3,18 @@ var lastName = window.prompt('Informe seu sobrenome recruta: ')
 
 alert(`Bem-vindo a área de alistamento recruta ${firstName}`)
 
-var campoDeEstudo = prompt('Informe sua área de estudo: ')
-var anoNascimento = prompt('Informe seu ano de nascimento: ')
+var fieldOfStudy = prompt('Informe sua área de estudo: ')
+var birthday = prompt('Informe seu ano de nascimento: ')
 var fullName = `${firstName} ${lastName}`
 
 data = new Date()
-var idade = parseFloat(data.getFullYear() - anoNascimento)
+var age = parseFloat(data.getFullYear() - birthday)
 
 alert(`
 Recruta cadastrado com sucesso!
 Dados cadastrais:
 
 Nome completo: ${fullName}
-Campo de estudo: ${campoDeEstudo}
-Idade: ${idade}
+Campo de estudo: ${fieldOfStudy}
+Idade: ${age}
 `)

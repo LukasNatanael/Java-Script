@@ -1,9 +1,9 @@
-const idade = prompt('Informe sua idade: ')
+const age = prompt('Informe sua idade: ')
 
-if (idade >= 18) {
+if (age >= 18) {
     console.log('Maior de idade')
 }
-else if (idade >= 13 && idade <18) {
+else if (age >= 13 && age <18) {
     console.log('Adolescente')
 }
 else {

@@ -50,14 +50,14 @@ breakLine()
 // includes
 console.log('includes -> verifica se o elemento está no array')
 const elementInArray = characters.includes('Joker')
-console.log(`Value in array: ${elementInArray}`)
+console.log(`Joker in array: ${elementInArray}`)
 
 breakLine()
 
 // indexOf
 console.log('indexOf -> retorna a posição do elemento dentro do array')
 const elementPosition = characters.indexOf('Flash')
-console.log(`Element position: ${elementPosition}`)
+console.log(`Flash position: ${elementPosition}`)
 
 breakLine()
 
@@ -68,9 +68,28 @@ console.log('slice -> copia determinada parte do array')
 
 let womans = characters.slice(-2)
 let mans = characters.slice(0, 5)
-console.log('Womans: ')
-console.log(womans)
-console.log('Mans: ')
-console.log(mans)
+console.log(`Womans: ${womans} `)
+console.log(`Mans: ${mans}`)
 
+breakLine()
+
+// concat -> unifica uma lista ou mais
+console.log('concat -> unifica uma lista ou mais')
+const society = womans.concat(mans, 'Tempestade')
+console.log(`unified womans + mans and added a new character: Tempestade `)
+
+breakLine()
+
+// Substituição dos elementos
+// splice -> substitui um grupo de elementos por outros
+
+console.log('splice -> substitui um grupo de elementos por outros')
+const removedElement = society.splice(elementPosition, 1, 'Mulher Maravilha')
+
+console.log(`substituted: ${removedElement} by ${society[elementPosition]}`)
+breakLine()
+
+// Iterar elementos
+console.log('Iterar elementos')
+society.forEach((char, pos) => { console.log(pos, char) })
 breakLine()

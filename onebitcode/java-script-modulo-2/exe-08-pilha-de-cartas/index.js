@@ -7,11 +7,11 @@ do {
     switch(option) {
         case 1:
             console.clear()
-            cards.unshift(prompt('Qual carta você deseja adicionar ao baralho: '))
+            cards.unshift(prompt('Adicionar uma carta: '))
             break
         case 2:
             if (cards.length > 0) {
-                alert(`A carta retirada do baralho foi: ${cards.shift()}`)
+                alert(`Você puxou um(a): ${cards.shift()}`)
             }
             else {
                 alert('Não possuem mais cartas no baralho!')

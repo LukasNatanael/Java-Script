@@ -49,6 +49,6 @@ console.log('Iterando matriz')
 for (let i = 0; i < matriz.length; i++) {
     for (let j = 0; j < matriz[i].length; j++) {
         const element = matriz[i][j]
-        // console.log(`Posição: (${i}, ${j}) Valor: ${element}`)
+        console.log(`Posição: (${i}, ${j}) Valor: ${element}`)
     }
 }

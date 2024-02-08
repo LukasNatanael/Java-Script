@@ -44,3 +44,13 @@ const races = characters.reduce( (acumulatedvalue, char) => {
 }, {} )
 
 console.log(races, '\n')
+
+
+// Sort -> ordena os valores do array de em ordem alfabética, númerica
+const ordenedCharacters = characters.slice().sort( (a, b) => {
+    // retorna os valores do menor para o maior
+    return a.level - b.level
+} )
+
+// console.log(characters)
+console.log(ordenedCharacters)

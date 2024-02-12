@@ -93,7 +93,7 @@ function removeVacancy() {
 
 
 function showMenu() {
-    const opção = parseFloat(prompt(
+    const option = parseFloat(prompt(
         'Bem vindo(a) ao Sistema de Vagas de Emprego\n\n' +
         'Escolha uma opção: \n' +
         '1 - Listar vagas disponíveis \n' +
@@ -105,7 +105,7 @@ function showMenu() {
     
         ))
 
-    return opção
+    return option
 }
 
 
@@ -117,22 +117,29 @@ function execute() {
 
         switch(option) {
             case 1:
+                listarVagas()
                 break
             case 2:
+                novaVaga()
                 break
             case 3:
+                exibirVaga()
                 break
             case 4:
+                registerCandidate()
                 break
             case 5:
+                removeVacancy()
                 break
             case 6:
                 alert('Encerrando programa...')
                 break
+            default:
+                alert('Opção inválida!')
             }
             
         } while (option != 6)
         alert('Programa finalizado!')
 }
 
-// execute()
+execute()

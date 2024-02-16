@@ -1,12 +1,12 @@
-vagas = []
+let vagas = []
 
 function novaVaga() {
-    name = prompt('Informe um nome para a vaga: ')
-    description = prompt('Informe a descrição da vaga: ')
-    deadline = prompt('Informe uma data limite (dd/mm/aaaa) para inscrição: ')
+    const name = prompt('Informe um nome para a vaga: ')
+    const description = prompt('Informe a descrição da vaga: ')
+    const deadline = prompt('Informe uma data limite (dd/mm/aaaa) para inscrição: ')
 
     const confirmation = confirm(
-        'Deseja criar uma data com os seguintes dados: \n' +
+        'Deseja criar uma vaga com os seguintes dados: \n' +
         `Nome da vaga: ${name} \n` +
         `Descrição da vaga: ${description} \n` +
         `Data limite: ${deadline} \n`
@@ -17,7 +17,7 @@ function novaVaga() {
             name,
             description,
             deadline,
-            subscribers: []
+            candidatos: []
         }
         vagas.push(newVacancy)
         alert('Vaga criada!')
@@ -27,60 +27,65 @@ function novaVaga() {
 
 function exibirVaga() {
     const index = prompt('Informe o índice da vaga que deseja exibir: ')
-    const vaga = vagas[index]
 
-    const candidatosEmTexto = vagas.subscribers.reduce( (textoFinal, candidato, indice) => {
+    if (index >= vagas.length || index < 0) {
+        alert('Índice inválido')
+        return
+    }
+    const vaga = vagas[index]
+    
+    const candidatosEmTexto = vaga.candidatos.reduce( (textoFinal, candidato) => {
         // return textoFinal +`\n${indice}. ${candidato}`
         return textoFinal +`\n - ${candidato}`
     }, '' )
     alert(
-        `Vaga nº ${indice}` +
-        `Nome: ${vaga.name}` +
-        `Descrição: ${vaga.description}` +
-        `Data limite: ${vaga.deadline}` +
-        `Quantidade de candidatos: ${vaga.subscribers.length}` +
-        `Candidatos inscritos: ${candidatosEmTexto}`
+        `Vaga nº ${index} \n` +
+        `Nome: ${vaga.name} \n` +
+        `Descrição: ${vaga.description} \n` +
+        `Data limite: ${vaga.deadline} \n` +
+        `Quantidade de candidatos: ${vaga.candidatos.length} \n` +
+        `Candidatos inscritos: ${candidatosEmTexto} \n`
     )
 }
 
 
 function listarVagas() {
-    const vagasEmTexto = vagas.reduce( (textoFinal, vaga, indice) => {
-        textoFinal += `${indice}. `
-        textoFinal += vaga.name
-        textoFinal += `(${vaga.subscribers.length} candidatos) \n`
-        return textoFinal
-    }, '')
-
+    const vagasEmTexto = vagas.reduce((textoFinal, vaga, index) => {
+      textoFinal += index + ". "
+      textoFinal += vaga.name
+      textoFinal += " (" + vaga.candidatos.length + " candidatos)\n"
+      return textoFinal
+    }, "")
+  
     alert(vagasEmTexto)
-}
+  }
 
 function registerCandidate() {
     const candidate = prompt('Informe o nome do(a) candidato(a): ')
     const index = prompt('Informe o índice da vaga para qual o(a) candidato(a) deseja se inscrever: ')
-    const vaga = vaga[index]
+    let vaga = vagas[index]
 
     const confirmation = confirm(
-        `Deseja inscrever o candidato ${candidate} na vaga ${vaga} ? \n` +
-        `Nome: ${vaga.nome} \n` +
+        `Deseja inscrever o candidato ${candidate} na vaga ${index} ? \n` +
+        `Nome: ${vaga.name} \n` +
         `Descrição: ${vaga.description} \n` +
         `Data limite: ${vaga.deadline} \n`
 
     )
 
     if (confirmation) {
-        vaga.subscribers.push(candidate)
+        vaga.candidatos.push(candidate)
         alert('Inscrição realizada!')
     }
 }
 
 function removeVacancy() {
     const index = prompt('Informe o índice da vaga que deseja excluir: ')
-    const vaga = vaga[index]
+    const vaga = vagas[index]
 
     const confirmation = confirm(
-        `Tem certeza de que deseja excluir a vaga ${vaga} ? \n` +
-        `Nome: ${vaga.nome} \n` +
+        `Tem certeza de que deseja excluir a vaga ${index} ? \n` +
+        `Nome: ${vaga.name} \n` +
         `Descrição: ${vaga.description} \n` +
         `Data limite: ${vaga.deadline} \n`
     )

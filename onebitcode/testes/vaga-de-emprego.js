@@ -109,7 +109,6 @@ function showVacancyInformations() {
     )
 }
 
-
 // - Inscrever um novo(a) candidato(a) em uma vaga
 function nominateCandidate() {
     const candidateName = prompt('Informe o nome do(a) candidato(a): ')

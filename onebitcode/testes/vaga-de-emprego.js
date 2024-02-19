@@ -68,9 +68,6 @@ function newVacancy() {
     }
 }
 
-// <============================= REVISAR =============================>
-
-
 // - Visualizar informações de uma vaga
 function listVacancies() {
     const textVacancies = vacancies.reduce( (finalText, vacancy, index) => {
@@ -78,7 +75,7 @@ function listVacancies() {
         finalText += vacancy.name
         finalText += ` (${vacancy.candidates.length} candidatos) \n`
 
-        return textVacancies
+        return finalText
     }, '' )
 
     if (textVacancies.length == 0) {
@@ -88,9 +85,6 @@ function listVacancies() {
         alert(textVacancies)
     }
 }
-
-// <=============================== ## ===============================>
-
 
 // - Listar vagas disponíveis
 function showVacancyInformations() {

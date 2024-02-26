@@ -67,6 +67,21 @@ function climbPlayer() {
     numberLi.append(numberLabel, playerNumber)
     ul.appendChild(numberLi)
 
+    const climbButton = document.createElement('button')
+    climbButton.innerText = 'Escalar'
+    climbButton.id = 'escalar'
+
+    ul.appendChild(climbButton)
     sectionList.append(h3, ul)
+
 }
 
+function removePlayer() {
+    const sectionList = document.querySelector('#sectionList')
+    const title       = document.querySelectorAll('h3')
+    const playersList = document.querySelectorAll('ul')
+
+    sectionList.removeChild(title[title.length - 1])
+    sectionList.removeChild(playersList[playersList.length - 1])
+
+}

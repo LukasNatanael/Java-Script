@@ -1,0 +1,59 @@
+
+* {
+    padding: 0;
+}
+
+input[type=text] {
+    display: flex;
+    width: 12rem;
+}
+
+ul {
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+
+    margin: 1rem;
+    border-radius: 10px;
+
+}
+
+#sectionRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    border-right: 1px solid black;
+}
+
+#sectionList {
+    overflow-y: auto;
+    height: 21rem;
+    width: 50%;
+    padding: 1rem 3rem;
+}
+
+li {
+    padding: .5rem;
+}
+
+#escalar {
+    margin: 1rem .6rem;
+    width: 12rem;
+}

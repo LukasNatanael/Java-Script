@@ -23,65 +23,134 @@ Criar uma ul na página que lista todos os jogadores escalados
 
 */
 
-function climbPlayer() {
+const sectionRegister = document.querySelector('#sectionRegister')
+const h3 = document.createElement('h3')
+// h3.textContent = 'Jogador'
+
+const ul = document.createElement('ul')
+
+ul.setAttribute('role', 'list')
+ul.style = 'list-style-type: none;'
+
+// Name input
+const nameLi = document.createElement('li')
+const nameLabel = document.createElement('label')
+nameLabel.setAttribute('for', 'name')
+nameLabel.innerText = 'Nome do jogador '
+
+const playerName = document.createElement('input')
+playerName.type = 'text'
+playerName.id = 'name'
+
+nameLi.append(nameLabel, playerName)
+ul.appendChild(nameLi)
+// ul.appendChild(document.createElement('br'))
+
+
+// Position input
+const positionLi = document.createElement('li')
+const positionLabel = document.createElement('label')
+positionLabel.setAttribute('for', 'position')
+positionLabel.innerText = 'Posição do jogador '
+
+const playerPosition = document.createElement('input')
+playerPosition.type = 'text'
+playerPosition.id = 'position'
+
+
+positionLi.append(positionLabel, playerPosition)
+ul.appendChild(positionLi)
+// ul.appendChild(document.createElement('br'))
+
+// Number input
+const numberLi = document.createElement('li')
+const numberLabel = document.createElement('label')
+numberLabel.setAttribute('for', 'number')
+numberLabel.innerText = 'N° camisa do jogador '
+
+const playerNumber = document.createElement('input')
+playerNumber.type = 'text'
+playerNumber.id = 'number'
+
+numberLi.append(numberLabel, playerNumber)
+ul.appendChild(numberLi)
+
+const climbButton = document.createElement('button')
+climbButton.innerText = 'Escalar'
+climbButton.id = 'escalar'
+
+ul.appendChild(climbButton)
+// sectionRegister.append(h3, ul)
+sectionRegister.append(ul)
+
+
+
+climbButton.addEventListener( 'click', () => {
+    const inputPlayerName = document.querySelector('#name')
+    const inputPlayerPosition = document.querySelector('#position')
+    const inputPlayerNumber = document.querySelector('#number')
+
     const sectionList = document.querySelector('#sectionList')
-    const h3 = document.createElement('h3')
-    h3.textContent = 'Jogador'
+    const playerList  = document.createElement('ul')
+    const h3          = document.createElement('h3')
 
-    const ul = document.createElement('ul')
-    
-    // Position input
-    const positionLi = document.createElement('li')
-    const positionLabel = document.createElement('label')
-    positionLabel.setAttribute('for', 'position')
-    positionLabel.innerText = 'Posição do jogador: '
- 
-    const playerPosition = document.createElement('input')
-    playerPosition.id = 'position'
+    const nameLi      = document.createElement('li')
+    const positionLi  = document.createElement('li')
+    const numberLi    = document.createElement('li')
 
-    positionLi.append(positionLabel, playerPosition)
-    ul.appendChild(positionLi)
-    
-    // Name input
-    const nameLi = document.createElement('li')
-    const nameLabel = document.createElement('label')
-    nameLabel.setAttribute('for', 'name')
-    nameLabel.innerText = 'Nome do jogador: '
-    
-    const playerName = document.createElement('input')
-    playerName.id = 'name'
-    
-    nameLi.append(nameLabel, playerName)
-    ul.appendChild(nameLi)
-    
-    // Number input
+    playerList.style = 'list-style-type: none;'
 
-    const numberLi = document.createElement('li')
-    const numberLabel = document.createElement('label')
-    numberLabel.setAttribute('for', 'number')
-    numberLabel.innerText = 'N° camisa do jogador: '
+    // Adicionando jogador a lista de jogadores
+    const playerName = inputPlayerName.value
+    const playerPosition = inputPlayerPosition.value
+    const playerNumber = inputPlayerNumber.value
 
-    const playerNumber = document.createElement('input')
-    playerNumber.id = 'number'
+    if (playerName.length == 0 || playerPosition.length == 0 || playerNumber.length == 0) {
+        alert('Por favor preencha os dados do jogador!')
+    }
+    else {
+        const confirmation = confirm(
+            `Deseja adicionar o jogador ${playerName} com os dados: \n\n` +
+            `Nome: ${playerName}\n` +
+            `Posição: ${playerPosition}\n` +
+            `N° camisa: ${playerNumber}\n`
+            )
+            
+        if (confirmation) {
 
-    numberLi.append(numberLabel, playerNumber)
-    ul.appendChild(numberLi)
+            nameLi.append(`Nome: ${playerName}`)
+            nameLi.id = `${playerName.toLowerCase()}-name`
+            
+            positionLi.append(`Posição: ${playerPosition}`)
+            positionLi.id = `${playerName.toLowerCase()}-position`
+            
+            numberLi.append(`N° da camisa: ${playerNumber.toLowerCase()}`)
+            numberLi.id = `${playerName.toLowerCase()}-number`
 
-    const climbButton = document.createElement('button')
-    climbButton.innerText = 'Escalar'
-    climbButton.id = 'escalar'
+            // playerList.append(nameLi, positionLi, numberLi)
+            playerList.append(h3, nameLi, positionLi, numberLi)
+            playerList.id = `player-list-${playerName.toLowerCase()}`
 
-    ul.appendChild(climbButton)
-    sectionList.append(h3, ul)
+            h3.innerText = `Dados do jogador ${playerName}`
+            // sectionList.append(h3, playerList)
+            sectionList.append(playerList)
+        }
+        // Limpando inputs 
+        inputPlayerName.value = ''
+        inputPlayerPosition.value = ''
+        inputPlayerNumber.value = ''
+    }
 
-}
+
+} )
 
 function removePlayer() {
-    const sectionList = document.querySelector('#sectionList')
+    
+    const sectionRegister = document.querySelector('#sectionRegister')
     const title       = document.querySelectorAll('h3')
     const playersList = document.querySelectorAll('ul')
 
-    sectionList.removeChild(title[title.length - 1])
-    sectionList.removeChild(playersList[playersList.length - 1])
+    sectionRegister.removeChild(title[title.length - 1])
+    sectionRegister.removeChild(playersList[playersList.length - 1])
 
 }

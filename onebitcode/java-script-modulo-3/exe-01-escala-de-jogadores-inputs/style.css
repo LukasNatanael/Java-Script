@@ -49,6 +49,30 @@ main {
     padding: 1rem 3rem;
 }
 
+#sectionListTop {
+    position: fixed;
+}
+
+#sectionListBottom {
+    /* position: relative; */
+    margin-top: 3rem;
+}
+
+#remove-section {
+    display:  flex;
+    justify-content: space-evenly;
+    /* position: fixed; */
+}
+
+#remove-input-number {
+    padding: .4rem 1rem;
+    width: 18rem;
+}
+
+#remove-input-button {
+    padding: 0 1rem;
+}
+
 li {
     padding: .5rem;
 }

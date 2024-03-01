@@ -136,19 +136,19 @@ climbButton.addEventListener( 'click', () => {
         if (confirmation) {
 
             nameLi.append(`Nome: ${playerName}`)
-            nameLi.id = `${playerName.toLowerCase()}-name`
+            nameLi.id = `${playerNumber}-name`
             
             positionLi.append(`Posição: ${playerPosition}`)
-            positionLi.id = `${playerName.toLowerCase()}-position`
+            positionLi.id = `${playerNumber}-position`
             
             numberLi.append(`N° da camisa: ${playerNumber.toLowerCase()}`)
-            numberLi.id = `${playerName.toLowerCase()}-number`
+            numberLi.id = `${playerNumber}-number`
 
             // playerList.append(nameLi, positionLi, numberLi)
             // playerList.append(h3, nameLi, positionLi, numberLi, removeButton)
 
             playerList.append(h3, nameLi, positionLi, numberLi)
-            playerList.id = `player-list-${playerNumber}`
+            playerList.id = `player-${playerNumber}`
 
             h3.innerText = `Dados do jogador ${playerName}`
             // sectionList.append(h3, playerList)
@@ -160,25 +160,29 @@ climbButton.addEventListener( 'click', () => {
         inputPlayerNumber.value = ''
     }
 
-    removeButton.addEventListener( 'click', () => {
-            const playerToRemove = document.querySelector(`player-list-${removeInput.value}`)
-
-            const confirmation = confirm(
-                `Deseja remover o jogador ${playerName} com os dados: \n\n` +
-                `Nome: ${playerName}\n` +
-                `Posição: ${playerPosition}\n` +
-                `N° camisa: ${playerNumber}\n`
-            )
-            if (confirmation) {
-                playerList.remove(playerToRemove)
-                alert('O jogador agora não faz mais parte do time!')
-            }
-            else {
-                alert('Falha ao remover jogador do time!')
-            }
-
-            removeInput.value = ''
-        }
-    )
 
 } )
+
+removeButton.addEventListener( 'click', () => {
+    if (removeInput.value == 0) {
+        alert('Por favor insira a camisa do jogador antes de remove-lo do time!')
+    }
+    else {
+        const playerToRemove = removeInput.value
+
+        console.log(`Camisa ${playerToRemove} será removido do time!`)
+
+        const sectionListBottom = document.querySelector('#sectionListBottom')
+        const playerList = sectionListBottom.querySelector('ul')
+        const playerToRemoveLi = playerList.querySelector(`#player-${playerToRemove}`)
+    }
+    
+
+    // console.log(playerToRemoveLi)
+    // console.log(playerList)
+
+    // playerList.remove(playerToRemoveLi)
+
+    // removeInput.value = ''
+}
+)

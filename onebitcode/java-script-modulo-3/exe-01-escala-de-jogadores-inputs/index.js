@@ -25,7 +25,6 @@ Criar uma ul na página que lista todos os jogadores escalados
 
 const sectionRegister = document.querySelector('#sectionRegister')
 const h3 = document.createElement('h3')
-// h3.textContent = 'Jogador'
 
 const ul = document.createElement('ul')
 
@@ -36,41 +35,42 @@ ul.style = 'list-style-type: none;'
 const nameLi = document.createElement('li')
 const nameLabel = document.createElement('label')
 nameLabel.setAttribute('for', 'name')
-nameLabel.innerText = 'Nome do jogador '
+nameLabel.innerText = 'Nome'
 
 const playerName = document.createElement('input')
 playerName.type = 'text'
 playerName.id = 'name'
+playerName.placeholder = 'Nome do jogador'
 
 nameLi.append(nameLabel, playerName)
 ul.appendChild(nameLi)
-// ul.appendChild(document.createElement('br'))
-
 
 // Position input
 const positionLi = document.createElement('li')
 const positionLabel = document.createElement('label')
 positionLabel.setAttribute('for', 'position')
-positionLabel.innerText = 'Posição do jogador '
+positionLabel.innerText = 'Posição'
 
 const playerPosition = document.createElement('input')
 playerPosition.type = 'text'
 playerPosition.id = 'position'
-
+playerPosition.placeholder = 'Posição do jogador'
 
 positionLi.append(positionLabel, playerPosition)
 ul.appendChild(positionLi)
-// ul.appendChild(document.createElement('br'))
 
 // Number input
 const numberLi = document.createElement('li')
 const numberLabel = document.createElement('label')
 numberLabel.setAttribute('for', 'number')
-numberLabel.innerText = 'N° camisa do jogador '
+numberLabel.innerText = 'Número'
 
 const playerNumber = document.createElement('input')
-playerNumber.type = 'text'
+playerNumber.type = 'number'
 playerNumber.id = 'number'
+playerNumber.placeholder = 'N° camisa do jogador'
+playerNumber.setAttribute('min', 0)
+
 
 numberLi.append(numberLabel, playerNumber)
 ul.appendChild(numberLi)
@@ -92,7 +92,11 @@ const removeInput   = document.createElement('input')
 
 removeSection.id = 'remove-section'
 
-removeInput.placeholder = 'Número da camisa do jogador a ser removido'
+removeInput.placeholder = 'N° camisa do jogador a ser removido'
+removeInput.type = 'number'
+
+removeInput.setAttribute('min', 0)
+
 removeInput.id = 'remove-input-number'
 
 removeButton.innerText = 'Remover jogador'
@@ -115,8 +119,6 @@ climbButton.addEventListener( 'click', () => {
     const positionLi = document.createElement('li')
     const numberLi   = document.createElement('li')
 
-    playerList.style = 'list-style-type: none;'
-    
     // Adicionando jogador a lista de jogadores
     const playerName     = inputPlayerName.value
     const playerPosition = inputPlayerPosition.value
@@ -144,16 +146,13 @@ climbButton.addEventListener( 'click', () => {
             numberLi.append(`N° da camisa: ${playerNumber.toLowerCase()}`)
             numberLi.id = `${playerNumber}-number`
 
-            // playerList.append(nameLi, positionLi, numberLi)
-            // playerList.append(h3, nameLi, positionLi, numberLi, removeButton)
-
             playerList.append(h3, nameLi, positionLi, numberLi)
             playerList.id = `player-${playerNumber}`
 
             h3.innerText = `Dados do jogador ${playerName}`
-            // sectionList.append(h3, playerList)
             sectionListBottom.append(playerList)
         }
+
         // Limpando inputs 
         inputPlayerName.value = ''
         inputPlayerPosition.value = ''
@@ -164,25 +163,17 @@ climbButton.addEventListener( 'click', () => {
 } )
 
 removeButton.addEventListener( 'click', () => {
-    if (removeInput.value == 0) {
+    const sectionListBottom = document.querySelector('#sectionListBottom')
+    const number = document.querySelector('#remove-input-number').value
+    const playerToRemove = sectionListBottom.querySelector(`#player-${number}`)
+
+    if (removeInput.length == 0) {
         alert('Por favor insira a camisa do jogador antes de remove-lo do time!')
     }
     else {
-        const playerToRemove = removeInput.value
-
-        console.log(`Camisa ${playerToRemove} será removido do time!`)
-
-        const sectionListBottom = document.querySelector('#sectionListBottom')
-        const playerList = sectionListBottom.querySelector('ul')
-        const playerToRemoveLi = playerList.querySelector(`#player-${playerToRemove}`)
+        alert(`Camisa ${number} será removido do time!`)
+        sectionListBottom.removeChild(playerToRemove)
     }
-    
 
-    // console.log(playerToRemoveLi)
-    // console.log(playerList)
-
-    // playerList.remove(playerToRemoveLi)
-
-    // removeInput.value = ''
-}
-)
+    document.querySelector('#remove-input-number').value = ''
+})

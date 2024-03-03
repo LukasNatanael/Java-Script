@@ -64,7 +64,7 @@ function removePlayer() {
     const playerToRemove = document.getElementById(`player-${number}`)
 
     
-    if (number == 0) {
+    if (number.length == 0) {
         alert('Informe a camisa do jogador a ser removido!')
     }
     else {
@@ -81,7 +81,8 @@ function removePlayer() {
             alert(`Camisa ${number} permanecerá no time!`)
         }
 
-        number = document.querySelector('#removeNumberInput').value = ''
     }
+    
+    number = document.querySelector('#removeNumberInput').value = ''
 
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalação do time input</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Escalação do time</h1>
+    <main>
+        <aside id="sectionRegister">
+            <ul>
+                <h3 id="registerTitle">Informe os dados do jogador a ser escalado</h3>
+                <li>
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" placeholder="Nome do jogador">
+                </li>
+                <li>
+                    <label for="position">Posição</label>
+                    <input type="text" id="position" placeholder="Posição do jogador">
+                </li>
+                <li>
+                    <label for="number">Número</label>
+                    <input type="text" id="number" placeholder="N° camisa do jogador">
+                </li>
+                <li>
+                    <button id="escalar" onclick="addPlayer()">Escalar jogador</button>
+                </li>
+            </ul>
+        </aside>
+        <aside id="sectionList">
+            <section id="sectionListTop">
+                <section id="removeSection">
+                    <input type="number" id="removeNumberInput" placeholder="N° camisa do jogador">
+                    <button id="removeNumberButton" onclick="removePlayer()">Remover jogador</button>
+                </section>
+            </section>
+            <section id="sectionListBottom">
+                <ul id="player-10">
+                    <h3>Dados do jogador Lucas</h3>
+                    <li>Nome: Lucas</li>
+                    <li>Posição: Atacante</li>
+                    <li>N° camisa: 10</li>
+                </ul>
+                <ul id="player-15">
+                    <h3>Dados do jogador Matheus</h3>
+                    <li>Nome: Matheus</li>
+                    <li>Posição: Lateral Esquerda</li>
+                    <li>N° camisa: 15</li>
+                </ul>
+                <ul id="player-18">
+                    <h3>Dados do jogador Jorge</h3>
+                    <li>Nome: Jorge</li>
+                    <li>Posição: Lateral Direita</li>
+                    <li>N° camisa: 18</li>
+                </ul>
+            </section>
+        </aside>
+    </main>
+    
+</body>
+    <script src="index.js"></script>
+</html>

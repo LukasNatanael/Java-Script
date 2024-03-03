@@ -1,0 +1,131 @@
+
+* {
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    padding-left: .5rem;
+}
+
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+
+    margin: 1rem;
+    border-radius: 10px;
+
+}
+
+.borda {
+    border: 1px solid red;
+}
+
+input {
+    display: flex;
+    width: 12rem;
+    
+    border: .1rem solid rgb(145, 142, 142);
+    border-radius: .3rem;
+    padding: .2rem;
+}
+
+label, button:hover {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}
+
+#sectionRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    
+    border-right: 1px solid black;
+}
+
+#registerTitle {
+    width: 17rem;
+    text-align: center;
+}
+
+button {
+    padding: .3rem;
+}
+
+
+#sectionList {
+    width: 50%;
+    padding: 1rem 3rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#sectionListTop {
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+
+}
+
+#removeSection {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#removeNumberInput {
+    margin-right: 3rem ;
+    width: 18rem;
+}
+
+#sectionListBottom {
+    overflow-y: auto;
+    height: 21rem;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#remove-section {
+    display:  flex;
+    justify-content: space-evenly;
+}
+
+#remove-input-number {
+    padding: .4rem 1rem;
+    width: 18rem;
+}
+
+#remove-input-button {
+    padding: 0 1rem;
+}
+
+li {
+    padding: .5rem;
+}
+
+#escalar {
+    margin: 1rem .6rem;
+    width: 12rem;
+}

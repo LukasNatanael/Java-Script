@@ -33,22 +33,47 @@ aside {
 
 form {
     width: 100%;
-    margin-left: 10%;
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#nameDiv {
+    display: flex;
+    justify-content: space-evenly;
+    width: 53%;
 }
 
 #fullname {
-    width: 50%;
+    width: 70%;
 }
 
 #tecnologyDiv {
     padding-top: 1rem;
     display: flex;
+    flex-direction: column;
 }
 
-#tecnologyLabel {
-    padding-right: 1.7rem;
+#tecnologyName, #registerButton {
+    margin-top: 1rem;
+}
+
+#radioDiv {
+    margin-top: 1rem;
+}
+
+#registerButton {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 25%;
 }
 
 #devsList {
@@ -58,8 +83,6 @@ form {
 #devsListScrool {
     overflow-y: scroll;
     height: 91%;
-    /* min-height: 80%; */
-    /* margin-top: 1rem; */
 }
 ul {
     list-style-type: none;

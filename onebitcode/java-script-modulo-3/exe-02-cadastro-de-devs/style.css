@@ -9,10 +9,18 @@ body {
     width: 90vw;
     height: 90vh;
     padding-left: 4vw;
+
 }
 
 h1, h2 {
     text-align: center;
+}
+
+h1:hover, h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
+
+    color: #00d6f9;
 }
 
 h2 {
@@ -22,6 +30,9 @@ h2 {
 main {
     display: flex;
     justify-content: center;
+    border-right: 1px solid #00d8f950;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px #00d6f9;
 }
 
 aside {
@@ -43,6 +54,8 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border-right: 1px solid #00d6f9;
 }
 
 #nameDiv {
@@ -53,6 +66,16 @@ form {
 
 #fullname {
     width: 70%;
+}
+
+#plusButton {
+    border-radius: 50%;
+    
+    background-color: #00d6f9;
+    color: white;
+    font-weight: bold;
+
+    border: 1px solid transparent;
 }
 
 #tecnologyDiv {
@@ -74,6 +97,24 @@ form {
     flex-direction: column;
     width: 50%;
     margin-left: 25%;
+
+    background-color: #00d6f9;
+    color: white;
+
+    border: 1px solid transparent;
+    border-radius: 1rem;
+
+    font-weight: bold;
+    padding: .3rem 1rem;
+}
+
+#plusButton:hover, #registerButton:hover {
+    background-color: white;
+    color: #00d6f9;
+
+    border: 1px solid #00d6f9;
+
+    cursor: pointer;
 }
 
 #devsList {
@@ -84,6 +125,7 @@ form {
     overflow-y: scroll;
     height: 91%;
 }
+
 ul {
     list-style-type: none;
     padding-left: 1rem;

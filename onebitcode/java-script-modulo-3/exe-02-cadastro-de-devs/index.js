@@ -111,6 +111,7 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                     // Lista de elementos
                     const ul               = document.createElement('ul')
                     const h3               = document.createElement('h3')
+                    ul.setAttribute('id', `${devData['name']}`)
                     h3.innerText = `${devData['name']}`
                     
                     const nameLi           = document.createElement('li')
@@ -143,3 +144,21 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
     }
     
 } )
+
+
+document.querySelector('button[id="removeDevButton"]').addEventListener( 'click', () => {
+    const devsListScrool = document.querySelector('#devsListScrool')
+    const removeDevName = document.querySelector('#removeDevName')
+
+    if (removeDevName.value == '') {
+        alert('Informe o nome do dev a ser removido!')
+    }
+    else {
+        const playerToRemove = devsListScrool.children[removeDevName.value]
+        console.log(playerToRemove)
+        
+        devsListScrool.removeChild(playerToRemove)
+        removeDevName.value = ''
+    }
+
+})

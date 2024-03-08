@@ -11,14 +11,17 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
     }
     else {
 
-        if (!document.querySelector('#tecnologyDiv')) {
+        // if (!document.querySelector('#tecnologyDiv')) {
+        // document.querySelector('#tecnologyDiv')
     
+            const tecnologyList = document.querySelector('#tecnologyList')
+
             // Criando label, input, divs e button
             const tecnologyDiv = document.createElement('div')
             tecnologyDiv.setAttribute('id', 'tecnologyDiv')
     
             const tecnologyLabel = document.createElement('label')
-            tecnologyLabel.innerText = 'Tecnologia(s)'
+            tecnologyLabel.innerText = 'Tecnologia'
             tecnologyLabel.setAttribute('for', 'tecnologyName')
             tecnologyLabel.setAttribute('id', 'tecnologyLabel')
             
@@ -72,9 +75,14 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
 
             // Inserindo todos os elementos criados dentro de uma div
             tecnologyDiv.append(tecnologyLabel, tecnologyInput, radioDiv, registerButton)
-
+            
+            // Inserindo as tecnologias dentro da lista de tecnologias
+            tecnologyDiv.className = 'tecnologyDiv'
+            tecnologyDiv.id = `tecnology-${tecnologyList.childElementCount }`
+            tecnologyList.appendChild(tecnologyDiv)
+                
             // Inserindo todos os elementos criandos dentro do form principal
-            form.appendChild(tecnologyDiv)
+            form.appendChild(tecnologyList)
 
             registerButton.addEventListener( 'click', event => {
                 event.preventDefault()
@@ -143,7 +151,8 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
         }
     }
     
-} )
+// } 
+)
 
 
 document.querySelector('button[id="removeDevButton"]').addEventListener( 'click', () => {

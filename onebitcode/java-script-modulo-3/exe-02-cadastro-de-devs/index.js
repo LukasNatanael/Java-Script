@@ -82,13 +82,13 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
 
             document.querySelector('button[id="registerButton"]') 
 
-            // VERIFICAR 
             if (!document.querySelector('button[id="registerButton"]')) {
 
                 const registerButton = document.createElement('button')
                 registerButton.setAttribute('id', 'registerButton')
                 registerButton.innerText = 'Registrar dev'
                 registerAside.appendChild(registerButton)
+                // console.log('Adicionando desenvolvedor')
             }
 
             // Inserindo todos os elementos criados dentro de uma div
@@ -104,12 +104,12 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                 tecnologyList.removeChild(tecnologyDiv)
             } )
 
-            const name = document.querySelector('#fullname').value
+            const fullname = document.querySelector('#fullname').value
 
             registerButton.addEventListener( 'click', event => {
                 event.preventDefault()
 
-                if (name.length == 0) {
+                if (fullname.length == 0) {
                     alert('Preencha o formulário antes de enviar os dados!')
                 }
                 else {
@@ -125,9 +125,10 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                             alert('Preeencha o formulário corretamente!')
                         }
                         else {
+                            const experienceTimeValue = experienceTime.value
                             newTech = {
                                 tecnology,
-                                experienceTime
+                                experienceTime: experienceTimeValue
                             }
 
                             tecnologies.push(newTech)
@@ -136,16 +137,18 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                     } )
     
                     // console.log(tecnologies)
-
-                    // // Armazenando informações dos usuários
-                    // const devData = {
-                    //     name,
-                    //     tecnologies,
-                    //     experienceTime
-                    // }
                     
-                    // // Limpando valores dos inputs
-                    // name.value = ''
+                    // Armazenando informações dos usuários
+                    const devData = {
+                        name: fullname,
+                        tecnologies
+                    }
+
+                    console.log(devData)
+                    
+                    // ------------- VERIFICAR ------------- 
+                    // Limpando valores dos inputs
+                    fullname = ''
 
                     // document.querySelectorAll('#tecnologyName').forEach( element => element.value = '' )
                     // document.querySelectorAll('input[type=radio]:checked').forEach( element => element.checked = false )

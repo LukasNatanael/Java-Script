@@ -4,7 +4,7 @@ const form = document.querySelector('form')
 document.querySelector('button[id="plusButton"]').addEventListener( 'click', event => {
     event.preventDefault()
     
-    const fullname = document.querySelector('#fullname')
+    const fullname = document.querySelector('input[id="fullname"]')
 
     // Verificando se o nome do desenvolvedor foi informado caso não, ele irá emitir um alerta solicitando para que o usuário informe o nome
     if (fullname.value === '') {
@@ -14,7 +14,6 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
 
         // if (!document.querySelector('#tecnologyDiv')) {
         // document.querySelector('#tecnologyDiv')
-    
             const tecnologyList = document.querySelector('#tecnologyList')
 
             const cont = tecnologyList.childElementCount
@@ -104,8 +103,6 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                 tecnologyList.removeChild(tecnologyDiv)
             } )
 
-            const fullname = document.querySelector('#fullname').value
-
             registerButton.addEventListener( 'click', event => {
                 event.preventDefault()
 
@@ -117,44 +114,52 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                     const tecnologyDivs = document.querySelectorAll('.tecnologyDiv') 
 
                     let tecnologies = []
+                    let strTecnologies = ''
     
-                    tecnologyDivs.forEach( (tech) => {
-                        const tecnology = tech.children[1].value
-                        const experienceTime  = tech.children[2].querySelector('input[type=radio]:checked')
-                        if (tecnology == '' || experienceTime.value == null) {
-                            alert('Preeencha o formulário corretamente!')
-                        }
-                        else {
-                            const experienceTimeValue = experienceTime.value
-                            newTech = {
-                                tecnology,
-                                experienceTime: experienceTimeValue
-                            }
+                    console.log(tecnologyDivs)
+                    console.log(tecnologyDivs.length)
 
-                            tecnologies.push(newTech)
-                        }
+                    // tecnologyDivs.forEach( (tech) => {
+                    //     const tecnology = tech.children[1].value
+                    //     const experienceTime  = tech.children[2].querySelector('input[type=radio]:checked')
+                    //     if (tecnology == '' || experienceTime.value == null) {
+                    //         alert('Preeencha o formulário corretamente!')
+                    //     }
+                    //     else {
+                    //         const experienceTimeValue = experienceTime.value
+                    //         newTech = {
+                    //             tecnology,
+                    //             experienceTime: experienceTimeValue
+                    //         }
+
+                    //         tecnologies.push(newTech)
+
+                    //         strTecnologies += ` - ${tecnology}: ${experienceTimeValue} \n`
+                    //     }
     
-                    } )
+                    // } )
     
                     // console.log(tecnologies)
                     
                     // Armazenando informações dos usuários
                     const devData = {
-                        name: fullname,
+                        name: fullname.value,
                         tecnologies
                     }
 
-                    console.log(devData)
+                    // console.log(devData)
+                    // console.log(strTecnologies)
                     
                     // ------------- VERIFICAR ------------- 
                     // Limpando valores dos inputs
-                    fullname = ''
 
-                    // document.querySelectorAll('#tecnologyName').forEach( element => element.value = '' )
-                    // document.querySelectorAll('input[type=radio]:checked').forEach( element => element.checked = false )
+                    document.querySelectorAll('.tecnologyName').forEach( element => element.value = '' )
+                    document.querySelectorAll('input[type=radio]:checked').forEach( element => element.checked = false )
+                    fullname.value = ''
                     
-                    // // Adicionando dados dos DEVS a aside#devsListScrool na lateral direita
-                    // const devsListScrool = document.querySelector('#devsListScrool')
+                    
+                    // Adicionando dados dos DEVS a aside#devsListScrool na lateral direita
+                    const devsListScrool = document.querySelector('#devsListScrool')
 
                     // // Criando os elementos da lista
 
@@ -168,14 +173,14 @@ document.querySelector('button[id="plusButton"]').addEventListener( 'click', eve
                     // nameLi.innerText = `Nome: ${devData['name']}`
                     
                     // const tecnologyLi      = document.createElement('li')
-                    // tecnologyLi.innerText = `Tecnologia(s): ${devData['tecnology']}`
+                    // tecnologyLi.innerText = `Tecnologia(s): ${devData['tecnologies']}`
 
                     // const experienceTimeLi = document.createElement('li')
                     // experienceTimeLi.innerText = `Tempo de experiência: ${devData['experienceTime']}`
 
                     // const confirmation = confirm(
                     //     `Deseja adicionar o DEV ${devData['name']} com os dados:` +
-                    //     `\n\nTecnologia utilizada: ${devData['tecnology']}` +
+                    //     `\n\nTecnologia utilizada: ${devData['tecnologies']}` +
                     //     `\nTempo de experiência: ${devData['experienceTime']}` +
                     //     '\n\na lista ?'
                     // )

@@ -3,19 +3,19 @@ const devListAside = document.querySelector('aside[id="devList"]')
 const addNewTecnology = registerAside.querySelector('button[id="newTecnology"]')
 const tecnologyForm = registerAside.querySelector('form[id="tecnologyForm"]')
 
+let tecnologyDivCount = 1
 const tecnologies = []
 
 function createTecnologyDiv() {
 
     const tecnologyDiv = document.createElement('div')
-    const tecnologyDivCount = document.querySelectorAll('.tecnologyName').length+1
     tecnologyDiv.setAttribute('id', `tecnologyDiv-${tecnologyDivCount}`)
     tecnologyDiv.setAttribute('class', `tecnologyDiv`)
     
     console.clear()
     console.log(tecnologyDivCount)
 
-    if (tecnologyDivCount < 5) {
+    if (tecnologyDivCount <= 5) {
         // Criando label e inputs do formulário
         // NOME
         const tecnologyNameLabel = document.createElement('label')
@@ -87,10 +87,17 @@ function createTecnologyDiv() {
 
         removeTecnology.addEventListener( 'click', event => {
             event.preventDefault()
-            tecnologyForm.removeChild(tecnologyDiv)
-            tecnologyDivCount = document.querySelectorAll('.tecnologyName').length
             
+            if (document.querySelectorAll('.tecnologyDiv').length > 1) {
+                tecnologyForm.removeChild(tecnologyDiv)
+                tecnologyDivCount --
+            }
+            else {
+                alert('Adicione ao menos uma tecnologia!')
+            }
         })
+
+        tecnologyDivCount ++
 
         tecnologyDiv.append(tecnologyNameLabel, tecnologyName, experienceTimeDiv, radioDiv, removeTecnology)
 
@@ -133,6 +140,15 @@ addNewTecnology.addEventListener('click', event => {
     event.preventDefault()
 
     createTecnologyDiv()
+
+    if (!document.querySelector('button[id="registerButton"]')) {
+        const registerButton = document.createElement('button')
+        registerButton.setAttribute('id', 'registerButton')
+        registerButton.innerText = 'Registrar desenvolvedor'
+        registerAside.appendChild(registerButton)
+    }
+
+    
 })
 
 getData()

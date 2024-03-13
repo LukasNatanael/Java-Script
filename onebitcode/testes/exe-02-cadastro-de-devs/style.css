@@ -123,10 +123,10 @@ button:hover {
 }
 
 
-#tecnology {
+#tecnologyForm {
     overflow-y: scroll;
     /* max-height: 70%; */
-    width: 70%;
+    /* width: 70%; */
 }
 
 .tecnologyDiv {
@@ -139,9 +139,9 @@ button:hover {
     padding: 1.5rem 1rem;
 }
 
-.tecnologyName, #registerButton {
+/* .tecnologyName, #registerButton {
     margin-top: 1rem;
-}
+} */
 
 .tecnologyNameLabel:hover {
     cursor: pointer;
@@ -168,9 +168,9 @@ button:hover {
     border-radius: 1rem;
 
     font-weight: bold;
-    padding: .3rem;
+    /* padding: .3rem; */
 
-    margin-bottom: .5rem;
+    /* margin-bottom: .5rem; */
 }
 
 #plusButton:hover, #registerButton:hover {

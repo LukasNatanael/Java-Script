@@ -2,9 +2,12 @@ const registerAside = document.querySelector('aside[id="register"]')
 const devListAside = document.querySelector('aside[id="devList"]')
 const addNewTecnology = registerAside.querySelector('button[id="newTecnology"]')
 const tecnologyForm = registerAside.querySelector('form[id="tecnologyForm"]')
+const registerButton = document.querySelector('button[id="registerButton"]')
 
 let tecnologyDivCount = 1
+let tecnologiesString = ''
 const tecnologies = []
+const devData = []
 
 function createTecnologyDiv() {
 
@@ -71,7 +74,7 @@ function createTecnologyDiv() {
         radio3.setAttribute('class', 'experienceTimeRadio')
         radio3.value = '+5 anos'
 
-        // Adicionando radiso a uma DIV
+        // Adicionando radios a uma DIV
         radioDiv.append(
             radio1, radio1Label,
             radio2, radio2Label,
@@ -110,45 +113,75 @@ function createTecnologyDiv() {
 }
 
 function getData() {
+
+    const devName = document.querySelector('input[id="fullname"]').value
+
+    // pegando todos os forms de tecnologia
     const tecnologiesDiv = document.querySelectorAll('.tecnologyDiv') 
-    const tecnologiesName = document.querySelectorAll('.tecnologyName')
-    const experiencesTime = document.querySelectorAll('.experienceTimeRadio')
 
-    const tecnologyData = []
-
+    // Passando por cada tecnologyDiv e pegando os dados
     tecnologiesDiv.forEach( element => {
-        // console.log(element)
-        const tecnologiesName = element.querySelectorAll('.tecnologyName')
-        const experiencesTime = element.querySelectorAll('.experienceTimeRadio')
+        const tecnologiesName = element.querySelector('.tecnologyName')
+        const experiencesTime = element.querySelector('.experienceTimeRadio:checked')
         
-        // console.log(tecnologiesName)
-        // console.log(experiencesTime)
+        // Adicionando a nova tecnologia a um array
+        let newTecnology = {
+            tecnology: tecnologiesName.value,
+            experienceTime: experiencesTime.value
+        }
         
-        tecnologiesName.forEach(element => tecnologyData['name'].push(element.value))
-    
-        experiencesTime.forEach( element => { 
-            if (element.checked) {
-                // console.log(element.value)
-                tecnologyData['experienceTime'].push(element.value)
-            }
-        })
-        
-    } )
+        // Unificando as tecnologias em uma string para melhor visualização
+        tecnologiesString += `\n- ${tecnologiesName.value}: ${experiencesTime.value}`
+
+        // Inserindo a nova tecnologia a lista de tecnologias
+        tecnologies.push(newTecnology)
+    })
+
+    devData.push(
+        devName,
+        tecnologies
+    )
 }
 
 addNewTecnology.addEventListener('click', event => {
     event.preventDefault()
-
     createTecnologyDiv()
 
-    if (!document.querySelector('button[id="registerButton"]')) {
-        const registerButton = document.createElement('button')
-        registerButton.setAttribute('id', 'registerButton')
-        registerButton.innerText = 'Registrar desenvolvedor'
-        registerAside.appendChild(registerButton)
-    }
-
-    
+    registerButton.style = 'display: box;'
 })
 
-getData()
+registerButton.addEventListener('click', event => {
+    event.preventDefault()
+
+    let devName = document.querySelector('input[id="fullname"]')
+
+    // pegando todos os forms de tecnologia
+    const tecnologiesDiv = document.querySelectorAll('.tecnologyDiv') 
+
+    // Passando por cada tecnologyDiv e pegando os dados
+    tecnologiesDiv.forEach( element => {
+        const tecnologiesName = element.querySelector('.tecnologyName')
+        const experiencesTime = element.querySelector('.experienceTimeRadio:checked')
+        
+        // Adicionando a nova tecnologia a um array
+        let newTecnology = {
+            tecnology: tecnologiesName.value,
+            experienceTime: experiencesTime.value
+        }
+        
+        // Unificando as tecnologias em uma string para melhor visualização
+        tecnologiesString += `\n- ${tecnologiesName.value}: ${experiencesTime.value}`
+
+        // Inserindo a nova tecnologia a lista de tecnologias
+        tecnologies.push(newTecnology)
+    })
+
+    devData.push(
+        devName.value,
+        tecnologies
+    )
+
+    console.log(devData)
+    
+    devName.value = ''
+})

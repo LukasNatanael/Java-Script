@@ -1,10 +1,12 @@
 const registerAside = document.querySelector('aside[id="register"]')
-const devListAside = document.querySelector('aside[id="devList"]')
+const devListAside = document.querySelector('div[id="devsListScrool"]')
 const addNewTecnology = registerAside.querySelector('button[id="newTecnology"]')
 const tecnologyForm = registerAside.querySelector('form[id="tecnologyForm"]')
 const registerButton = document.querySelector('button[id="registerButton"]')
 let devName = document.querySelector('input[id="fullname"]')
 
+// REMOVER
+devName.value = 'Lukas Natanael Moreira Batista'
 
 let tecnologyDivCount = 1
 let tecnologiesString = ''
@@ -98,7 +100,7 @@ function createTecnologyDiv() {
                 
                 if (document.querySelectorAll('.tecnologyDiv').length > 1) {
                     tecnologyForm.removeChild(tecnologyDiv)
-                    tecnologyDivCount --
+                    // tecnologyDivCount --
                 }
                 else {
                     alert('Adicione ao menos uma tecnologia!')
@@ -123,9 +125,27 @@ function createTecnologyDiv() {
 }
 
 function addDevToDevsList(devData) {
-    const ul = devListAside.createElement('ul')
+    const ul = document.createElement('ul')
     ul.setAttribute('id', `${devData.name}`)
-    const li = devListAside.createElement('li')
+    const nameH3 = document.createElement('h3')
+    nameH3.innerText = devData.name
+
+    const tecnologyLi = document.createElement('li')
+    tecnologyLi.innerText = 'Tecnologia(s) utilizada(s): '
+
+    const tecnologiesLi = document.createElement('li')
+    tecnologiesLi.innerText = devData.tecnologiesString
+
+    // const experienceTimeLi = document.createElement('li')
+
+    ul.append(
+        nameH3,
+        tecnologyLi,
+        tecnologiesLi,
+        // experienceTimeLi
+    )
+
+    devListAside.appendChild(ul)
 }
 
 function getData() {
@@ -201,7 +221,7 @@ registerButton.addEventListener('click', event => {
             }
             
             // Unificando as tecnologias em uma string para melhor visualização
-            tecnologiesString += `\n- ${tecnologiesName.value}: ${experiencesTime.value}`
+            tecnologiesString += `- ${tecnologiesName.value}: ${experiencesTime.value}\n`
     
             // Inserindo a nova tecnologia a lista de tecnologias
             tecnologies.push(newTecnology)
@@ -218,6 +238,7 @@ registerButton.addEventListener('click', event => {
         tecnologiesString
     }
 
+    tecnologiesString = ''
     devsList.push(devData)
 
     alert(`Desenvolvedor ${devName.value} foi registrado!`)
@@ -227,6 +248,11 @@ registerButton.addEventListener('click', event => {
 
     addDevToDevsList(devData)
 
-})
+    tecnologiesDiv.forEach( element => {
+        if (tecnologyDivCount > 2) {
+            tecnologyForm.removeChild(element)
+            tecnologyDivCount --
+        }
+    })
 
-// console.log(devData)
+})

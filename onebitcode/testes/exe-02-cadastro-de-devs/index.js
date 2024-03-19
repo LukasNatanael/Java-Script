@@ -6,9 +6,9 @@ const registerButton = document.querySelector('button[id="registerButton"]')
 let devName = document.querySelector('input[id="fullname"]')
 
 // REMOVER
-devName.value = 'Lukas Natanael Moreira Batista'
+devName.value = 'Lukas'
 
-let tecnologyDivCount = 1
+let tecnologyDivCount = 0
 let tecnologiesString = ''
 const tecnologies = []
 let devData
@@ -100,7 +100,7 @@ function createTecnologyDiv() {
                 
                 if (document.querySelectorAll('.tecnologyDiv').length > 1) {
                     tecnologyForm.removeChild(tecnologyDiv)
-                    // tecnologyDivCount --
+                    tecnologyDivCount --
                 }
                 else {
                     alert('Adicione ao menos uma tecnologia!')
@@ -248,11 +248,22 @@ registerButton.addEventListener('click', event => {
 
     addDevToDevsList(devData)
 
+    
+    let cont = tecnologyDivCount
     tecnologiesDiv.forEach( element => {
-        if (tecnologyDivCount > 2) {
+        if (cont != 1) {
             tecnologyForm.removeChild(element)
-            tecnologyDivCount --
+            cont --
         }
     })
 
 })
+
+// Verificar
+// function removeDev() {
+//     const devToRemoveValue = document.querySelector('#removeDevName').value
+//     const devToRemove = document.querySelector(`#${devToRemoveValue}`)
+//     devListAside.removeChild(devToRemove)
+// }
+
+// document.querySelector('#removeDevButton').addEventListener( 'click', removeDev() )

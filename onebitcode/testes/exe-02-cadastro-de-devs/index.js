@@ -8,7 +8,8 @@ let devName = document.querySelector('input[id="fullname"]')
 // REMOVER
 devName.value = 'Lukas'
 
-let tecnologyDivCount = 0
+let tecnologyDivCount = 1
+let count = 0
 let tecnologiesString = ''
 const tecnologies = []
 let devData
@@ -25,7 +26,7 @@ function createTecnologyDiv() {
         // console.clear()
         // console.log(tecnologyDivCount)
         
-        if (tecnologyDivCount <= 5) {
+        if (count < 5) {
             // Criando label e inputs do formulário
             // NOME
             const tecnologyNameLabel = document.createElement('label')
@@ -100,7 +101,7 @@ function createTecnologyDiv() {
                 
                 if (document.querySelectorAll('.tecnologyDiv').length > 1) {
                     tecnologyForm.removeChild(tecnologyDiv)
-                    tecnologyDivCount --
+                    count --
                 }
                 else {
                     alert('Adicione ao menos uma tecnologia!')
@@ -108,6 +109,7 @@ function createTecnologyDiv() {
             })
 
             tecnologyDivCount ++
+            count ++
             
             tecnologyDiv.append(tecnologyNameLabel, tecnologyName, experienceTimeDiv, radioDiv, removeTecnology)
             
@@ -248,22 +250,32 @@ registerButton.addEventListener('click', event => {
 
     addDevToDevsList(devData)
 
-    
-    let cont = tecnologyDivCount
     tecnologiesDiv.forEach( element => {
-        if (cont != 1) {
-            tecnologyForm.removeChild(element)
-            cont --
+        if (tecnologyDivCount >= 2) {
+            console.log(element)
+            // tecnologyForm.removeChild(element)
         }
     })
+
+    console.log(tecnologyDivCount)
+
 
 })
 
 // Verificar
-// function removeDev() {
-//     const devToRemoveValue = document.querySelector('#removeDevName').value
-//     const devToRemove = document.querySelector(`#${devToRemoveValue}`)
-//     devListAside.removeChild(devToRemove)
-// }
+document.querySelector('button[id="removeDevButton"]').addEventListener( 'click', () => {
+    const devsListScrool = document.querySelector('#devsListScrool')
+    const removeDevName = document.querySelector('#removeDevName')
 
-// document.querySelector('#removeDevButton').addEventListener( 'click', removeDev() )
+    if (removeDevName.value == '') {
+        alert('Informe o nome do dev a ser removido!')
+    }
+    else {
+        const playerToRemove = devsListScrool.children[removeDevName.value]
+        console.log(playerToRemove)
+        
+        devsListScrool.removeChild(playerToRemove)
+        removeDevName.value = ''
+    }
+
+})

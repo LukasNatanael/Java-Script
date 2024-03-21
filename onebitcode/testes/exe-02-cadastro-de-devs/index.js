@@ -6,7 +6,7 @@ const registerButton = document.querySelector('button[id="registerButton"]')
 let devName = document.querySelector('input[id="fullname"]')
 
 // REMOVER
-devName.value = 'Lukas'
+// devName.value = 'Lukas'
 
 let tecnologyDivCount = 1
 let count = 0
@@ -251,9 +251,10 @@ registerButton.addEventListener('click', event => {
     addDevToDevsList(devData)
 
     tecnologiesDiv.forEach( element => {
-        if (tecnologyDivCount >= 2) {
+        if (count >= 2) {
             console.log(element)
-            // tecnologyForm.removeChild(element)
+            tecnologyForm.removeChild(element)
+            count --
         }
     })
 

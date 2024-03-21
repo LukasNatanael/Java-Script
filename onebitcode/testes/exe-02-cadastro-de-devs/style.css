@@ -23,9 +23,6 @@ h1, h2 {
 }
 
 h1:hover, h2:hover {
-    text-decoration: underline;
-    cursor: pointer;
-
     color: #00d6f9;
 }
 

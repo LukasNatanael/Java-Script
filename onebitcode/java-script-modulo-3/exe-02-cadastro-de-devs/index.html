@@ -1,10 +1,5 @@
-<!-- 
-    solicitar nome completo do dev
-    botão para adicionar uma nova categoria 
--->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +15,12 @@
                 <div id="registerName">
                     <label for="fullname">Nome</label>
                     <input type="text" id="fullname" placeholder="Informe seu nome completo" autofocus>
-                    <button id="plusButton" type="button">+ Adicionar tecnologia</button>
+                    <button id="newTecnology" type="button">+ Adicionar tecnologia</button>
                 </div>
             </div>
-            <form>
-                <div id="tecnologyList"></div>
+            <form id="tecnologyForm">
             </form>
+            <button id="registerButton" type="button" style="display: none;">Registrar desenvolvedor</button>
         </aside>
         <aside id="devsList">
             <h2>Desenvolvedores</h3>
@@ -35,12 +30,12 @@
                 <button id="removeDevButton">Remover DEV</button>
             </div>
             <div id="devsListScrool">
-                <ul id="Lukas">
+                <!-- <ul id="Lukas">
                     <h3>Lukas</h2>
                     <li>Nome: Lukas</li>
                     <li>Tecnologia(s): Python, JavaScript, ShellScript</li>
                     <li>Tempo de experiência: 2-3 anos</li>
-                </ul>
+                </ul> -->
             </div>
         </aside>
     </main>

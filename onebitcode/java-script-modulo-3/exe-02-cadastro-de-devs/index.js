@@ -1,207 +1,269 @@
-const registerAside = document.querySelector('#register')
-const form = document.querySelector('form')
+const registerAside = document.querySelector('aside[id="register"]')
+const devListAside = document.querySelector('div[id="devsListScrool"]')
+const addNewTecnology = registerAside.querySelector('button[id="newTecnology"]')
+const tecnologyForm = registerAside.querySelector('form[id="tecnologyForm"]')
+const registerButton = document.querySelector('button[id="registerButton"]')
+let devName = document.querySelector('input[id="fullname"]')
 
-document.querySelector('button[id="plusButton"]').addEventListener( 'click', event => {
-    event.preventDefault()
-    
-    const fullname = document.querySelector('input[id="fullname"]')
+// REMOVER
+// devName.value = 'Lukas'
 
-    // Verificando se o nome do desenvolvedor foi informado caso não, ele irá emitir um alerta solicitando para que o usuário informe o nome
-    if (fullname.value === '') {
-        alert('Por favor informe o nome do DEV!')
-    }
-    else {
+let tecnologyDivCount = 1
+let count = 0
+let tecnologiesString = ''
+const tecnologies = []
+let devData
+const devsList = []
 
-        // if (!document.querySelector('#tecnologyDiv')) {
-        // document.querySelector('#tecnologyDiv')
-            const tecnologyList = document.querySelector('#tecnologyList')
+function createTecnologyDiv() {
 
-            const cont = tecnologyList.childElementCount
+    if (devName.value != '') {
 
-            // Criando label, input, divs e button
-            const tecnologyDiv = document.createElement('div')
-            tecnologyDiv.setAttribute('id', 'tecnologyDiv')
-    
-            const tecnologyLabel = document.createElement('label')
-            tecnologyLabel.innerText = 'Tecnologia'
-            tecnologyLabel.setAttribute('for', 'tecnologyName')
-            tecnologyLabel.setAttribute('id', 'tecnologyLabel')
+        const tecnologyDiv = document.createElement('div')
+        tecnologyDiv.setAttribute('id', `tecnologyDiv-${tecnologyDivCount}`)
+        tecnologyDiv.setAttribute('class', `tecnologyDiv`)
+        
+        // console.clear()
+        // console.log(tecnologyDivCount)
+        
+        if (count < 5) {
+            // Criando label e inputs do formulário
+            // NOME
+            const tecnologyNameLabel = document.createElement('label')
+            tecnologyNameLabel.innerText = 'Tecnologia: '
+            tecnologyNameLabel.setAttribute('for', `tecnologyName-${tecnologyDivCount}`)
+            tecnologyNameLabel.setAttribute('class', 'tecnologyNameLabel')
             
-            const tecnologyInput = document.createElement('input')
-            tecnologyInput.setAttribute('class', `tecnologyName`)
-            tecnologyInput.setAttribute('id', `tecnologyName-${cont}`)
-            tecnologyInput.setAttribute('placeholder', 'Qual tecnologia você costuma usar ?')
-    
-            const radioTime1 = document.createElement('input')
-            radioTime1.setAttribute('type', 'radio')
-            radioTime1.setAttribute('name', `experienceTime-${cont}`)
-            radioTime1.setAttribute('id', `radio-${cont}-1`)
-            radioTime1.setAttribute('value', '0-2 anos')
-
-            const radioTime1Label = document.createElement('label')
-            radioTime1Label.setAttribute('for', `radio-${cont}-1`)
-            radioTime1Label.innerText = '0-2 anos'
-    
-            const radioTime2 = document.createElement('input')
-            radioTime2.setAttribute('type', 'radio')
-            radioTime2.setAttribute('name', `experienceTime-${cont}`)
-            radioTime2.setAttribute('id', `radio-${cont}-2`)
-            radioTime2.setAttribute('value', '3-4 anos')
-
-            const radioTime2Label = document.createElement('label')
-            radioTime2Label.setAttribute('for', `radio-${cont}-2`)
-            radioTime2Label.innerText = '3-4 anos'
+            const tecnologyName = document.createElement('input')
+            tecnologyName.setAttribute('class', 'tecnologyName')
+            tecnologyName.setAttribute('id', `tecnologyName-${tecnologyDivCount}`)
             
-            const radioTime3 = document.createElement('input')
-            radioTime3.setAttribute('type', 'radio')
-            radioTime3.setAttribute('name', `experienceTime-${cont}`)
-            radioTime3.setAttribute('id', `radio-${cont}-3`)
-            radioTime3.setAttribute('value', '+5 anos')
+            const experienceTimeDiv = document.createElement('div')
+            experienceTimeDiv.setAttribute('class', 'experienceTimeDiv')
             
-            const radioTime3Label = document.createElement('label')
-            radioTime3Label.setAttribute('for', `radio-${cont}-3`)
-            radioTime3Label.innerText = '+5 anos'
-    
+            // Criando radios
             const radioDiv = document.createElement('div')
             radioDiv.setAttribute('class', 'radioDiv')
+            radioDiv.setAttribute('id', `radioDiv-${tecnologyDivCount}`)
+
+            const radio1Label = document.createElement('label')
+            radio1Label.innerText = '0-2 anos'
+            radio1Label.setAttribute('id', `experienceTime-${tecnologyDivCount}`)
+            radio1Label.setAttribute('for', `experienceTime1-${tecnologyDivCount}`)
             
-            // Inserindo todos os radios dentro de uma div para centraliza-los
+            const radio1 = document.createElement('input')
+            radio1.setAttribute('name', `experienceTime-${tecnologyDivCount}`)
+            radio1.setAttribute('id', `experienceTime1-${tecnologyDivCount}`)
+            radio1.setAttribute('type', 'radio')
+            radio1.setAttribute('class', 'experienceTimeRadio')
+            radio1.value = '0-2 anos'
+            
+            const radio2Label = document.createElement('label')
+            radio2Label.innerText = '3-4 anos'
+            radio2Label.setAttribute('id', `experienceTime-${tecnologyDivCount}`)
+            radio2Label.setAttribute('for', `experienceTime2-${tecnologyDivCount}`)
+            
+            const radio2 = document.createElement('input')
+            radio2.setAttribute('name', `experienceTime-${tecnologyDivCount}`)
+            radio2.setAttribute('id', `experienceTime2-${tecnologyDivCount}`)
+            radio2.setAttribute('type', 'radio')
+            radio2.setAttribute('class', 'experienceTimeRadio')
+            radio2.value = '3-4 anos'
+
+            const radio3Label = document.createElement('label')
+            radio3Label.innerText = '+5 anos'
+            radio3Label.setAttribute('id', `experienceTime-${tecnologyDivCount}`)
+            radio3Label.setAttribute('for', `experienceTime3-${tecnologyDivCount}`)
+
+            const radio3 = document.createElement('input')
+            radio3.setAttribute('name', `experienceTime-${tecnologyDivCount}`)
+            radio3.setAttribute('id', `experienceTime3-${tecnologyDivCount}`)
+            radio3.setAttribute('type', 'radio')
+            radio3.setAttribute('class', 'experienceTimeRadio')
+            radio3.value = '+5 anos'
+            
+            // Adicionando radios a uma DIV
             radioDiv.append(
-                radioTime1, radioTime1Label,
-                radioTime2, radioTime2Label,
-                radioTime3, radioTime3Label
+                radio1, radio1Label,
+                radio2, radio2Label,
+                radio3, radio3Label
             )
-            
+
+            // Criando botão para remover tecnologia
             const removeTecnology = document.createElement('button')
-            removeTecnology.setAttribute('type', 'button')
-            removeTecnology.setAttribute('class', `removeTecnologyBtn`)
-            removeTecnology.setAttribute('id', `removeBtn-${cont}`)
+            removeTecnology.setAttribute('type', 'submit')
+            removeTecnology.setAttribute('class', 'removeTecnology')
+            removeTecnology.setAttribute('id', `removeTecnology-${tecnologyDivCount}`)
             removeTecnology.innerText = 'Remover tecnologia'
 
-
-            document.querySelector('button[id="registerButton"]') 
-
-            if (!document.querySelector('button[id="registerButton"]')) {
-
-                const registerButton = document.createElement('button')
-                registerButton.setAttribute('id', 'registerButton')
-                registerButton.innerText = 'Registrar dev'
-                registerAside.appendChild(registerButton)
-                // console.log('Adicionando desenvolvedor')
-            }
-
-            // Inserindo todos os elementos criados dentro de uma div
-            tecnologyDiv.append(tecnologyLabel, tecnologyInput, radioDiv, removeTecnology)
-            
-            // Inserindo as tecnologias dentro da lista de tecnologias
-            tecnologyDiv.className = 'tecnologyDiv'
-            tecnologyDiv.id = `tecnology-${cont}`
-            tecnologyList.appendChild(tecnologyDiv)
-            
-            
-            removeTecnology.addEventListener( 'click', () => {
-                tecnologyList.removeChild(tecnologyDiv)
-            } )
-
-            registerButton.addEventListener( 'click', event => {
+            removeTecnology.addEventListener( 'click', event => {
                 event.preventDefault()
-
-                if (fullname.length == 0) {
-                    alert('Preencha o formulário antes de enviar os dados!')
+                
+                if (document.querySelectorAll('.tecnologyDiv').length > 1) {
+                    tecnologyForm.removeChild(tecnologyDiv)
+                    count --
                 }
                 else {
-
-                    const tecnologyDivs = document.querySelectorAll('.tecnologyDiv') 
-
-                    let tecnologies = []
-                    let strTecnologies = ''
-    
-                    console.log(tecnologyDivs)
-                    console.log(tecnologyDivs.length)
-
-                    // tecnologyDivs.forEach( (tech) => {
-                    //     const tecnology = tech.children[1].value
-                    //     const experienceTime  = tech.children[2].querySelector('input[type=radio]:checked')
-                    //     if (tecnology == '' || experienceTime.value == null) {
-                    //         alert('Preeencha o formulário corretamente!')
-                    //     }
-                    //     else {
-                    //         const experienceTimeValue = experienceTime.value
-                    //         newTech = {
-                    //             tecnology,
-                    //             experienceTime: experienceTimeValue
-                    //         }
-
-                    //         tecnologies.push(newTech)
-
-                    //         strTecnologies += ` - ${tecnology}: ${experienceTimeValue} \n`
-                    //     }
-    
-                    // } )
-    
-                    // console.log(tecnologies)
-                    
-                    // Armazenando informações dos usuários
-                    const devData = {
-                        name: fullname.value,
-                        tecnologies
-                    }
-
-                    // console.log(devData)
-                    // console.log(strTecnologies)
-                    
-                    // ------------- VERIFICAR ------------- 
-                    // Limpando valores dos inputs
-
-                    document.querySelectorAll('.tecnologyName').forEach( element => element.value = '' )
-                    document.querySelectorAll('input[type=radio]:checked').forEach( element => element.checked = false )
-                    fullname.value = ''
-                    
-                    
-                    // Adicionando dados dos DEVS a aside#devsListScrool na lateral direita
-                    const devsListScrool = document.querySelector('#devsListScrool')
-
-                    // // Criando os elementos da lista
-
-                    // // Lista de elementos
-                    // const ul               = document.createElement('ul')
-                    // const h3               = document.createElement('h3')
-                    // ul.setAttribute('id', `${devData['name']}`)
-                    // h3.innerText = `${devData['name']}`
-                    
-                    // const nameLi           = document.createElement('li')
-                    // nameLi.innerText = `Nome: ${devData['name']}`
-                    
-                    // const tecnologyLi      = document.createElement('li')
-                    // tecnologyLi.innerText = `Tecnologia(s): ${devData['tecnologies']}`
-
-                    // const experienceTimeLi = document.createElement('li')
-                    // experienceTimeLi.innerText = `Tempo de experiência: ${devData['experienceTime']}`
-
-                    // const confirmation = confirm(
-                    //     `Deseja adicionar o DEV ${devData['name']} com os dados:` +
-                    //     `\n\nTecnologia utilizada: ${devData['tecnologies']}` +
-                    //     `\nTempo de experiência: ${devData['experienceTime']}` +
-                    //     '\n\na lista ?'
-                    // )
-
-                    // if (confirmation) {
-                    //     ul.append(h3, nameLi, tecnologyLi, experienceTimeLi)
-                    //     devsListScrool.appendChild(ul)
-                    // }
-                    // else {
-                    //     alert('Infelizmente o DEV não passou na entrevista de emprego!')
-                    // }
+                    alert('Adicione ao menos uma tecnologia!')
                 }
-        } )
+            })
+
+            tecnologyDivCount ++
+            count ++
+            
+            tecnologyDiv.append(tecnologyNameLabel, tecnologyName, experienceTimeDiv, radioDiv, removeTecnology)
+            
+            tecnologyForm.appendChild(tecnologyDiv)
+            registerButton.style = 'display: box;'
 
         }
+        else {
+            alert('Você excedeu o limite de tecnologias adicionáveis.')
+        }
     }
+    else {
+        alert('Informe o nome do desenvolvedor!')
+    }
+}
+
+function addDevToDevsList(devData) {
+    const ul = document.createElement('ul')
+    ul.setAttribute('id', `${devData.name}`)
+    const nameH3 = document.createElement('h3')
+    nameH3.innerText = devData.name
+
+    const tecnologyLi = document.createElement('li')
+    tecnologyLi.innerText = 'Tecnologia(s) utilizada(s): '
+
+    const tecnologiesLi = document.createElement('li')
+    tecnologiesLi.innerText = devData.tecnologiesString
+
+    // const experienceTimeLi = document.createElement('li')
+
+    ul.append(
+        nameH3,
+        tecnologyLi,
+        tecnologiesLi,
+        // experienceTimeLi
+    )
+
+    devListAside.appendChild(ul)
+}
+
+function getData() {
     
-// } 
-)
+    const devName = document.querySelector('input[id="fullname"]').value
+
+    // pegando todos os forms de tecnologia
+    const tecnologiesDiv = document.querySelectorAll('.tecnologyDiv') 
+
+    // Passando por cada tecnologyDiv e pegando os dados
+    tecnologiesDiv.forEach( element => {
+        const tecnologiesName = element.querySelector('.tecnologyName')
+        const experiencesTime = element.querySelector('.experienceTimeRadio:checked')
+        
+        if (!experiencesTime) {
+            alert('Preencha o formulário antes de prosseguir!')
+        }
+        else {
+            // Adicionando a nova tecnologia a um array
+            let newTecnology = {
+                tecnology: tecnologiesName.value,
+                experienceTime: experiencesTime.value
+            }
+            
+            // Unificando as tecnologias em uma string para melhor visualização
+            tecnologiesString += `\n- ${tecnologiesName.value}: ${experiencesTime.value}`
+    
+            // Inserindo a nova tecnologia a lista de tecnologias
+            tecnologies.push(newTecnology)
+
+        }
+
+    })
+
+    devData.push(
+        devName,
+        tecnologies
+    )
+}
+
+addNewTecnology.addEventListener('click', event => {
+    event.preventDefault()
+    createTecnologyDiv()
+
+})
+
+registerButton.addEventListener('click', event => {
+    event.preventDefault()
+
+    // Pegando todos os forms de tecnologia
+    const tecnologiesDiv = document.querySelectorAll('.tecnologyDiv') 
+
+    // Passando por cada tecnologyDiv e pegando os dados
+    tecnologiesDiv.forEach( element => {
+        const tecnologiesName = element.querySelector('.tecnologyName')
+        const experiencesTime = element.querySelector('.experienceTimeRadio:checked')
+        
+        if (tecnologiesName.value == '' && !experiencesTime) {
+            alert('Preencha o formulário antes prosseguir!')
+        }
+        else if (tecnologiesName.value == '') {
+            alert('Preencha o nome da tecnologia antes de prosseguir!')
+        }
+        else if (!experiencesTime) {
+            alert('Informe o tempo de experiencia da tecnologia!')
+        }
+        else {
+
+            // Adicionando a nova tecnologia a um array
+            let newTecnology = {
+                tecnology: tecnologiesName.value,
+                experienceTime: experiencesTime.value
+            }
+            
+            // Unificando as tecnologias em uma string para melhor visualização
+            tecnologiesString += `- ${tecnologiesName.value}: ${experiencesTime.value}\n`
+    
+            // Inserindo a nova tecnologia a lista de tecnologias
+            tecnologies.push(newTecnology)
+    
+            tecnologiesName.value = ''
+            experiencesTime.checked = false
+
+        }
+    })
+
+    devData = {
+        name: devName.value,
+        tecnologies,
+        tecnologiesString
+    }
+
+    tecnologiesString = ''
+    devsList.push(devData)
+
+    alert(`Desenvolvedor ${devName.value} foi registrado!`)
+    console.log(devData)
+
+    devName.value = ''
+
+    addDevToDevsList(devData)
+
+    tecnologiesDiv.forEach( element => {
+        if (count >= 2) {
+            console.log(element)
+            tecnologyForm.removeChild(element)
+            count --
+        }
+    })
+
+    console.log(tecnologyDivCount)
 
 
+})
+
+// Verificar
 document.querySelector('button[id="removeDevButton"]').addEventListener( 'click', () => {
     const devsListScrool = document.querySelector('#devsListScrool')
     const removeDevName = document.querySelector('#removeDevName')

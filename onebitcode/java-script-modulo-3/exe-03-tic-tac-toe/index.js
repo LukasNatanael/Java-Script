@@ -40,6 +40,9 @@ document.querySelectorAll('button').forEach( element => {
 
 
 document.querySelector('#play-again').addEventListener('click', () => {
-    button.forEach( element => element.innerHTML = ''  )
+    button.forEach( element => {
+        element.innerHTML = ''
+        element.disabled = false
+    })
     cont = 0
 })

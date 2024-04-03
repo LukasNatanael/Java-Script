@@ -1,48 +1,113 @@
 const button = document.querySelectorAll('button')
-
+let cont = 0
+let botao 
 const allowedKeys = [ '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-document.addEventListener('keydown', (event) => {
-    const value = event.key
-    if (allowedKeys.includes(value)) {
-        console.log(value)
-    }
+const playerOne = document.querySelector('#player-one')
+const playerTwo = document.querySelector('#player-two')
+
+playerOne.classList.add('player-round')
+
+document.addEventListener('keydown', () => {
+    cont = 0
+    document.querySelectorAll('button').forEach( (event, element) => {
+        if (allowedKeys.includes(event.key)) {
+
+            if (element.id === event.key) {
+                
+                if (cont % 2 === 0) {
+                    playerTwo.classList.add('player-round')
+                    playerOne.classList.remove('player-round')
+                    botao = '<i class="icons fa-solid fa-x"></i>'
+                }
+                else {
+                    playerOne.classList.add('player-round')
+                    playerTwo.classList.remove('player-round')
+                    botao = '<i class="icons fa-regular fa-circle"></i>'
+                }
+            }
+            cont += 1
+        }
+        // console.log(botao) 
+        console.log(element)
+        console.log(event)
+    })
 
 })
+    
 
-let cont = 0
 
 document.querySelectorAll('button').forEach( element => {
     element.addEventListener('click', (event) => {
         event.preventDefault()
-        // event.currentTarget.style.backgroundColor = 'red'
-        // event.currentTarget.innerText = 'red'
-
-        if (cont === 8) {
-            alert('Fim de jogo')
-        }
-        else {
-            cont += 1
-        }
 
         if (cont % 2 === 0) {
+            playerTwo.classList.add('player-round')
+            playerOne.classList.remove('player-round')
             event.currentTarget.innerHTML = '<i class="icons fa-solid fa-x"></i>'
             element.disabled = true
         }
         else {
+            playerOne.classList.add('player-round')
+            playerTwo.classList.remove('player-round')
             event.currentTarget.innerHTML = '<i class="icons fa-regular fa-circle"></i>'
             element.disabled = true
             
         }
+
+        cont += 1
         
     })
 })
 
 
 document.querySelector('#play-again').addEventListener('click', () => {
-    button.forEach( element => {
-        element.innerHTML = ''
-        element.disabled = false
-    })
     cont = 0
+    const numbers = [
+        7, 4, 1,
+        8, 5, 2,
+        9, 6, 3
+    ]
+
+    button.forEach( element => {
+        element.innerHTML = numbers[cont]
+        element.disabled = false
+        playerOne.classList.add('player-round')
+        playerTwo.classList.remove('player-round')
+        if (cont == 8) {
+            cont = 0
+            
+        }
+        else {
+            cont += 1
+        }
+    })
+})
+
+document.addEventListener('keydown', (event) => {
+    event.preventDefault()
+    cont = 0
+    const numbers = [
+        7, 4, 1,
+        8, 5, 2,
+        9, 6, 3
+    ]
+
+    if (event.key === 'Escape') {
+        
+        button.forEach( element => {
+            element.innerHTML = numbers[cont]
+            element.disabled = false
+            playerOne.classList.add('player-round')
+            playerTwo.classList.remove('player-round')
+            if (cont == 8) {
+                cont = 0
+                
+            }
+            else {
+                cont += 1
+            }
+        })
+    }
+
 })

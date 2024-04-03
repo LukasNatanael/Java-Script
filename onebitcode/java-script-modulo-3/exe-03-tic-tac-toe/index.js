@@ -8,31 +8,34 @@ const playerTwo = document.querySelector('#player-two')
 
 playerOne.classList.add('player-round')
 
-document.addEventListener('keydown', () => {
-    cont = 0
-    document.querySelectorAll('button').forEach( (event, element) => {
-        if (allowedKeys.includes(event.key)) {
+document.addEventListener('keydown', (event) => {
+    event.preventDefault()
 
-            if (element.id === event.key) {
-                
-                if (cont % 2 === 0) {
-                    playerTwo.classList.add('player-round')
-                    playerOne.classList.remove('player-round')
-                    botao = '<i class="icons fa-solid fa-x"></i>'
-                }
-                else {
-                    playerOne.classList.add('player-round')
-                    playerTwo.classList.remove('player-round')
-                    botao = '<i class="icons fa-regular fa-circle"></i>'
-                }
-            }
-            cont += 1
+    document.querySelectorAll('button').forEach( element => {
+        if (event.key == element.id) {
+            // console.log(element)
+            value = element
+            
         }
-        // console.log(botao) 
-        console.log(element)
-        console.log(event)
     })
 
+    // cont = 0
+    if (allowedKeys.includes(event.key)) {
+        if (cont % 2 === 0) {
+            playerTwo.classList.add('player-round')
+            playerOne.classList.remove('player-round')
+            botao = '<i class="icons fa-solid fa-x"></i>'
+        }
+        else {
+            playerOne.classList.add('player-round')
+            playerTwo.classList.remove('player-round')
+            botao = '<i class="icons fa-regular fa-circle"></i>'
+        }
+
+        value.innerHTML = botao
+        cont += 1
+        console.log(cont)
+    }
 })
     
 
@@ -45,12 +48,14 @@ document.querySelectorAll('button').forEach( element => {
             playerTwo.classList.add('player-round')
             playerOne.classList.remove('player-round')
             event.currentTarget.innerHTML = '<i class="icons fa-solid fa-x"></i>'
+            botao = '<i class="icons fa-solid fa-x"></i>'
             element.disabled = true
         }
         else {
             playerOne.classList.add('player-round')
             playerTwo.classList.remove('player-round')
             event.currentTarget.innerHTML = '<i class="icons fa-regular fa-circle"></i>'
+            botao = '<i class="icons fa-regular fa-circle"></i>'
             element.disabled = true
             
         }

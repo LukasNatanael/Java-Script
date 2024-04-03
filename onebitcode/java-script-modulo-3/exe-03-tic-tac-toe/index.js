@@ -16,26 +16,26 @@ document.addEventListener('keydown', (event) => {
             // console.log(element)
             value = element
             
+            // cont = 0
+            if (allowedKeys.includes(event.key)) {
+                if (cont % 2 === 0) {
+                    playerTwo.classList.add('player-round')
+                    playerOne.classList.remove('player-round')
+                    botao = '<i class="icons fa-solid fa-x"></i>'
+                }
+                else {
+                    playerOne.classList.add('player-round')
+                    playerTwo.classList.remove('player-round')
+                    botao = '<i class="icons fa-regular fa-circle"></i>'
+                }
+
+                value.innerHTML = botao
+                console.log(cont)
+            }
         }
+        cont += 1
     })
 
-    // cont = 0
-    if (allowedKeys.includes(event.key)) {
-        if (cont % 2 === 0) {
-            playerTwo.classList.add('player-round')
-            playerOne.classList.remove('player-round')
-            botao = '<i class="icons fa-solid fa-x"></i>'
-        }
-        else {
-            playerOne.classList.add('player-round')
-            playerTwo.classList.remove('player-round')
-            botao = '<i class="icons fa-regular fa-circle"></i>'
-        }
-
-        value.innerHTML = botao
-        cont += 1
-        console.log(cont)
-    }
 })
     
 

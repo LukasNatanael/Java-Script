@@ -1,8 +1,18 @@
-const button = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('button')
 let clickCont = 0
 let cont = 0
 let botao 
 const allowedKeys = [ '1', '2', '3', '4', '5', '6', '7', '8', '9']
+const winnerPositions = [
+    [1, 2, 3],
+    [4, 5 ,6],
+    [7, 8, 9],
+    [7, 4, 1],
+    [8, 5, 2],
+    [9, 6, 3],
+    [7, 5, 3],
+    [9, 5, 1],
+]
 
 const playerOne = document.querySelector('#player-one')
 const playerTwo = document.querySelector('#player-two')
@@ -12,7 +22,7 @@ playerOne.classList.add('player-round')
 document.addEventListener('keydown', (event) => {
     event.preventDefault()
 
-    document.querySelectorAll('button').forEach( element => {
+    buttons.forEach( element => {
         if (event.key == element.id) {
             cont % 2 === 0 ? botao = '<i class="icons fa-solid fa-x"></i>': botao = '<i class="icons fa-regular fa-circle"></i>'
             
@@ -31,6 +41,7 @@ document.addEventListener('keydown', (event) => {
                 }
                 
                 cont += 1
+                checkWinner()
             }
 
         }
@@ -60,7 +71,7 @@ document.querySelectorAll('button').forEach( element => {
 
             }
             cont += 1
-
+            checkWinner()
         }
         
     })
@@ -114,6 +125,17 @@ document.addEventListener('keydown', (event) => {
                 clickCont += 1
             }
         })
+
     }
 
 })
+
+
+function checkWinner() {
+    // criando sistema de pontuação
+
+    for (position in winnerPositions) {
+        console.log(winnerPositions[position][0], winnerPositions[position][1], winnerPositions[position][2])
+    }
+
+}

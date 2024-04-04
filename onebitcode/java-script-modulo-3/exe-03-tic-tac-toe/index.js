@@ -14,38 +14,23 @@ document.addEventListener('keydown', (event) => {
 
     document.querySelectorAll('button').forEach( element => {
         if (event.key == element.id) {
-            // console.log(element)
-            value = element
+            cont % 2 === 0 ? botao = '<i class="icons fa-solid fa-x"></i>': botao = '<i class="icons fa-regular fa-circle"></i>'
             
-            // cont = 0
-            if (allowedKeys.includes(event.key)) {
-                if (cont % 2 === 0) {
-                    botao = '<i class="icons fa-solid fa-x"></i>'
-                    element.dataset.key = 'X'
-                    
-                }
-                else {
-                    botao = '<i class="icons fa-regular fa-circle"></i>'
-                    element.dataset.key = 'O'
-
-                }
-
-            }
-
-            cont += 1
-
             if (element.disabled != true) {
-                value.innerHTML = botao
+                element.innerHTML = botao
                 element.disabled = true
                 if (cont % 2 === 0) {
                     playerOne.classList.add('player-round')
                     playerTwo.classList.remove('player-round')
+                    element.dataset.key = 'X'
                 }
                 else {
                     playerTwo.classList.add('player-round')
                     playerOne.classList.remove('player-round')
+                    element.dataset.key = 'O'
                 }
-
+                
+                cont += 1
             }
 
         }
@@ -58,14 +43,7 @@ document.querySelectorAll('button').forEach( element => {
     element.addEventListener('click', (event) => {
         event.preventDefault()
 
-        if (cont % 2 === 0) {
-            botao = '<i class="icons fa-solid fa-x"></i>'
-        }
-        else {
-            botao = '<i class="icons fa-regular fa-circle"></i>'
-        }
-
-        cont += 1
+        cont % 2 === 0 ? botao = '<i class="icons fa-solid fa-x"></i>': botao = '<i class="icons fa-regular fa-circle"></i>'
 
         if (element.disabled != true) {
             element.disabled = true
@@ -73,14 +51,15 @@ document.querySelectorAll('button').forEach( element => {
             if (cont % 2 === 0) {
                 playerOne.classList.add('player-round')
                 playerTwo.classList.remove('player-round')
-                element.dataset.key = 'O'
+                element.dataset.key = 'X'
             }
             else {
                 playerTwo.classList.add('player-round')
                 playerOne.classList.remove('player-round')
-                element.dataset.key = 'X'
+                element.dataset.key = 'O'
 
             }
+            cont += 1
 
         }
         
@@ -138,12 +117,3 @@ document.addEventListener('keydown', (event) => {
     }
 
 })
-
-if (cont % 2 === 0) {
-    playerOne.classList.add('player-round')
-    playerTwo.classList.remove('player-round')
-}
-else {
-    playerTwo.classList.add('player-round')
-    playerOne.classList.remove('player-round')
-}

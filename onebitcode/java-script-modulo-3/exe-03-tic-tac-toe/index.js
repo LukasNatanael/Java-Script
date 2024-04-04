@@ -1,6 +1,6 @@
 const button = document.querySelectorAll('button')
 let clickCont = 0
-let pressCont = 0
+let cont = 0
 let botao 
 const allowedKeys = [ '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -19,59 +19,70 @@ document.addEventListener('keydown', (event) => {
             
             // cont = 0
             if (allowedKeys.includes(event.key)) {
-                if (pressCont % 2 === 0) {
-                    // playerTwo.classList.add('player-round')
-                    // playerOne.classList.remove('player-round')
+                if (cont % 2 === 0) {
                     botao = '<i class="icons fa-solid fa-x"></i>'
-                    element.dataset.key = 'x'
+                    element.dataset.key = 'X'
                     
                 }
                 else {
-                    // playerOne.classList.add('player-round')
-                    // playerTwo.classList.remove('player-round')
                     botao = '<i class="icons fa-regular fa-circle"></i>'
                     element.dataset.key = 'O'
 
                 }
 
             }
-            pressCont += 1
-            // console.log(`c: ${pressCont}`)
+
+            cont += 1
+
             if (element.disabled != true) {
                 value.innerHTML = botao
                 element.disabled = true
+                if (cont % 2 === 0) {
+                    playerOne.classList.add('player-round')
+                    playerTwo.classList.remove('player-round')
+                }
+                else {
+                    playerTwo.classList.add('player-round')
+                    playerOne.classList.remove('player-round')
+                }
+
             }
 
         }
     })
 
 })
-    
 
 
 document.querySelectorAll('button').forEach( element => {
     element.addEventListener('click', (event) => {
         event.preventDefault()
 
-        if (pressCont % 2 === 0) {
-            playerTwo.classList.add('player-round')
-            playerOne.classList.remove('player-round')
-            event.currentTarget.innerHTML = '<i class="icons fa-solid fa-x"></i>'
+        if (cont % 2 === 0) {
             botao = '<i class="icons fa-solid fa-x"></i>'
-            element.dataset.key = 'x'
-            element.disabled = true
         }
         else {
-            playerOne.classList.add('player-round')
-            playerTwo.classList.remove('player-round')
-            event.currentTarget.innerHTML = '<i class="icons fa-regular fa-circle"></i>'
             botao = '<i class="icons fa-regular fa-circle"></i>'
-            element.dataset.key = 'O'
-            element.disabled = true
-            
         }
 
-        pressCont += 1
+        cont += 1
+
+        if (element.disabled != true) {
+            element.disabled = true
+            element.innerHTML = botao
+            if (cont % 2 === 0) {
+                playerOne.classList.add('player-round')
+                playerTwo.classList.remove('player-round')
+                element.dataset.key = 'O'
+            }
+            else {
+                playerTwo.classList.add('player-round')
+                playerOne.classList.remove('player-round')
+                element.dataset.key = 'X'
+
+            }
+
+        }
         
     })
 })
@@ -127,3 +138,12 @@ document.addEventListener('keydown', (event) => {
     }
 
 })
+
+if (cont % 2 === 0) {
+    playerOne.classList.add('player-round')
+    playerTwo.classList.remove('player-round')
+}
+else {
+    playerTwo.classList.add('player-round')
+    playerOne.classList.remove('player-round')
+}

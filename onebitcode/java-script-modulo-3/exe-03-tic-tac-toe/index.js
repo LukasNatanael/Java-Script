@@ -134,27 +134,18 @@ document.addEventListener('keydown', (event) => {
 function checkWinner() {
     // criando sistema de pontuação
 
-    for (pattern of winnerPositions) {
-        // console.log(
-        //     winnerPositions[pattern][0],
-        //     winnerPositions[pattern][1],
-        //     winnerPositions[pattern][2]
-        // )
+    for (pattern in winnerPositions) {
+        console.log(
+            winnerPositions[pattern][0],
+            winnerPositions[pattern][1],
+            winnerPositions[pattern][2]
+        )
         
         console.log(
-            // buttons[[pattern][0]].dataset.key,
-            buttons[0].dataset.key,
-            buttons[1].dataset.key,
-            buttons[2].dataset.key,
-            buttons[3].dataset.key,
-            buttons[4].dataset.key,
-            buttons[5].dataset.key,
-            buttons[6].dataset.key,
+            buttons[[pattern][0]].dataset.key,
             // buttons[[pattern][1]].dataset.key,
             // buttons[[pattern][2]].dataset.key
         )
-
-        // console.log(pattern)
     }
 
 }

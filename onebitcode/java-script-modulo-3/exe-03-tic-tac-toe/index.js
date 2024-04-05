@@ -81,12 +81,12 @@ document.querySelectorAll('button').forEach( element => {
 document.querySelector('#play-again').addEventListener('click', () => {
     clickCont = 0
     const numbers = [
-        7, 4, 1,
-        8, 5, 2,
-        9, 6, 3
+        7, 8, 9,
+        4, 5, 6,
+        1, 2, 3
     ]
 
-    button.forEach( element => {
+    buttons.forEach( element => {
         element.innerHTML = numbers[clickCont]
         element.disabled = false
         playerOne.classList.add('player-round')
@@ -105,14 +105,14 @@ document.addEventListener('keydown', (event) => {
     event.preventDefault()
     clickCont = 0
     const numbers = [
-        7, 4, 1,
-        8, 5, 2,
-        9, 6, 3
+        7, 8, 9,
+        4, 5, 6,
+        1, 2, 3
     ]
 
     if (event.key === 'Escape') {
         
-        button.forEach( element => {
+        buttons.forEach( element => {
             element.innerHTML = numbers[clickCont]
             element.disabled = false
             playerOne.classList.add('player-round')
@@ -136,6 +136,7 @@ function checkWinner() {
 
     for (position in winnerPositions) {
         console.log(winnerPositions[position][0], winnerPositions[position][1], winnerPositions[position][2])
+        console.log(winnerPositions[[position][0]], winnerPositions[[position][1]], winnerPositions[[position][2]])
     }
 
 }

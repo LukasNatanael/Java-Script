@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('.box')
 let clickCont = 0
 let cont = 0
 let botao 
@@ -134,9 +134,27 @@ document.addEventListener('keydown', (event) => {
 function checkWinner() {
     // criando sistema de pontuação
 
-    for (position in winnerPositions) {
-        console.log(winnerPositions[position][0], winnerPositions[position][1], winnerPositions[position][2])
-        console.log(winnerPositions[[position][0]], winnerPositions[[position][1]], winnerPositions[[position][2]])
+    for (pattern of winnerPositions) {
+        // console.log(
+        //     winnerPositions[pattern][0],
+        //     winnerPositions[pattern][1],
+        //     winnerPositions[pattern][2]
+        // )
+        
+        console.log(
+            // buttons[[pattern][0]].dataset.key,
+            buttons[0].dataset.key,
+            buttons[1].dataset.key,
+            buttons[2].dataset.key,
+            buttons[3].dataset.key,
+            buttons[4].dataset.key,
+            buttons[5].dataset.key,
+            buttons[6].dataset.key,
+            // buttons[[pattern][1]].dataset.key,
+            // buttons[[pattern][2]].dataset.key
+        )
+
+        // console.log(pattern)
     }
 
 }

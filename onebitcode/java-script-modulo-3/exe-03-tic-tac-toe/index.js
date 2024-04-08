@@ -1,28 +1,34 @@
-const buttons = document.querySelectorAll('.box')
-let clickCont = 0
-let cont = 0
-let botao 
-const allowedKeys = [ '1', '2', '3', '4', '5', '6', '7', '8', '9']
-const winnerPositions = [
-    [1, 2, 3],
-    [4, 5 ,6],
-    [7, 8, 9],
-    [7, 4, 1],
-    [8, 5, 2],
-    [9, 6, 3],
-    [7, 5, 3],
-    [9, 5, 1],
-]
-
+const boxes = document.querySelectorAll('.box')
 const playerOne = document.querySelector('#player-one')
 const playerTwo = document.querySelector('#player-two')
+let playerOnePoints = document.querySelector('#player-one-points')
+let playerTwoPoints = document.querySelector('#player-two-points')
+
+let botao 
+let clickCont = cont = 0
+let playerOnePoint = 0
+let playerTwoPoint = 0
+
+
+const allowedKeys = [ '1', '2', '3', '4', '5', '6', '7', '8', '9']
+const winPatterns = [
+    [0, 1, 2],
+    [0, 3, 6],
+    [0, 4, 8],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [3, 4, 5],
+    [6, 7, 8],
+]
+
+
 
 playerOne.classList.add('player-round')
-
 document.addEventListener('keydown', (event) => {
     event.preventDefault()
-
-    buttons.forEach( element => {
+    
+    boxes.forEach( element => {
         if (event.key == element.id) {
             cont % 2 === 0 ? botao = '<i class="icons fa-solid fa-x"></i>': botao = '<i class="icons fa-regular fa-circle"></i>'
             
@@ -57,16 +63,17 @@ document.querySelectorAll('button').forEach( element => {
         cont % 2 === 0 ? botao = '<i class="icons fa-solid fa-x"></i>': botao = '<i class="icons fa-regular fa-circle"></i>'
 
         if (element.disabled != true) {
+            playerTwo.classList.add('player-round')
+            playerOne.classList.remove('player-round')
+
             element.disabled = true
             element.innerHTML = botao
             if (cont % 2 === 0) {
-                playerOne.classList.add('player-round')
-                playerTwo.classList.remove('player-round')
                 element.dataset.key = 'X'
             }
             else {
-                playerTwo.classList.add('player-round')
-                playerOne.classList.remove('player-round')
+                playerOne.classList.add('player-round')
+                playerTwo.classList.remove('player-round')
                 element.dataset.key = 'O'
 
             }
@@ -86,7 +93,7 @@ document.querySelector('#play-again').addEventListener('click', () => {
         1, 2, 3
     ]
 
-    buttons.forEach( element => {
+    boxes.forEach( element => {
         element.innerHTML = numbers[clickCont]
         element.disabled = false
         playerOne.classList.add('player-round')
@@ -112,7 +119,7 @@ document.addEventListener('keydown', (event) => {
 
     if (event.key === 'Escape') {
         
-        buttons.forEach( element => {
+        boxes.forEach( element => {
             element.innerHTML = numbers[clickCont]
             element.disabled = false
             playerOne.classList.add('player-round')
@@ -134,19 +141,30 @@ document.addEventListener('keydown', (event) => {
 function checkWinner() {
     // criando sistema de pontuação
 
-    for (pattern of winnerPositions) {
-        console.log(
-            winnerPositions[[pattern][0]],
-            winnerPositions[[pattern][1]],
-            winnerPositions[[pattern][2]],
-        )
+    for (let pattern of winPatterns) {
+        let position1 = boxes[pattern[0]].dataset.key
+        let position2 = boxes[pattern[1]].dataset.key
+        let position3 = boxes[pattern[2]].dataset.key
+
         
-        // console.log(
-        //     buttons[[pattern][0]],
-        //     buttons[[pattern][1]],
-        //     buttons[[pattern][2]],
-        // )
-
+        if (position1 != '' && position2 != '' && position3 != '') {
+            if (position1 === position2 && position1 === position3) {
+                alert('Winner is '+ position1)
+                if (position1 === 'O') {
+                    playerOnePoint += 1
+                    playerOnePoints.innerText = playerOnePoint
+                }
+                else {
+                    playerTwoPoint += 1
+                    playerTwoPoints.innerText = playerTwoPoint
+                }
+                // document.querySelector('#play-again').click()
+                
+                boxes[pattern[0]].dataset.key = ''
+                boxes[pattern[1]].dataset.key = ''
+                boxes[pattern[2]].dataset.key = ''
+            }
+        }
+        
     }
-
 }

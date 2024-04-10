@@ -47,7 +47,10 @@ document.addEventListener('keydown', (event) => {
                 }
                 
                 cont += 1
-                checkWinner()
+                setInterval(
+                    checkWinner,
+                    2000
+                )
             }
 
         }
@@ -78,7 +81,10 @@ document.querySelectorAll('button').forEach( element => {
 
             }
             cont += 1
-            checkWinner()
+            setInterval(
+                checkWinner,
+                2000
+            )
         }
         
     })
@@ -149,22 +155,33 @@ function checkWinner() {
         
         if (position1 != '' && position2 != '' && position3 != '') {
             if (position1 === position2 && position1 === position3) {
-                alert('Winner is '+ position1)
                 if (position1 === 'O') {
+                    alert('Player two wins!')
                     playerOnePoint += 1
                     playerOnePoints.innerText = playerOnePoint
                 }
                 else {
+                    alert('Player one wins!')
                     playerTwoPoint += 1
                     playerTwoPoints.innerText = playerTwoPoint
                 }
-                // document.querySelector('#play-again').click()
                 
-                boxes[pattern[0]].dataset.key = ''
-                boxes[pattern[1]].dataset.key = ''
-                boxes[pattern[2]].dataset.key = ''
+                clearBoard()
             }
         }
         
     }
 }
+
+function clearBoard() {
+    boxes.forEach( element => {
+        element.disabled = false
+        element.dataset.key = ''
+        playerOne.classList.add('player-round')
+        playerTwo.classList.remove('player-round')
+        clickCont = 0
+        cont = 0
+        document.querySelector('#play-again').click()
+
+    })
+} 

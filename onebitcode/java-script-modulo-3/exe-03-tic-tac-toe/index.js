@@ -165,7 +165,9 @@ function checkWinner() {
                     playerTwoPoint += 1
                     playerTwoPoints.innerText = playerTwoPoint
                 }
-                
+
+                console.log(pattern[0], pattern[1], pattern[2])
+
                 clearBoard()
             }
         }
@@ -177,6 +179,7 @@ function clearBoard() {
     boxes.forEach( element => {
         element.disabled = false
         element.dataset.key = ''
+        element.innerHTML = ''
         playerOne.classList.add('player-round')
         playerTwo.classList.remove('player-round')
         clickCont = 0

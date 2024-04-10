@@ -147,3 +147,7 @@ main {
     margin: 12.7vh 0;
 
 }
+
+.winner {
+    color: red;
+}

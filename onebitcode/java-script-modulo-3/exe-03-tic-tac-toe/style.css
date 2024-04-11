@@ -85,13 +85,13 @@ header {
 /* Desenhando bordas manualmente (péssima forma) */
 
 .vertical {
-    border-left: 4px solid var(--primary-color);
-    border-right: 4px solid var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+    border-right: 3px solid var(--primary-color);
 }
 
 .horizontal {
-    border-top: 4px solid var(--primary-color);
-    border-bottom: 4px solid var(--primary-color);
+    border-top: 3px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
 
 }
 

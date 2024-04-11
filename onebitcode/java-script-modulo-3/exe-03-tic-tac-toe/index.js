@@ -156,14 +156,15 @@ function checkWinner() {
                 if (position1 === 'O') {
                     alert('Player two wins!')
 
-                    playerOnePoint += 1
-                    playerOnePoints.innerText = playerOnePoint
+
+                    playerTwoPoint += 1
+                    playerTwoPoints.innerText = playerTwoPoint
                 }
                 else {
                     alert('Player one wins!')
 
-                    playerTwoPoint += 1
-                    playerTwoPoints.innerText = playerTwoPoint
+                    playerOnePoint += 1
+                    playerOnePoints.innerText = playerOnePoint
                 }
 
                 console.log(pattern[0], pattern[1], pattern[2])

@@ -156,7 +156,6 @@ function checkWinner() {
                 if (position1 === 'O') {
                     alert('Player two wins!')
 
-
                     playerTwoPoint += 1
                     playerTwoPoints.innerText = playerTwoPoint
                 }
@@ -172,6 +171,7 @@ function checkWinner() {
                 clearBoard()
             }
         }
+        
         
     }
 }

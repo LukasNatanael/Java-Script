@@ -1,7 +1,6 @@
 const boxes = document.querySelectorAll('.box')
 const playerOne = document.querySelector('#player-one')
 const playerTwo = document.querySelector('#player-two')
-const dialog = document.querySelector('dialog')
 let playerOnePoints = document.querySelector('#player-one-points')
 let playerTwoPoints = document.querySelector('#player-two-points')
 
@@ -22,8 +21,6 @@ const winPatterns = [
     [3, 4, 5],
     [6, 7, 8],
 ]
-
-
 
 playerOne.classList.add('player-round')
 document.addEventListener('keydown', (event) => {
@@ -157,15 +154,13 @@ function checkWinner() {
         if (position1 != '' && position2 != '' && position3 != '') {
             if (position1 === position2 && position1 === position3) {
                 if (position1 === 'O') {
-                    // alert('Player two wins!')
+                    alert('Player two wins!')
 
-                    dialog.showModal()
                     playerOnePoint += 1
                     playerOnePoints.innerText = playerOnePoint
                 }
                 else {
-                    // alert('Player one wins!')
-                    dialog.showModal()
+                    alert('Player one wins!')
 
                     playerTwoPoint += 1
                     playerTwoPoints.innerText = playerTwoPoint
@@ -174,7 +169,6 @@ function checkWinner() {
                 console.log(pattern[0], pattern[1], pattern[2])
 
                 clearBoard()
-                dialog.close()
             }
         }
         
@@ -194,8 +188,3 @@ function clearBoard() {
 
     })
 } 
-
-
-document.querySelector('#close').addEventListener('click', () => {
-    dialog.close()
-})

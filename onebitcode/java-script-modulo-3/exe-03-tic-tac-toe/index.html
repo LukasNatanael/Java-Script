@@ -1,56 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Home page</title>
     <script src="https://kit.fontawesome.com/fc711cb7a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index-style.css">
 
 </head>
 <body>
     <header>
-        <i class="icons fa-solid fa-x"></i>
-
-        <div id="points">
-            <h1>Points</h1>
-            <span id="span-points">
-                <span id="player-one-points">0</span>
-                <span id="divider">|</span>
-                <span id="player-two-points">0</span>
-            </span>
-        </div>
-
-        <i class="icons fa-regular fa-circle"></i>
+        <span class="player-header">
+            <i class="icons fa-solid fa-x"></i>
+            <p>Player One</p>
+        </span>
+        <span class="player-header">
+            <i class="icons fa-regular fa-circle"></i>
+            <p>Player Two</p>
+        </span>
     </header>
 
     <main>
-
-        <section class="container">
-            <button class='box' id="7" data-key="">7</button>
-            <button class='box vertical' id="8" data-key="">8</button>
-            <button class='box' id="9" data-key="">9</button>
-            <button class='box horizontal' id="4" data-key="">4</button>
-            <button class='box vertical horizontal' id="5" data-key="">5</button>
-            <button class='box horizontal' id="6" data-key="">6</button>
-            <button class='box' id="1" data-key="">1</button>
-            <button class='box vertical' id="2" data-key="">2</button>
-            <button class='box' id="3" data-key="">3</button>
-        </section>
-
-        <!-- <dialog>
-            <h1>Player Two is the winner !</h1>
-            <i class="icons fa-solid fa-x" id="close"></i>
-        </dialog> -->
+        <aside class="form-user">
+            <label for="nameX">Player one:</label>
+            <input type="text" id="nameX">
+            <button>Salvar</button>
+        </aside>
         
+        <aside>
+            <h1>VS</h1>
+        </aside>
+
+        <aside class="form-user">
+            <label for="nameO">Player two:</label>
+            <input type="text" id="nameO">
+            <button>Salvar</button>
+        </aside>
     </main>
     
-    <footer>
-        <span id="player-one">Player One</span>
-        <!-- <input type="text" id="player-one"> -->
-        <span id="play-again">Play again</span>
-        <span id="player-two">Player Two</span>
-    </footer>
+    <footer></footer>
 </body>
-<script src="index.js"></script>
 </html>

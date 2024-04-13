@@ -1,4 +1,5 @@
 const boxes = document.querySelectorAll('.box')
+// const icons = document.querySelectorAll('.box i')
 const playerOne = document.querySelector('#player-one')
 const playerTwo = document.querySelector('#player-two')
 let playerOnePoints = document.querySelector('#player-one-points')
@@ -149,10 +150,13 @@ function checkWinner() {
         let position1 = boxes[pattern[0]].dataset.key
         let position2 = boxes[pattern[1]].dataset.key
         let position3 = boxes[pattern[2]].dataset.key
+        
+        // let icons = document.querySelectorAll('.box i')
 
         
         if (position1 != '' && position2 != '' && position3 != '') {
             if (position1 === position2 && position1 === position3) {
+                
                 if (position1 === 'O') {
                     alert('Player two wins!')
 
@@ -166,7 +170,13 @@ function checkWinner() {
                     playerOnePoints.innerText = playerOnePoint
                 }
 
+                // icons[].style.color = '#1E96FC'
+
                 console.log(pattern[0], pattern[1], pattern[2])
+                // console.log(icons.length)
+                icons[pattern[0]].style.color = 'red'
+                icons[pattern[1]].style.color = 'red'
+                icons[pattern[2]].style.color = 'red'
 
                 clearBoard()
             }

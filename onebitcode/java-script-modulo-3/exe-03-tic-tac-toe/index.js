@@ -5,6 +5,8 @@ const playerTwo = document.querySelector('#player-two')
 let playerOnePoints = document.querySelector('#player-one-points')
 let playerTwoPoints = document.querySelector('#player-two-points')
 
+let main = document.querySelector('main')
+
 let botao 
 let clickCont = cont = 0
 let playerOnePoint = 0
@@ -160,6 +162,7 @@ function checkWinner() {
                 if (position1 === 'O') {
                     alert('Player two wins!')
 
+
                     playerTwoPoint += 1
                     playerTwoPoints.innerText = playerTwoPoint
                 }
@@ -172,16 +175,15 @@ function checkWinner() {
 
                 // icons[].style.color = '#1E96FC'
 
-                console.log(pattern[0], pattern[1], pattern[2])
-                // console.log(icons.length)
-                icons[pattern[0]].style.color = 'red'
-                icons[pattern[1]].style.color = 'red'
-                icons[pattern[2]].style.color = 'red'
+                // console.log(pattern[0], pattern[1], pattern[2])
+                // // console.log(icons.length)
+                // icons[pattern[0]].style.color = 'red'
+                // icons[pattern[1]].style.color = 'red'
+                // icons[pattern[2]].style.color = 'red'
 
                 clearBoard()
             }
         }
-        
         
     }
 }
@@ -199,3 +201,27 @@ function clearBoard() {
 
     })
 } 
+
+// da para melhorar e deixar menos repetitivo
+
+document.querySelector('#lock-one').addEventListener('click', (event) => {
+    let playerOneName = document.querySelector('#player-one-name')
+
+    if (event.currentTarget.classList.toggle('fa-lock-open')) {
+        playerOneName.disabled = false
+    }
+    if (event.currentTarget.classList.toggle('fa-lock')) {
+        playerOneName.disabled = true
+    }
+})
+
+document.querySelector('#lock-two').addEventListener('click', (event) => {
+    let playerTwoName = document.querySelector('#player-two-name')
+
+    if (event.currentTarget.classList.toggle('fa-lock-open')) {
+        playerTwoName.disabled = false
+    }
+    if (event.currentTarget.classList.toggle('fa-lock')) {
+        playerTwoName.disabled = true
+    }
+})

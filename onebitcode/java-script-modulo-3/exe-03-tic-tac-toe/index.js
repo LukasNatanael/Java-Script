@@ -163,14 +163,13 @@ function checkWinner() {
             if (position1 === position2 && position1 === position3) {
                 
                 if (position1 === 'O') {
-                    alert('Player two wins!')
-
+                    alert(`${playerTwoName.value} wins!`)
 
                     playerTwoPoint += 1
                     playerTwoPoints.innerText = playerTwoPoint
                 }
                 else {
-                    alert('Player one wins!')
+                    alert(`${playerOneName.value} wins!`)
 
                     playerOnePoint += 1
                     playerOnePoints.innerText = playerOnePoint
@@ -205,64 +204,30 @@ function clearBoard() {
     })
 } 
 
-// da para melhorar e deixar menos repetitivo
+// Adicionado escuta no .player-box e seus filhos
+document.querySelectorAll('.player-box').forEach((element) => {
+    // adicionando escutas no icone de cadeado
+    element.childNodes[3].addEventListener('click', (child) => {
+        // aqui ele analisa o estado do cadeado, caso estiver liberado ele bloqueia e vice versa
+        if (child.currentTarget.classList.toggle('fa-lock-open')) {
+            element.childNodes[1].disabled = false
+        }
 
-playerOneName.addEventListener('keydown', (event) => {
-    if (event.key === 'Backspace') {
-        playerOneName.value = playerOneName.value.slice(0, -1)
-    }
-    else {
-        playerOneName.value += event.key
-    }
+        if (child.currentTarget.classList.toggle('fa-lock')) {
+            element.childNodes[1].disabled = true
+        }
 
-})
-playerTwoName.addEventListener('keydown', (event) => {
-    if (event.key === 'Backspace') {
-        playerTwoName.value = playerTwoName.value.slice(0, -1)
-    }
-    else {
-        playerTwoName.value += event.key
-    }
-})
-
-// TESTES
-
-// Habilita e desabilita o cadeado
-document.querySelectorAll('.lock').forEach(element => {
-    element.addEventListener('click', (event) => {
-        // console.log(event.currentTarget)
-        event.currentTarget.classList.toggle('fa-lock-open')
-        event.currentTarget.classList.toggle('fa-lock')
-
-        // event.currentTarget.disabled = !event.currentTarget.disabled
-        // console.log(element.currentTarget)
     })
-}) 
 
-// selecionando todos elementos `player-box`
-document.querySelectorAll('.player-box').forEach((playerBox, event) => {
-    console.log(playerBox)
-    // console.log(playerBox.childNodes[1])
-    // console.log(playerBox.childNodes[3])
+    // adicionando escutas no `input name` de cadeado
+    element.childNodes[1].addEventListener('keydown', (event) => {
+        // aqui ele analisa o estado do `input name`, caso estiver liberado ele bloqueia e vice versa
+        if (event.key === 'Backspace') {
+            element.childNodes[1].value = element.childNodes[1].value.slice(0, -1)
+        }
+        else {
+            element.childNodes[1].value += event.key
+        }
+    })
     
-    playerBox.addEventListener('click', (event) => {
-        console.log('click')
-    })
-
-    // playerBox.childNodes.forEach(element => {
-    //     if (element.className === 'name-input') {
-    //         console.log(element)
-    //     }
-    //     if (element.className === 'lock') {
-    //         console.log(element)
-    //     }
-    // })
-
-    playerBox.querySelectorAll('.lock').forEach(element => {
-        // console.log(element.attributes)
-        element.addEventListener('click', (event) => {
-            console.log(event.attributes)
-            // console.log(element.children[0])
-        })
-    })
 })

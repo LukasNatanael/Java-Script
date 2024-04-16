@@ -4,6 +4,9 @@ const playerOne = document.querySelector('#player-one')
 const playerTwo = document.querySelector('#player-two')
 let playerOnePoints = document.querySelector('#player-one-points')
 let playerTwoPoints = document.querySelector('#player-two-points')
+let playerOneName = document.querySelector('#player-one-name')
+let playerTwoName = document.querySelector('#player-two-name')
+
 
 let main = document.querySelector('main')
 
@@ -204,24 +207,62 @@ function clearBoard() {
 
 // da para melhorar e deixar menos repetitivo
 
-document.querySelector('#lock-one').addEventListener('click', (event) => {
-    let playerOneName = document.querySelector('#player-one-name')
-
-    if (event.currentTarget.classList.toggle('fa-lock-open')) {
-        playerOneName.disabled = false
+playerOneName.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace') {
+        playerOneName.value = playerOneName.value.slice(0, -1)
     }
-    if (event.currentTarget.classList.toggle('fa-lock')) {
-        playerOneName.disabled = true
+    else {
+        playerOneName.value += event.key
+    }
+
+})
+playerTwoName.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace') {
+        playerTwoName.value = playerTwoName.value.slice(0, -1)
+    }
+    else {
+        playerTwoName.value += event.key
     }
 })
 
-document.querySelector('#lock-two').addEventListener('click', (event) => {
-    let playerTwoName = document.querySelector('#player-two-name')
+// TESTES
 
-    if (event.currentTarget.classList.toggle('fa-lock-open')) {
-        playerTwoName.disabled = false
-    }
-    if (event.currentTarget.classList.toggle('fa-lock')) {
-        playerTwoName.disabled = true
-    }
+// Habilita e desabilita o cadeado
+document.querySelectorAll('.lock').forEach(element => {
+    element.addEventListener('click', (event) => {
+        // console.log(event.currentTarget)
+        event.currentTarget.classList.toggle('fa-lock-open')
+        event.currentTarget.classList.toggle('fa-lock')
+
+        // event.currentTarget.disabled = !event.currentTarget.disabled
+        // console.log(element.currentTarget)
+    })
+}) 
+
+// selecionando todos elementos `player-box`
+document.querySelectorAll('.player-box').forEach((playerBox, event) => {
+    console.log(playerBox)
+    // console.log(playerBox.childNodes[1])
+    // console.log(playerBox.childNodes[3])
+    
+    playerBox.addEventListener('click', (event) => {
+        console.log('click')
+    })
+
+    // playerBox.childNodes.forEach(element => {
+    //     if (element.className === 'name-input') {
+    //         console.log(element)
+    //     }
+    //     if (element.className === 'lock') {
+    //         console.log(element)
+    //     }
+    // })
+
+    playerBox.querySelectorAll('.lock').forEach(element => {
+        // console.log(element.attributes)
+        element.addEventListener('click', (event) => {
+            console.log(event.attributes)
+            // console.log(element.children[0])
+        })
+    })
 })

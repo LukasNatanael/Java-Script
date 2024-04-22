@@ -7,6 +7,13 @@
 
 - Existem somente enquanto a aba daquele site está aberta, ao fechar o sessionStorage é limpo
 
+```js
+    // adicionando chave e valor a serem salvos no armazenamento da sessão
+    sessionStorage.setItem('name', inputName.value)
+    sessionStorage.setItem('age', inputAge.value)
+    sessionStorage.removeItem('age', inputAge.value)
+```
+
 ## 2. Local Storage
 
 - **Dados armazenados** no navegador **que persistem mesmo após fechar a aba ou janela do navegador**

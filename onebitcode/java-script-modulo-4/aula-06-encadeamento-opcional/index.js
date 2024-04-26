@@ -17,8 +17,16 @@ const user = {
 }
 
 // console.log(user.friends[0].phone.ddd)
+/*
+  Encadeamento Opcional:
+    Simbolo => ?.
+    
+    É uma forma de tratar erros, parecido com `try & catch`. Ao invés de ele retornar um erro, ele retorna um valor `undefined` caso não encontre o que foi solicitado.
 
-// encadeamento opcional => funciona como um `if` pois, ele verifica se a propriedade existe e após isso realiza a ação, caso a propriedade não exista ele retorna `undefined`
+    Como nos exemplos abaixo, ele tenta localizar atributos que não existem dentro do array `user` logo, ele retornará o valor `undefined`
+
+*/
+
 console.log(user?.friends[0]?.phone?.ddd)
 console.log(user?.brothers?.length)
 console.log(user?.brothers?.[5].name)

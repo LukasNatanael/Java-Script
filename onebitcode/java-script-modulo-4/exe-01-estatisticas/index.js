@@ -7,8 +7,19 @@ class Calculate {
     }
 
     mediaPonderada(...numbers) {
-        let soma = numbers.reduce( (accumulate, number) => accumulate * number.n, 1)
-        return soma
+        let multNumbers = []
+        let weigths = []
+
+        numbers.forEach( (number) => {
+            multNumbers.push( number.p * number.n )
+            weigths.push(number.p)
+        })
+
+        let sumNumbers = multNumbers.reduce( (accumulate, number) => accumulate + number, 0)
+        let sumWeigths = weigths.reduce( (accumulate, number) => accumulate + number, 0)
+
+        return sumNumbers / sumWeigths
+
     }
 
     // mediana() {

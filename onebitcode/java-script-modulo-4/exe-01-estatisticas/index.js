@@ -22,18 +22,19 @@ class Calculate {
 
     }
 
-    // mediana() {
+    mediana(...numbers) {
 
-    // }
+    }
 
-    // moda() {
+    moda(...numbers) {
 
-    // }
+    }
 }
 
 const Calcular = new Calculate()
 
 const media = Calcular.media(5, 10)
 const mediaPonderada = Calcular.mediaPonderada( { n:7, p: 2 }, { n: 9, p: 5 }, { n: 3, p: 1 } )
+const mediana = Calcular.mediana(15, 14, 8, 7, 3)
 
-console.log(mediaPonderada)
+console.log(mediana)

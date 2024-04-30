@@ -23,10 +23,6 @@ class Calculate {
 
     }
 
-    // mediana(...numbers) {
-
-    // }
-
     moda(...numbers) {
         let numeros = []
         let repetidos = []
@@ -36,7 +32,6 @@ class Calculate {
             if ( !numeros.includes(number) ) {
                 numeros.push(number)
             }
-
         })
 
         numeros.forEach( (number) => {
@@ -50,6 +45,7 @@ class Calculate {
             if (position === 0) {
                 maior = quantidade
             }
+
             else if (quantidade > maior) {
                 maior = [number[0], quantidade]
             }
@@ -59,6 +55,10 @@ class Calculate {
         // console.log(`O número: ${maior[0]} apareceu ${maior[1]} vezes`)
         return maior[0]
     }
+
+    // mediana(...numbers) {
+
+    // }
 }
 
 const Calcular = new Calculate()

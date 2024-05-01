@@ -1,80 +1,54 @@
 console.clear()
 class Calculate {
     
-    mean(...numbers) {
-        let soma = numbers.reduce( (accumulate, number) => accumulate + number, 0)
-        return soma / numbers.length
+    average(...numbers) {
+        let sum = numbers.reduce( (accumulate, number) => accumulate + number, 0)
+        return sum / numbers.length
     }
 
-    ponderedMean(...numbers) {
-        let multNumbers = []
-        let weigths = []
+    weightedAverage(...entries) {
+        let sum = entries.reduce((accumulate, { number, weigth }) => accumulate + ( number * (weigth ?? 1)), 0 )
+        let weigthSum = entries.reduce((accumulate, entry) => accumulate + (entry.weigth ?? 1), 0)
 
+        return sum / weigthSum
+    }
 
-        numbers.forEach( (number) => {
-            multNumbers.push( number.p * number.n )
-            weigths.push(number.p)
-        })
+    median(...numbers) {
+        let orderedNumbers = [...numbers].sort( (a, b) => a - b )
+        let middle = parseInt(orderedNumbers.length / 2)
 
-        let sumNumbers = multNumbers.reduce( (accumulate, number) => accumulate + number, 0)
-        let sumWeigths = weigths.reduce( (accumulate, number) => accumulate + number, 0)
-
-        return sumNumbers / sumWeigths
+        if (orderedNumbers.length % 2 === 0) {
+            middle = this.average( orderedNumbers[middle - 1], orderedNumbers[middle] )
+            return middle
+        }
+        else {
+            middle = parseInt(orderedNumbers.length / 2)
+            return orderedNumbers[middle]
+        }
 
     }
 
     mode(...numbers) {
-        let numeros = []
-        let repetidos = []
-        let maior
+        // [ [num, qtd], [num, qtd], [num, qtd] ]
+        const quantities = numbers.map( num => [
+            num,
+            numbers.filter( n => n === num ).length
+        ] )
 
-        numbers.forEach( (number) => {
-            if ( !numeros.includes(number) ) {
-                numeros.push(number)
-            }
-        })
-
-        numeros.forEach( (number) => {
-            repetidos.push(numbers.filter( repetNumber => repetNumber === number))
-        })
+        quantities.sort( (a, b) => b[1] - a[1] )
         
-        repetidos.forEach((number, position) => {
-            let quantidade = repetidos[position].length
-            if (position === 0) {
-                maior = quantidade
-            }
-
-            else if (quantidade > maior) {
-                maior = [number[0], quantidade]
-            }
-
-        })
-
-        return maior[0]
-    }
-
-    median(...numbers) {
-        // let ordenados = numbers.sort( (a, b) => a - b ) // decreasing order
-        let ordenados = numbers.sort( (a, b) => a + b ) // increment order
-        let meio
-
-        if (ordenados.length % 2 === 0) {
-            meio = parseInt(ordenados.length / 2)
-            meio = this.mean( ordenados[meio - 1], ordenados[meio] )
-            return meio
-        }
-        else {
-            meio = parseInt(ordenados.length / 2)
-            return ordenados[meio]
-        }
-
+        return quantities[0][0]
     }
 }
 
 const Calcular = new Calculate()
 
-const media = Calcular.mean(5, 10)
-const mediaPonderada = Calcular.ponderedMean( { n:7, p: 2 }, { n: 9, p: 5 }, { n: 3, p: 1 } )
+const media = Calcular.average(5, 10)
+const mediaPonderada = Calcular.weightedAverage(
+    { number: 9, weigth: 3 },
+    { number: 7 },
+    { number: 10, weigth: 1 }
+)
 const moda = Calcular.mode(1, 1, 5, 4, 9, 7, 4, 3, 5, 2, 4, 0, 4)
 const mediana = Calcular.median(15, 14, 8, 7, 3)
 const medianaDuble = Calcular.median(2, 4, 5, 7, 42, 99)

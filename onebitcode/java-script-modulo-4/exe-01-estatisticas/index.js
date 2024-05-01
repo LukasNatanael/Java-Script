@@ -1,12 +1,12 @@
 console.clear()
 class Calculate {
     
-    media(...numbers) {
+    mean(...numbers) {
         let soma = numbers.reduce( (accumulate, number) => accumulate + number, 0)
         return soma / numbers.length
     }
 
-    mediaPonderada(...numbers) {
+    ponderedMean(...numbers) {
         let multNumbers = []
         let weigths = []
 
@@ -23,7 +23,7 @@ class Calculate {
 
     }
 
-    moda(...numbers) {
+    mode(...numbers) {
         let numeros = []
         let repetidos = []
         let maior
@@ -40,8 +40,6 @@ class Calculate {
         
         repetidos.forEach((number, position) => {
             let quantidade = repetidos[position].length
-            // console.log(`O número: ${number[0]} aparece: ${quantidade}`)
-
             if (position === 0) {
                 maior = quantidade
             }
@@ -52,23 +50,38 @@ class Calculate {
 
         })
 
-        // console.log(`O número: ${maior[0]} apareceu ${maior[1]} vezes`)
         return maior[0]
     }
 
-    // mediana(...numbers) {
+    median(...numbers) {
+        // let ordenados = numbers.sort( (a, b) => a - b ) // decreasing order
+        let ordenados = numbers.sort( (a, b) => a + b ) // increment order
+        let meio
 
-    // }
+        if (ordenados.length % 2 === 0) {
+            meio = parseInt(ordenados.length / 2)
+            meio = this.mean( ordenados[meio - 1], ordenados[meio] )
+            return meio
+        }
+        else {
+            meio = parseInt(ordenados.length / 2)
+            return ordenados[meio]
+        }
+
+    }
 }
 
 const Calcular = new Calculate()
 
-const media = Calcular.media(5, 10)
-const mediaPonderada = Calcular.mediaPonderada( { n:7, p: 2 }, { n: 9, p: 5 }, { n: 3, p: 1 } )
-const moda = Calcular.moda(1, 1, 5, 4, 9, 7, 4, 3, 5, 2, 4, 0, 4)
+const media = Calcular.mean(5, 10)
+const mediaPonderada = Calcular.ponderedMean( { n:7, p: 2 }, { n: 9, p: 5 }, { n: 3, p: 1 } )
+const moda = Calcular.mode(1, 1, 5, 4, 9, 7, 4, 3, 5, 2, 4, 0, 4)
+const mediana = Calcular.median(15, 14, 8, 7, 3)
+const medianaDuble = Calcular.median(2, 4, 5, 7, 42, 99)
 
-// const mediana = Calcular.mediana(15, 14, 8, 7, 3)
 
 console.log(`\nMédia: ${media}`)
 console.log(`Média Ponderada: ${mediaPonderada}`)
-console.log(`Moda: ${moda}\n`)
+console.log(`Moda: ${moda}`)
+console.log(`Mediana: ${mediana}`)
+console.log(`Mediana dupla: ${medianaDuble}\n`)

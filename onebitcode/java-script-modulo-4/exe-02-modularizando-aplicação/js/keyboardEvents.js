@@ -1,4 +1,4 @@
-import { calculate } from "./commonFunction.js"
+import calculate from "./calculate.js"
 export function pressedKey(event) {
     // Definindo teclas que podem ser pressionadas
     const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "]

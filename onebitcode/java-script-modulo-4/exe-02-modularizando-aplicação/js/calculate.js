@@ -3,7 +3,6 @@ export function calculate() {
     const resultInput = document.querySelector('#result')
 
     // Tratamento de erros simples
-
     resultInput.value = 'ERROR'
     resultInput.classList.add('error')
     

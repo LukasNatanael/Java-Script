@@ -1,6 +1,6 @@
 import { copyToClipboard, themeSwitcher, clearInput } from './mouseEvents.js'
-import { calculate } from './commonFunction.js'
-import { pressedKey } from './keyboardEvents.js'
+import calculate from './calculate.js'
+import pressedKey from './keyboardEvents.js'
 
 document.querySelectorAll('.charKey').forEach( charKeyBtn => {
     charKeyBtn.addEventListener('click', () => {

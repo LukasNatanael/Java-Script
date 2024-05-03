@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Generator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/26a1ab3145.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- <h1>Service Generator</h1> -->
@@ -13,21 +14,24 @@
             <a href="#">Home</a>
             <a href="#">Atendimentos</a>
         </header>
+        <div id="top-main"></div>
         <main id="main-form">
-            <!-- <div id="top-main"></div> -->
             <form id="form">
                 <fieldset>
-                    <label for="cadastro">Cadastro:</label>
+                    <label for="cadastro">Cadastro</label>
                     <input type="text" name="cadastro" id="cadastro">
+                    <i class="fa-regular fa-copy"></i>
                 </fieldset>
                 
                 <fieldset>
-                    <label for="contato">Contato:</label>
+                    <label for="contato">Contato</label>
                     <input type="tel" name="contato" id="contato">
+                    <i class="fa-regular fa-copy"></i>
+
                 </fieldset>
                 
                 <fieldset>
-                    <label for="serviço">Serviços:</label>
+                    <label for="serviço">Serviços</label>
                     <select name="serviços" id="serviços">
                         <optgroup>
                             <option selected disabled hidden>Informe um serviço</option>
@@ -41,12 +45,12 @@
                     </select>
                 </fieldset>
 
-                <fieldset>
-                    <label for="ordem-serviço">Ordem de serviço:</label>
+                <fieldset class="check">
+                    <label for="ordem-serviço">Ordem de serviço</label>
                     <input type="checkbox" name="ordem-serviço" id="ordem-serviço">
                 </fieldset>
-                <fieldset>
-                    <label for="resolvido">Resolvido:</label>
+                <fieldset class="check">
+                    <label for="resolvido">Resolvido</label>
                     <input type="checkbox" name="resolvido" id="resolvido">
                 </fieldset>
 

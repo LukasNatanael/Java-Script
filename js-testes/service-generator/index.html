@@ -7,14 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Service Generator</h1>
-
-    <section id="services-box blue-theme">
-        <header>
-            <a href="home">Home</a>
-            <a href="atendimentos">Atendimentos</a>
+    <!-- <h1>Service Generator</h1> -->
+    <section id="services-box">
+        <header id="top-menu">
+            <a href="#">Home</a>
+            <a href="#">Atendimentos</a>
         </header>
-        <main></main>
+        <main id="main-form">
+            <!-- <div id="top-main"></div> -->
+            <form id="form">
+                <fieldset>
+                    <label for="cadastro">Cadastro:</label>
+                    <input type="text" name="cadastro" id="cadastro">
+                </fieldset>
+                
+                <fieldset>
+                    <label for="contato">Contato:</label>
+                    <input type="tel" name="contato" id="contato">
+                </fieldset>
+                
+                <fieldset>
+                    <label for="serviço">Serviços:</label>
+                    <select name="serviços" id="serviços">
+                        <optgroup>
+                            <option selected disabled hidden>Informe um serviço</option>
+                            <option value="sem acesso">Sem acesso</option>
+                            <option value="lentidão">Lentidão</option>
+                            <option value="outros">Outros</option>
+                            <option value="quedas">Quedas</option>
+                            <option value="telefonia">Telefonia</option>
+                            <option value="jogos">Jogos</option>
+                        </optgroup>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <label for="ordem-serviço">Ordem de serviço:</label>
+                    <input type="checkbox" name="ordem-serviço" id="ordem-serviço">
+                </fieldset>
+                <fieldset>
+                    <label for="resolvido">Resolvido:</label>
+                    <input type="checkbox" name="resolvido" id="resolvido">
+                </fieldset>
+
+                <button id="gerar-atendimento">Gerar atendimento</button>
+            </form>
+
+        </main>
     </section>
     
 </body>

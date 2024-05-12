@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/LukasNatanael/Java-Script/issues"
   },
-  "homepage": "https://github.com/LukasNatanael/Java-Script#readme"
+  "homepage": "https://github.com/LukasNatanael/Java-Script#readme",
+  "dependencies": {
+    "dayjs": "^1.11.11"
+  }
 }

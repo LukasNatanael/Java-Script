@@ -15,46 +15,44 @@ console.clear()
 
 */
 
-const today = dayjs(new Date())
-const lukasBirthday = dayjs('2004/09/12')
+const today = dayjs(new Date(), 'br')
+const lukasBirthday = dayjs('2004/07/13')
 
 // Diferença de ANOS
 let lukasAge = today.diff(lukasBirthday, 'year')
 
 // meses faltantes
 const mesesFaltantes = lukasBirthday.month() - today.month()
-let diasFaltantes = today.date() - lukasBirthday.date()
-diasFaltantes < 0 ? diasFaltantes *= -1: diasFaltantes
 
-let diasAteAniversario = (today.daysInMonth() * mesesFaltantes) + diasFaltantes
-
-
-let lukasNextBirthday, msg
-
-if (mesesFaltantes === -1) {
-    lukasNextBirthday = `${lukasBirthday.date()}/${lukasBirthday.add(1, 'month').month()}/${today.add( 1, 'year' ).year()}`
-    lukasAge += 1
-    msg = 'Feliz aniversário!'
-}
-else {
-    lukasNextBirthday = `${lukasBirthday.date()}/${lukasBirthday.add(1, 'month').month()}/${today.year()}`
-    msg = `${diasFaltantes} dias e ${mesesFaltantes} meses para seu aniversário.`
-}
-
-console.log(`Atualmente Lukas tem ${lukasAge} anos e seu próximo aniversário será: ${lukasNextBirthday}. \nAinda restam ${diasAteAniversario} dias de espera ou ${msg}`)
-
-console.log()
-
+// dias faltantes
 let contDays = []
 
 for (let cont = mesesFaltantes; cont > 0; cont --) {
-    // console.log(cont)
-    // console.log(today.add(cont, 'month').daysInMonth())
     contDays.push(today.add(cont, 'month').daysInMonth())
 }
 
-let sum = contDays.reduce( (acumullate, num) => acumullate += num, 0 )
+// somando dias de cada mês seguinte para calcular os dias
+contDays = contDays.reduce( (acumullate, num) => acumullate += num, 0 )
 
-console.log(sum)
+let diasFaltantes = contDays + (today.date() - lukasBirthday.date())
+diasFaltantes < 0 ? diasFaltantes *= -1: diasFaltantes
 
+let lukasNextBirthday, msg
 
+if (diasFaltantes === 0) {
+    lukasNextBirthday = dayjs(new Date(today), 'DD/MM/YYYY').add(1, 'year')
+    msg = 'Feliz aniversário!'
+}
+else {
+    // lukasNextBirthday = `${lukasBirthday.date()}/${lukasBirthday.add(1, 'month').month()}/${today.year()}`
+    msg = `Ainda restam ${diasFaltantes} dias de espera.`
+
+    lukasNextBirthday = dayjs(new Date(today), 'DD/MM/YYYY')
+
+    // console.log(lukasNextBirthday)
+
+}
+
+console.log(`Atualmente Lukas tem ${lukasAge} anos e seu próximo aniversário será: ${lukasNextBirthday.date()}/${lukasBirthday.add(1, 'month').month()}/${lukasNextBirthday.year()}. \n${msg}`)
+
+console.log()

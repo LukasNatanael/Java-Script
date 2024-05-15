@@ -1,6 +1,12 @@
 /*
-    O módulo `babel` serve para adaptar seu código para versões mais antigas do JS, em navegadores desatualizados
+    O módulo `babel`(https://babeljs.io/) serve para adaptar seu código para versões mais antigas do JS, em navegadores desatualizados
+    exemplos:
+        arrow function
+        promisses
+    
     -D é equivalente a --save-dev
+    ex:
+        npm i babel -D
 
     Link da aula: https://onebitcode.notion.site/30-Usando-o-Babel-205b6a18d7864869bc641e2792de75e1
 */

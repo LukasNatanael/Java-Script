@@ -58,5 +58,5 @@ Para evitar digitar o mesmo código diversar vezes, basta adicionar como um `scr
   }
 ```
 
-após isso basta utilizar o comando `npm run babel`
+Após isso basta utilizar o comando `npm run babel`, pois todas as configurações já foram definidas.
 

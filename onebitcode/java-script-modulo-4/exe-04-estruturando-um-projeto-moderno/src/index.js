@@ -1,24 +1,12 @@
-import dayjs from 'dayjs'
+import { CPF, CNPJ } from '@julioakira/cpf-cnpj-utils'
+import './styles/index.css'
 
-const inputBirthday = document.querySelector('#birthday')
-const sendDate = document.querySelector('#send-date')
+// Returns 30.306.294/0001-45
+const formatted = CNPJ.Format('30306294000145')
+const stripped = CNPJ.Strip('30.306.294/0001-45')
 
-function birthday(date) {
-    const birthday = dayjs(date)
-    const today = dayjs()
+const validFormatted = CNPJ.Validate(formatted)
+const validStripped = CNPJ.Validate(stripped)
 
-    const ageInYears = today.diff(birthday, 'year')
-    const nextBirthday = birthday.add(ageInYears + 1, 'year')
-    const daysToNextBirthday = nextBirthday.diff(today, 'day') + 1
-    
-    console.log(`Idade: ${ageInYears}`)
-    console.log(`Próximo aniversário: ${nextBirthday.format('DD/MM/YYYY')}`)
-    console.log(`Dias até completar ${ageInYears + 1} anos: ${daysToNextBirthday}`)
-}
-
-
-sendDate.addEventListener('click', () => {
-    console.log(inputBirthday.value)
-    birthday(inputBirthday.value)
-})
-
+console.log(formatted, validFormatted)
+console.log(stripped, validStripped)

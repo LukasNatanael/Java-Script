@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validador de CPF/CNPJ</title>
-    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="../src/styles/index.css">
+    <script src="https://kit.fontawesome.com/26a1ab3145.js" crossorigin="anonymous"></script>
     <script type="module" src="index.js" defer></script>
 </head>
 <body>
     <h1>Validador de CPF/CNPJ</h1>
     
+    <section id="document">
+        <aside id="left-info">
+            <p>Registro geral <span id="rg">00.000.000-00</span></p>
+            <p>Nome <br> <span id="nome">Aaaaaa Aaaaaa Aaaaaa</span></p>
+            <p>Filiação <br> <span id="nome-pai">Aaaaaa Aaaaaa Aaaaaa</span> <br><span id="nome-mae">Bbbbbbb Bbbbb Bbbbb</span></p>
+            <p>Naturalidade <br><span id="naturalidade">Aaaaaaaa</span></p>
+            <!-- <p>CPF <br> <span id="cpf">000.000.000-00</span></p> -->
+            <p>CPF <br> <input type="number" id="cpf"></p>
+        </aside>
+        <aside id="right-info">
+            <p>Data de expedição <span id="expedicao">DD/MM/AAAA</span></p>
+            <i class="fa-regular fa-circle-user" id="user-icon"></i>
+            <p>Data de nascimento <span id="expedicao">DD/MM/AAAA</span></p>
+            <button id="validar-cpf">Validar CPF</button>
+        </aside>
+    </section>
 </body>
 </html>

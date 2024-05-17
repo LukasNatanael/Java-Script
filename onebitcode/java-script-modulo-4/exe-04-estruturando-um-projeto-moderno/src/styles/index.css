@@ -10,11 +10,87 @@
 
     --validate-color: #60D394;
     --invalidate-color: #EE6055;
-    --button-color: #588157;
+    --button-color: #3A5A40;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: var(--background-color);
     color: var(--font-color);
     font-family: var(--font-family);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 70vh;
+    margin-top: 5rem;
+}
+
+#document {
+    background-color: var(--document-bg2-color);
+    border: 12px solid var(--document-bg1-color);
+    /* width: 20rem; */
+    width: 50%;
+    height: 70%;
+
+    border-radius: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+#left-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#right-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#user-icon {
+    font-size: 10rem;
+    color: var(--document-bg1-color);
+}
+
+#validar-cpf {
+    background-color: var(--button-color);
+    color: var(--font-color);
+    border-radius: 1rem;
+    padding: 7px 8rem;
+    border: 1px solid var(--button-color);
+    font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+
+        background-color: transparent;
+        border-color: var(--button-color);
+        color: var(--button-color);
+    }
+}
+
+
+#cpf {
+    background-color: transparent;
+    border: transparent;
+    border-bottom: 2px solid var(--document-bg1-color);
+    margin-bottom: 3px;
+    color: var(--font-color);
+    font-size: 1rem;
+
+    &:focus {
+        outline: transparent;
+        border-color: var(--button-color);
+    }
 }

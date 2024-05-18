@@ -35,9 +35,12 @@ body {
 #document {
     background-color: var(--document-bg2-color);
     border: 12px solid var(--document-bg1-color);
-    /* width: 20rem; */
-    width: 50%;
-    height: 70%;
+
+    /* width: 50%; */
+    /* height: 70%; */
+    
+    width: 50rem;
+    height: 23rem;
 
     border-radius: 2rem;
 
@@ -84,7 +87,8 @@ body {
 #cpf {
     background-color: transparent;
     border: transparent;
-    border-bottom: 2px solid var(--document-bg1-color);
+    /* border-bottom: 2px solid var(--document-bg1-color); */
+    width: 15rem;
     margin-bottom: 3px;
     color: var(--font-color);
     font-size: 1rem;
@@ -93,4 +97,13 @@ body {
         outline: transparent;
         border-color: var(--button-color);
     }
+}
+
+.valid {
+    border-bottom: 2px solid var(--validate-color);
+
+}
+.invalid {
+    border-bottom: 2px solid var(--invalidate-color);
+    
 }

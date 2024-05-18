@@ -10,8 +10,8 @@ module.exports = {
             use: ['style-loader', 'css-loader']
         }]
     },
-    // output: {
-    //     path: path.resolve(__dirname, 'dist'),
-    //     filename: '[name].min.js'
-    // }
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].min.js'
+    }
 }

@@ -1,11 +1,24 @@
 /*
-    Os objetos em JS permitem criar atributos de diversas formas sendo eles:
+    Os objetos em JS permitem criar métodos e atributos de diversas formas sendo eles:
         - Função comum:
             function getSummary()
         - Função anônima:
             getTitle = () => { return this.title }
         - Definindo após a criação do objeto:
             book.save = () => { console.log('this function save the file in database') }
+        - Função construtora:
+            function Book(title, author, pages, publishYear, tags)
+            
+            Basta instanciar essa função e começar a utilizá-la:
+            const HarryPotter = new Book(
+                'Harry Potter e a Pedra Filosofal',
+                'J.K.Rowling',
+                317,
+                1997,
+                ['fantasy', 'adventure', 'romance']
+            )
+
+
 */
 const book = {
     title: 'Harry Potter e a Pedra Filosofal',

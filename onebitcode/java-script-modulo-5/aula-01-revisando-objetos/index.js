@@ -73,6 +73,7 @@ function Book(title, author, pages, publishYear, tags) {
     }
 }
 console.clear()
+// PascalCase
 const HarryPotterAuthor = { name: 'J.K.Rowling' }
 const HarryPotterTags = ['fantasy', 'adventure', 'romance']
 

@@ -1,13 +1,14 @@
 const User = require('./User.js');
 const Product = require('./Product.js');
 
-const Rafael     = new User('Rafael', 'rafael@gmail.com', '123')
-const ToucaCetim = new Product('Touca de cetim', 'Protege seu cabelo durante o sono e evita frizz', 12)
+const rafael     = new User('Rafael', 'rafael@gmail.com', '123')
+const watch = new Product('Smart Watch', '...', 80)
 
 console.clear()
-Rafael.login('rafael@gmail.com', '123')
+rafael.login('rafael@gmail.com', '123')
 
-ToucaCetim.addToStock(15)
-ToucaCetim.calculateDiscount(50)
+watch.addToStock(15)
+watch.calculateDiscount(50)
 
-console.log(`A ${ToucaCetim.name} está com um desconto de ${ToucaCetim.discountOf}%. Ela saiu de R$${ToucaCetim.price},00 para R$${ToucaCetim.calculateDiscount(ToucaCetim.discountOf)},00`)
+const watchWithDiscount = watch.calculateDiscount(15)
+console.log(`O valor original do ${watch.name} é ${watch.price},00 pagando à vista você tem 15% de desconto totalizando em R$${watchWithDiscount},00 reais`)

@@ -1,12 +1,12 @@
 class Post {
     constructor( title, ...comments ) {
-        // this.author = author
         this.title = title
         this.comments = [...comments]
     }
 
     createNewPost( title, comments ) {
         this.posts.createNewPost( title, comments )
+        this.contPosts++
     }
 
     addComment( author, ...comments ) {
@@ -28,9 +28,6 @@ class Comment {
         else {
             this.comments.push(comments)
         }
-
-        // return this.comments
-
     }
 
     addComment( author, comments ) {
@@ -52,11 +49,14 @@ class Author {
         this.name = name
         this.email = email
         this.password = password
+        this.quantityPosts = 0
         this.posts = []
+
     }
 
     createNewPost(title, ...comments) {
         this.posts.push(new Post(title, ...comments))
+        this.quantityPosts++
 
         // console.log(this.posts)
     }
@@ -75,23 +75,25 @@ post1.addComment( 'MarceloD4', ...MarceloD4Comments )
 
 
 // console.clear()
-const lukas = new Author( 'Lukas Natanael', 'lukas@lukas.lukas', 123 )
-lukas.createNewPost('Montei meu pc gamer',
+const user1 = new Author( 'Lukas Natanael', 'lukas@lukas.lukas', 123 )
+user1.createNewPost('Montei meu pc gamer',
     new Comment('Jefferson', 'Caramba, que legal! Qual a configuração dele ?')
 )
 
-lukas.createNewPost('Gostaria de comprar novos perféricos, alguém recomenda algum ?',
+user1.createNewPost('Gostaria de comprar novos perféricos, alguém recomenda algum ?',
     new Comment('Pedro', 'Você precisa de algum perifério em específico ?'),
-    new Comment('João', 'Tem algum gosto para que eu possa ter como base ?')
+    new Comment('João', 'Tem algum gosto para que eu possa ter como base ?'),
+    new Comment('Talita', 'Quais são as cores que você utiliza em seu setup ?')
 )
 
-lukas.posts[0].addComment( 'Matheus', 'Em qual loja você pegou as peças ?' )
+user1.posts[0].addComment( 'Matheus', 'Em qual loja você pegou as peças ?' )
 
-lukas.createNewPost( post1.title, ...post1.comments )
-// console.log(lukas.posts)
+user1.createNewPost( post1.title, ...post1.comments )
 post1.addAuthor( 'Matheus', 'matheuzinho@gmail.com', 55555 )
 
-console.log( post1.author.name )
-console.log( post1 )
-// console.log(lukas.name)
-// console.log(lukas.posts)
+post1.addComment('Maria Rauana' ,'Scooby-doo')
+post1.addComment('Norvil Sauxicha' ,'Eu chamaria de Scooby-loo, esse gato parece chato...')
+
+
+// console.log(user1)
+console.log(post1.comments)

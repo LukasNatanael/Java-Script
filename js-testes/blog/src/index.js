@@ -1,25 +1,38 @@
-const Author = require('./Author.js')
+class Author {
+    constructor( name, email, password ) {
+        this.name = name
+        this.email = email
+        this.password = password
+        this.posts = []
+    }
+
+    createNewPost(title, content) {
+        const post = new Post(title, content, this)
+        this.posts.push(post)
+        return post
+    }
+}
+
+class Post {
+    constructor( title, content, author ) {
+        this.title = title
+        this.content = content
+        this.author = author
+        this.comments = []
+        this.createdAt = new Date()
+
+    }
+    addComment( author, content ) {
+        this.comments.push( new Comment( author, content ) )
+    }
+}
+
+class Comment {
+    constructor(username, content ) {
+        this.username = username
+        this.content = content
+        this.createdAt = new Date()
+    }
+}
 
 console.clear()
-const lukas = new Author( 'Lukas Natanael', 'lukas@lukas.lukas', 123 )
-
-const pcGamer = lukas.createNewPost(
-    'Montei meu pc gamer',
-    'Comecei a trabalhar ano passado, e desde então comecei a dar pequenos passos para alcançar cada meta que eu possuia...',
-)
-
-pcGamer.addComment(
-    'Matheus',
-    'Que maneiro! Como você começo a trabalhar, provavelmente possui alguma nova meta, quais seriam elas ?'
-)
-
-const perifericos = lukas.createNewPost(
-    'Gostaria de comprar novos perféricos, alguém recomenda algum ?',
-    'Recentemente montei meu pc gamer praticamente completo, mas aida faltam alguns periféricos, não me importo tanto com quanto irei gastar, desde que sejam periféricos de boa qualidade. Vocês tem algum para me recomendar ?',
-)
-
-perifericos.addComment('Pedro', 'Você precisa de algum perifério em específico ?')
-perifericos.addComment('João', 'Tem algum gosto para que eu possa ter como base ?')
-perifericos.addComment('Talita', 'Quais são as cores que você utiliza em seu setup ?')
-
-// document.body.querySelector('button').addEventListener('click', () => console.log('Post created!'))

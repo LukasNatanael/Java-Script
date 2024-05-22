@@ -5,9 +5,9 @@ module.exports = {
     },
     entry: {
         index: './src/index.js',
-        author: './src/Author.js',
-        comment: './src/Comment.js',
-        post: './src/Post.js',
+        // author: './src/Author.js',
+        // comment: './src/Comment.js',
+        // post: './src/Post.js',
     },
     mode: 'production',
     module: {

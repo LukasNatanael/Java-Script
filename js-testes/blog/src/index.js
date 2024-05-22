@@ -13,7 +13,6 @@ pcGamer.addComment(
     'Que maneiro! Como você começo a trabalhar, provavelmente possui alguma nova meta, quais seriam elas ?'
 )
 
-
 const perifericos = lukas.createNewPost(
     'Gostaria de comprar novos perféricos, alguém recomenda algum ?',
     'Recentemente montei meu pc gamer praticamente completo, mas aida faltam alguns periféricos, não me importo tanto com quanto irei gastar, desde que sejam periféricos de boa qualidade. Vocês tem algum para me recomendar ?',
@@ -23,6 +22,4 @@ perifericos.addComment('Pedro', 'Você precisa de algum perifério em específic
 perifericos.addComment('João', 'Tem algum gosto para que eu possa ter como base ?')
 perifericos.addComment('Talita', 'Quais são as cores que você utiliza em seu setup ?')
 
-
-console.log(lukas)
-console.log(pcGamer)
+// document.body.querySelector('button').addEventListener('click', () => console.log('Post created!'))

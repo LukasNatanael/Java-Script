@@ -4,8 +4,10 @@ module.exports = {
         static: path.resolve(__dirname, 'dist')
     },
     entry: {
-        index: path.resolve(__dirname, 'index.js')
-        // index: './src/index.js'
+        index: './src/index.js',
+        author: './src/Author.js',
+        comment: './src/Comment.js',
+        post: './src/Post.js',
     },
     mode: 'production',
     module: {
@@ -19,7 +21,7 @@ module.exports = {
         }]
     },
     output: {
-        // filename: '[name].bundle.js'
-        filename: 'bundle.js'
+        filename: '[name].min.js'
+        // filename: 'bundle.js'
     }
 }

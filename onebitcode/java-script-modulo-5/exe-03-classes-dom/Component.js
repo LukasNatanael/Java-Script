@@ -1,16 +1,16 @@
 class Component {
-    #type
+    // #type
     #elementStyle = document.createElement('style')
     #element
     constructor( type, width, height, background='white') {
         // public properties
-        this.#type = type
+        this.type = type
         this.width = width
         this.heigth = height
         this.background = background
         
         // private properties
-        this.#element      = document.createElement(this.#type)
+        this.#element = document.createElement(this.type)
         // this.#elementStyle = document.createElement('style')
         this.#element.setAttribute('style', '')
 
@@ -55,19 +55,28 @@ class Component {
         return this.#element.value
     }
 
-    show(yes=true) {
-        if (yes) {
-            this.#element.style.display = 'block'
-        }
-        else {
-            this.#element.style.display = 'none'
-        }
-    }
-
-    build() {}
-
-    render() {
+    build() {
+        this.#element.style.display = 'none'
         document.body.appendChild( this.#element )
+    }
+    
+    render() {
+        this.#element.style.display = 'block'
+    }
+}
+
+class Input extends Component {
+    #element
+    #elementStyle
+    constructor(width, height) {
+        // super( width, height )
+        this.#element = document.createElement('input')
+
+        console.log(`${width}`)
+
+    }
+    setPlaceholder(placeholder) {
+        this.#element.style.placeholder = placeholder
     }
 }
 
@@ -81,4 +90,10 @@ div.setStyleAll(`
     border-radius: 10px;
 `)
 
+div.build()
 div.render()
+
+
+const input = new Input('100px', '100px')
+input.build()
+input.render()

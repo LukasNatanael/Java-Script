@@ -1,38 +1,28 @@
-/*
-    Criar uma classe mãe/super para um Component genério que deve possuir:
-        - atributo #privado que armazena a referencia ao DOM
-        - método para ler o valor desse atributo
-        - metodo build() para criar um elemento, que deve ser chamado apenas UMA VEZ no construtor, mas também deve ser possível ser chamado através da instância
-        - metodo render() para adicionar o elemento a página que pode ser chamado pela instância a qualquer momento
-        ** opcional **:
-            - metodo destroy() para remover o elemento da página que pode ser chamado pela instância a qualquer momento
-    
-    Criar classes filhas/sub class que devem herdar a classe Componet específica para cada elemento:
-        - sub class Input deve possuir:
-            - método para adicionar placeholder
-            ...
-        - sub class Label deve possuir:
-            - metodo para adicionar conteúdo de texto
-            - metodo para adicionar For
-            ...
-        - sub class Form deve possuir:
-            - metodo para atribuir elemento como filho através das instâncias das classes Component e suas subclasses
-    
-*/
+import { Component } from "./Component.js"
+import { Form } from "./Form.js"
+import { Label } from "./Label.js"
+import { Input } from "./Input.js"
 
+const title = new Component( 'h1', 'body', { textContent: 'Olá mundo!' } )
+console.log(title)
+title.render()
 
-const main = document.createElement('main')
-const style = document.createAttribute('style')
-const classe = document.createAttribute('class', 'main')
+title.tag = 'h3'
 
-// classe.value = 'heigth: 100px'
+title.build().render()
 
-// main.setAttribute('class', 'main')
-// style.value = ['height: 100px; width: 100px; background: red']
-// main.setAttributeNode(style)
+const form = new Form('body')
 
+const label = new Label('Nome:', form, { htmlFor: 'nameInput'})
+const input = new Input(form, { id: 'nameInput', name: 'name' })
 
+label.render()
+form.render()
+form.addChildren(input)
 
-// console.log(classe)
-// console.log(main)
-// document.body.appendChild(main)
+form.addChildren(
+    new Component('br'),
+    new Component('br'),
+    new Label('Data de nascimento', form ,{ htmlFor: 'inputBirthday'}),
+    new Input(form, { id: 'inputBirthday', name: 'birthday', type: 'date' })
+)

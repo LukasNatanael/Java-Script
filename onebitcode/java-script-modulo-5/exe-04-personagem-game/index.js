@@ -1,7 +1,6 @@
 const Mage = require('./Mage')
 const Thief = require('./Thief')
 const Warrior = require('./Warrior')
-const Character = require('./Character')
 
 // main characters
 const Dumbledore = new Mage( 'Dumbledore', 90, 4, 2, 14 )

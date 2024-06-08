@@ -33,8 +33,8 @@ class Deposit {
     }
 }
 
-console.clear()
-const deposit = new Deposit(120)
+// console.clear()
+// const deposit = new Deposit(120)
 
 
 module.exports = Deposit

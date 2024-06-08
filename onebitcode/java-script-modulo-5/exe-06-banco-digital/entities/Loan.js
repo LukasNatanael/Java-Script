@@ -54,9 +54,9 @@ class Loan {
     }
 }
 
-console.clear()
-const emprestimo = new Loan( 1500, 12 )
-console.log(emprestimo.data)
-console.log(emprestimo.installMentsValue)
+// console.clear()
+// const emprestimo = new Loan( 1500, 12 )
+// console.log(emprestimo.data)
+// console.log(emprestimo.installMentsValue)
 
 module.exports = Loan

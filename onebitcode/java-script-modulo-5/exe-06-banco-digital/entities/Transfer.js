@@ -2,8 +2,6 @@
     Ambos os usuários de devem ser instâncias de uma classe User própria
 */
 
-const Deposit = require("./Deposit")
-
 class Transfer{
     #fromUser
     #toUser
@@ -24,11 +22,11 @@ class Transfer{
     get depositDate() { return this.#createdAt     }
 }
 
-console.clear()
-const transfer = new Transfer( 
-    { name: 'Lukas'},
-    { name: 'Talita'},
-    500
-)
+// console.clear()
+// const transfer = new Transfer( 
+//     { name: 'Lukas'},
+//     { name: 'Talita'},
+//     500
+// )
 
 module.exports = Transfer

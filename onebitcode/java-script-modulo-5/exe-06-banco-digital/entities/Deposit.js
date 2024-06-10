@@ -16,16 +16,16 @@
 
 
 class Deposit {
-    #transferValue
+    #value
     #createdAt
-    constructor(transferValue) {
-        this.#transferValue = transferValue
+    constructor(value) {
+        this.#value = value
         this.#createdAt     = new Date()
         console.log(`[ New deposit ] $${this.value} foram adicionados a sua conta!`)
     }
 
     get value() {
-        return this.#transferValue
+        return this.#value
     }
 
     get depositDate() {

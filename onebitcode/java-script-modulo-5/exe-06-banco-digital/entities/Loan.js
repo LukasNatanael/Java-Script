@@ -35,11 +35,12 @@ class Loan {
     get installMents()      { return this.#installMents.quantity }
     get installMentsValue() { return this.#installMents.value    }
     get total()             { return this.#installMents.total    }
-    get feeValue()          { return Loan.#feeValue              }
+    static get feeValue()   { return Loan.#feeValue              }
     get createdAt()         { return this.#createdAt             }
 
-    set feeValue(feeValuePercent) {
-        Loan.#feeValue = ( Loan.#feeValue * feeValuePercent ) / 100 + Loan.#feeValue
+    static set feeValue(feeValuePercent) {
+        // Loan.#feeValue = ( Loan.#feeValue * feeValuePercent ) / 100 + Loan.#feeValue
+        Loan.#feeValue = feeValuePercent
     }
 
     get data() {
@@ -48,7 +49,7 @@ class Loan {
             installMents:      this.installMents,
             installMentsValue: this.installMentsValue,
             total:             this.total,
-            feeValue:          this.feeValue,
+            feeValue:          Loan.feeValue,
             createdAt:         this.createdAt
         }
     }
@@ -58,5 +59,9 @@ class Loan {
 // const emprestimo = new Loan( 1500, 12 )
 // console.log(emprestimo.data)
 // console.log(emprestimo.installMentsValue)
+
+// console.log(Loan.feeValue)
+// Loan.feeValue = 10
+// console.log(Loan.feeValue)
 
 module.exports = Loan

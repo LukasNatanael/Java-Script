@@ -30,7 +30,7 @@ class Account {
     }
 
     newTransference( fromUser, transferValue ) {
-        if ( fromUser === this.holder ) {
+        if ( fromUser.fullname === this.holder ) {
             this.#balance += transferValue
         }
         else {
@@ -48,8 +48,10 @@ class Account {
     }
 }
 
-console.clear()
-const lukas = new User( 'Lukas N.', 'constactLukas@gmail.com', new Account() )
-lukas.account.newDeposit(150)
+// console.clear()
+// const lukas = new User( 'Lukas N.', 'constactLukas@gmail.com', new Account() )
+// lukas.account.newDeposit(150)
 
-console.log( lukas.account.data )
+// console.log( lukas.account.data )
+
+module.exports = Account

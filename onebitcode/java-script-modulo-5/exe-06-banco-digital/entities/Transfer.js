@@ -13,7 +13,7 @@ class Transfer{
         this.#transferValue = transferValue
         this.#createdAt     = new Date()
 
-        console.log(`[ New transference ] ${this.fromUser.name} depositou $${this.value} para ${this.toUser.name}`)
+        console.log(`[ New transference ] ${this.fromUser.fullname} depositou $${this.value} para ${this.toUser.fullname}`)
     }
 
     get fromUser()    { return this.#fromUser      }

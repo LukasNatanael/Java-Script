@@ -1,10 +1,12 @@
 class InstallMent {
-    #quantity
+    #quantity = []
     #value
     #total
     constructor(loanValue, installMents, feeValue) {
-        this.#quantity = installMents
         this.#value    = (loanValue / installMents) * feeValue
+        for ( var number = 1; number <= installMents; number++) {
+            this.#quantity.push({ number, value: this.#value, pay: false })
+        }
         this.#total    = this.#value * installMents
     }
 
@@ -13,12 +15,34 @@ class InstallMent {
     get total()        { return this.#total    }
 
     pay(quantityInstallment=1) {
-        if (this.quantity > 0) {
-            this.quantity -= quantityInstallment
-            console.log(`Ainda restam ${this.quantity} parcelas de ${this.value}}`)
+        var number = 0 
+        var remainingInstallments = 0
+        this.quantity.forEach((installMent) => {
+            if ( installMent.pay === true ) {
+                number ++
+            }
+        } )
+
+        number += quantityInstallment
+
+        while ( number != 0 ) {
+            this.quantity[number-1].pay = true
+            number --
+        }
+
+        this.quantity.forEach((installMent) => {
+            if ( installMent.pay === true ) {
+                remainingInstallments ++
+            }
+
+        } )
+        
+        remainingInstallments = this.quantity.length - remainingInstallments
+        if ( remainingInstallments === 0 ) {
+            console.log('Todas suas parcelas estão pagas!')
             return
         }
-        console.log('Todas suas parcelas estão pagas!')
+        console.log(`[ +${quantityInstallment} parcelas pagas ] Ainda restam ${remainingInstallments} parcelas de $${this.value}`)
     }
 
     get data() {
@@ -29,5 +53,13 @@ class InstallMent {
         }
     }
 }
+
+// console.clear()
+// const parcelas = new InstallMent( 1500, 12, 1.2 )
+
+// // console.log(parcelas.data)
+// parcelas.pay(5)
+// parcelas.pay(3)
+// parcelas.pay(4)
 
 module.exports = InstallMent

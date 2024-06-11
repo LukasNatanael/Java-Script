@@ -8,18 +8,18 @@ class User {
         this.#fullname = fullname
         this.#username = username
         this.#email    = email
-        this.#password = password
+        this.#password = { password, token: this.#generateToken() }
     }
-    #token( password ) {
+    #generateToken() {
         let token = ''
-        for ( let number = password.length; number > 0; number-- ) {
-            token += Math.floor( Math.random() * 11 )
+        for ( let number = 12; number > 0; number-- ) {
+            token += Math.floor( Math.random() * 10 )
         }
         return token
     }
 
     get pass() {
-        console.log( this.#token( this.#password ) ) 
+        console.log( this.#password ) 
     }
 
 }

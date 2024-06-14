@@ -8,19 +8,20 @@ class Account {
     #deposits      = []
     #loans         = []
     #transferences = []
-    #holder        = null
+    #holder        = undefined
     // constructor(holder) {
     //     this.#holder = holder
     // }
 
-    get balance()      { return this.#balance } 
-    get holder()       { return this.#holder  } 
-    set holder(holder) { this.#holder = holder}
+    get balance()      { return this.#balance  } 
+    get holder()       { return this.#holder   } 
+    set holder(holder) { this.#holder = holder }
 
     newDeposit( depositValue ) {
         this.#balance += depositValue
         this.#deposits.push( new Deposit(depositValue) )
-        
+
+        // console.log(`\n[ New deposit ] $${depositValue} foram adicionados a contaa.\n`)    
     }
     
     newLoan( loanValue, installMents ) {
@@ -29,15 +30,19 @@ class Account {
 
     }
 
-    newTransference( fromUser, transferValue ) {
+    newTransference( fromUser, value ) {
         if ( fromUser.fullname === this.holder ) {
-            this.#balance += transferValue
+            this.#balance += value
         }
         else {
-            this.#balance -= transferValue
+            this.#balance -= value
+            console.log(`[ New transference ] ${this.#holder} depositou $${value} para ${fromUser.fullname}`)
+            fromUser.account.newDeposit( value )
         }
 
-        this.#transferences.push( new Transfer(fromUser, transferValue) )
+        // this.#balance += transferValue
+
+        this.#transferences.push( new Transfer(fromUser, value) )
     }
 
     get data() {

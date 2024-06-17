@@ -1,13 +1,14 @@
-class InstallMent {
+class Installment {
     #quantity = []
     #value
     #total
-    constructor(loanValue, installMents, feeValue) {
-        this.#value    = (loanValue / installMents) * feeValue
-        for ( var number = 1; number <= installMents; number++) {
-            this.#quantity.push({ number, value: this.#value, pay: false })
-        }
-        this.#total    = this.#value * installMents
+    constructor(loanValue, installments) {
+        this.#value = loanValue
+        // this.#value = (loanValue / installments) * feeValue
+        // for ( var number = 1; number <= installments; number++) {
+        //     this.#quantity.push({ number, value: this.#value, pay: false })
+        // }
+        this.#total = this.#value * installments
     }
 
     get quantity()     { return this.#quantity }
@@ -62,4 +63,4 @@ class InstallMent {
 // parcelas.pay(3)
 // parcelas.pay(4)
 
-module.exports = InstallMent
+module.exports = Installment

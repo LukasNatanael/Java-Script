@@ -19,8 +19,8 @@ class Deposit {
     #value
     #createdAt
     constructor(value) {
-        this.#value = value
-        this.#createdAt     = new Date()
+        this.#value     = value
+        this.#createdAt = new Date()
         // console.log(`[ New deposit ] $${this.value} foram adicionados a sua conta!`)
     }
 

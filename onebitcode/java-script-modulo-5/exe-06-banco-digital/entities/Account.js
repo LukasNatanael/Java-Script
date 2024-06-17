@@ -4,59 +4,61 @@ const Transfer = require("./Transfer")
 const User     = require("./User")
 
 class Account {
-    #balance       = 0
-    #deposits      = []
-    #loans         = []
-    #transferences = []
-    #holder        = undefined
-    // constructor(holder) {
-    //     this.#holder = holder
-    // }
+    #owner
+    #balance     
+    #deposits     
+    #loans
+    #transferences
+    
+    constructor(user) {
+        this.#owner = user
+        this.#balance       = 0
+        this.#deposits      = []
+        this.#loans         = []
+        this.#transferences = []
+    }
 
-    get balance()      { return this.#balance  } 
-    get holder()       { return this.#holder   } 
-    set holder(holder) { this.#holder = holder }
+    get balance()      { return this.#balance } 
+    get holder()       { return this.#owner   } 
 
-    newDeposit( depositValue ) {
-        this.#balance += depositValue
-        this.#deposits.push( new Deposit(depositValue) )
-
+    addDeposit( deposit ) {
+        this.#balance += deposit.value
+        this.#deposits.push( deposit )
         // console.log(`\n[ New deposit ] $${depositValue} foram adicionados a contaa.\n`)    
     }
     
-    newLoan( loanValue, installMents ) {
-        this.#balance += loanValue
-        this.#loans.push( new Loan(loanValue, installMents) )
+    addLoan( loan) {
+        this.#balance += loan.value
+        this.#loans.push( loan )
 
     }
 
-    newTransference( fromUser, value ) {
+    // analisar
+    addTransfer( transfer ) {
         if ( this.#balance > 0 ) {
 
-            if ( fromUser.fullname === this.holder ) {
-                this.#balance += value
-                console.log(`\n[ New deposit ] ${fromUser.fullname} depositou $${value} em sua conta.\n`)
-
+            if ( transfer.toUser.email === this.#owner.email ) {
+                this.#balance += transfer.value
+                this.#transferences.push( transfer )
+                console.log(`\n[ New deposit ] ${fromUser.fullname} depositou $${transfer.value} em sua conta.\n`)
+                return
+                
             }
-            else {
-                this.#balance -= value
-                console.log(`\n[ New transference ] ${this.#holder} depositou $${value} para ${fromUser.fullname}\n`)
-                fromUser.account.newDeposit( value )
+            else if ( transfer.fromUser.email === this.#owner.email ) {
+                this.#balance -= transfer.value
+                console.log(`\n[ New transference ] ${transfer.toUser.fullname} depositou $${transfer.value} para ${transfer.fromUser.fullname}\n`)
+                this.#transferences.push( transfer )
+                return
             }
-            return
         }
 
         console.log('Você não possui saldo o suficiente para realizar esta operação.')
-            
-        // this.#balance += value
-
-        this.#transferences.push( new Transfer(fromUser, value) )
     }
 
     get data() {
         return {
-            hodler:  this.holder,
-            balance: this.balance
+            owner:   this.#owner.fullname,
+            balance: this.#balance
         }
     }
 }

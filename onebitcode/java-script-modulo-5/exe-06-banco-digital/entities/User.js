@@ -1,13 +1,14 @@
+const Account = require('./Account')
 class User {
     #fullname
     #email
     #account
-    constructor( fullname, email, account ) {
+    constructor( fullname, email) {
         this.#fullname = fullname
         this.#email    = email
-        this.#account  = account
+        this.#account  = new Account( this )
 
-        account.holder = this.#fullname
+        // account.holder = this.#fullname
     }
 
     get fullname() { return this.#fullname }

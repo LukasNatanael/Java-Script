@@ -18,29 +18,33 @@
 
 */ 
 
-const InstallMent = require('./Installment')
+const Installment = require('./Installment')
 
 class Loan {
-    static #feeValue = 1.2
-    #loanValue
-    #installMents
+    static #fee = 1.05
+    #value
+    #installments
     #createdAt
-    constructor(loanValue, installMents) {
-        this.#loanValue    = loanValue
-        this.#installMents = new InstallMent(loanValue, installMents, Loan.#feeValue)
+    constructor(value, installments) {
+        this.#value    = value
+        // this.#installments = new Installment(loanValue, installments, Loan.#feeValue)
+        this.#installments = []
+        for ( var number = 1; number <= installments; number++) {
+            this.#installments.push( new Installment( (value * Loan.#fee ) / installments ), number )
+        }
         this.#createdAt    = new Date()
     }
 
-    get loanValue()         { return this.#loanValue             }
-    get installMents()      { return this.#installMents.quantity }
-    get installMentsValue() { return this.#installMents.value    }
-    get total()             { return this.#installMents.total    }
-    static get feeValue()   { return Loan.#feeValue              }
+    get loanValue()         { return this.#value                 }
+    get installMents()      { return this.#installments.quantity }
+    get installMentsValue() { return this.#installments.value    }
+    get total()             { return this.#installments.total    }
+    static get fee()        { return Loan.#fee                   }
     get createdAt()         { return this.#createdAt             }
 
-    static set feeValue(feeValuePercent) {
+    static set fee(feeValuePercent) {
         // Loan.#feeValue = ( Loan.#feeValue * feeValuePercent ) / 100 + Loan.#feeValue
-        Loan.#feeValue = feeValuePercent
+        Loan.#fee = 1 + ( feeValuePercent / 100 )
     }
 
     get data() {
@@ -49,7 +53,7 @@ class Loan {
             installMents:      this.installMents,
             installMentsValue: this.installMentsValue,
             total:             this.total,
-            feeValue:          Loan.feeValue,
+            feeValue:          Loan.fee,
             createdAt:         this.createdAt
         }
     }

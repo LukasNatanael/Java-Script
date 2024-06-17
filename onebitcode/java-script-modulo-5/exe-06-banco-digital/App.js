@@ -1,6 +1,6 @@
 const User    = require("./entities/User")
 const Account = require("./entities/Account")
-const Loan = require("./entities/Loan")
+const Loan    = require("./entities/Loan")
 
 class App {
     static #users = []
@@ -9,7 +9,6 @@ class App {
         // revisa isso dai querido!
         return App.#users.find( user => user.email === email)
         // console.log(App.#users.find( u => u.email === user.email))
-
     }
 
     static newDeposit( user, value ) {
@@ -17,24 +16,28 @@ class App {
 
         if (userExists) {
             user.account.newDeposit( value )
-            console.log(`[ New deposit ] $${value} foram adicionados a conta de ${user.fullname}!`)
+            console.log(`\n[ New deposit ] $${value} foram adicionados a conta de ${user.fullname}!\n`)
             return
         }
         console.log('Não foi possível realizar o depósito! Usuário não encontrado.')
     }
     static newTransference( fromUser, toUser, value ) {
-        const userToPay    = App.findUserByEmail(fromUser.email)
-        const userToRecive = App.findUserByEmail(toUser.email)
+        const userFrom = App.findUserByEmail(fromUser.email)
+        const userTo   = App.findUserByEmail(toUser.email)
 
-        if ( userToPay && userToRecive ) {
-            if ( userToPay.email === userToRecive.email ) {
-                console.log(`[ New deposit ] ${fromUser.fullname} depositou $${value} em sua conta.`)
-                userToPay.account.newDeposit( value )
+        if ( userFrom && userTo ) {
+            if ( userFrom.email === userTo.email ) {
+                console.log(`\n[ New deposit ] ${fromUser.fullname} depositou $${value} em sua conta.\n`)
+                userFrom.account.newDeposit( value )
                 }
             else {
-                console.log(`[ New transference ] ${fromUser.fullname} depositou $${value} para ${toUser.fullname}.`)
+                console.log(`\n[ New transference ] ${fromUser.fullname} depositou $${value} para ${toUser.fullname}.\n`)
                 // userToPay.account.newTransference( userToPay, userToRecive, value )
-                userToPay.account.newDeposit( value )
+                // userToRecive.account.newDeposit( value )
+
+                // console.log(userToPay, userToRecive, value)
+                // userToRecive.account.newDeposit( value )
+                userFrom.account.newTransference( userTo, value )
             }
             return
         }
@@ -44,7 +47,7 @@ class App {
         const userExists = App.findUserByEmail(user.email)
         if (userExists) {
             user.account.newLoan( value, installments )
-            console.log(`[ New loan ] ${user.fullname} fez um empréstimo de $${value} dividido em ${installments}x.`)
+            console.log(`\n[ New loan ] ${user.fullname} fez um empréstimo de $${value} dividido em ${installments}x.\n`)
             return
         }       
         console.log('Não foi possível realizar o empréstimo! Usuário não encontrado.')
@@ -83,21 +86,17 @@ const users = app.users
 console.log( users[0].account.data )
 console.log( users[1].account.data )
 
+App.newDeposit( lukas, 300 )
 lukas.account.newTransference( math, 150 )
-App.newDeposit( lukas, 150 )
 
 console.log( users[0].account.data )
+console.log( users[1].account.data )
 
-
-App.feeValue
 App.feeValue = 10
-App.feeValue
 
 App.newLoan( lukas, 1500, 3 )
+App.newTransference( math, lukas, 100 )
 App.newDeposit( math, 550 )
-App.newTransference( math, lukas, 250 )
-
-// ele não está contanto esse depósito no balance do usuário
 App.newTransference( lukas, lukas, 250 )
 
 console.log()

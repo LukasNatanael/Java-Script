@@ -31,16 +31,24 @@ class Account {
     }
 
     newTransference( fromUser, value ) {
-        if ( fromUser.fullname === this.holder ) {
-            this.#balance += value
-        }
-        else {
-            this.#balance -= value
-            console.log(`[ New transference ] ${this.#holder} depositou $${value} para ${fromUser.fullname}`)
-            fromUser.account.newDeposit( value )
+        if ( this.#balance > 0 ) {
+
+            if ( fromUser.fullname === this.holder ) {
+                this.#balance += value
+                console.log(`\n[ New deposit ] ${fromUser.fullname} depositou $${value} em sua conta.\n`)
+
+            }
+            else {
+                this.#balance -= value
+                console.log(`\n[ New transference ] ${this.#holder} depositou $${value} para ${fromUser.fullname}\n`)
+                fromUser.account.newDeposit( value )
+            }
+            return
         }
 
-        // this.#balance += transferValue
+        console.log('Você não possui saldo o suficiente para realizar esta operação.')
+            
+        // this.#balance += value
 
         this.#transferences.push( new Transfer(fromUser, value) )
     }

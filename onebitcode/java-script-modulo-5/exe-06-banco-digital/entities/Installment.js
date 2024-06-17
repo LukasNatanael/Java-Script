@@ -42,7 +42,7 @@ class InstallMent {
             console.log('Todas suas parcelas estão pagas!')
             return
         }
-        console.log(`[ +${quantityInstallment} parcelas pagas ] Ainda restam ${remainingInstallments} parcelas de $${this.value}`)
+        console.log(`\n[ +${quantityInstallment} parcelas pagas ] Ainda restam ${remainingInstallments} parcelas de $${this.value}\n`)
     }
 
     get data() {

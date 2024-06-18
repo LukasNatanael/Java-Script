@@ -30,14 +30,13 @@ class Loan {
         // this.#installments = new Installment(loanValue, installments, Loan.#feeValue)
         this.#installments = []
         for ( var number = 1; number <= installments; number++) {
-            this.#installments.push( new Installment( (value * Loan.#fee ) / installments ), number )
+            this.#installments.push( new Installment( (value * Loan.#fee ) / installments, number ) )
         }
         this.#createdAt    = new Date()
     }
 
-    get loanValue()         { return this.#value                 }
-    get installMents()      { return this.#installments.quantity }
-    get installMentsValue() { return this.#installments.value    }
+    get value()             { return this.#value                 }
+    get installments()      { return this.#installments          }
     get total()             { return this.#installments.total    }
     static get fee()        { return Loan.#fee                   }
     get createdAt()         { return this.#createdAt             }
@@ -49,9 +48,8 @@ class Loan {
 
     get data() {
         return {
-            loanValue:         this.loanValue,
-            installMents:      this.installMents,
-            installMentsValue: this.installMentsValue,
+            loanValue:         this.value,
+            installments:      this.installments,
             total:             this.total,
             feeValue:          Loan.fee,
             createdAt:         this.createdAt

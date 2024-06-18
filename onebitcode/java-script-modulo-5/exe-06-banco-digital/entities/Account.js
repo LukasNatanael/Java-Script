@@ -20,6 +20,7 @@ class Account {
 
     get balance()      { return this.#balance } 
     get holder()       { return this.#owner   } 
+    get loans()       { return this.#loans   } 
 
     addDeposit( deposit ) {
         this.#balance += deposit.value
@@ -33,26 +34,20 @@ class Account {
 
     }
 
-    // analisar
     addTransfer( transfer ) {
-        if ( this.#balance > 0 ) {
-
-            if ( transfer.toUser.email === this.#owner.email ) {
-                this.#balance += transfer.value
-                this.#transferences.push( transfer )
-                console.log(`\n[ New deposit ] ${fromUser.fullname} depositou $${transfer.value} em sua conta.\n`)
-                return
-                
-            }
-            else if ( transfer.fromUser.email === this.#owner.email ) {
-                this.#balance -= transfer.value
-                console.log(`\n[ New transference ] ${transfer.toUser.fullname} depositou $${transfer.value} para ${transfer.fromUser.fullname}\n`)
-                this.#transferences.push( transfer )
-                return
-            }
+        if ( transfer.toUser.email === this.#owner.email ) {
+            this.#balance += transfer.value
+            this.#transferences.push( transfer )
+            console.log(`\n[ New deposit ] ${transfer.fromUser.fullname} depositou $${transfer.value} em sua conta.\n`)
+            return
+            
         }
-
-        console.log('Você não possui saldo o suficiente para realizar esta operação.')
+        else if ( transfer.fromUser.email === this.#owner.email ) {
+            this.#balance -= transfer.value
+            console.log(`\n[ New transference ] ${transfer.toUser.fullname} depositou $${transfer.value} para ${transfer.fromUser.fullname}\n`)
+            this.#transferences.push( transfer )
+            return
+        }
     }
 
     get data() {

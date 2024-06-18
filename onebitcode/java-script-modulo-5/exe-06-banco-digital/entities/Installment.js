@@ -1,56 +1,57 @@
 class Installment {
-    #quantity = []
+    // #quantity = []
     #value
-    #total
-    constructor(loanValue, installments) {
-        this.#value = loanValue
-        // this.#value = (loanValue / installments) * feeValue
-        // for ( var number = 1; number <= installments; number++) {
-        //     this.#quantity.push({ number, value: this.#value, pay: false })
-        // }
-        this.#total = this.#value * installments
+    #status
+    #number
+    constructor(value, number) {
+        this.#value = value
+        this.#number = number
+        this.#status = 'pending'
+        // this.#total = this.#value * installments
+        return this.data
     }
 
-    get quantity()     { return this.#quantity }
+    // get quantity()     { return this.#quantity }
     get value()        { return this.#value    }
-    get total()        { return this.#total    }
+    get total()        { return this.#number    }
 
-    pay(quantityInstallment=1) {
-        var number = 0 
-        var remainingInstallments = 0
-        this.quantity.forEach((installMent) => {
-            if ( installMent.pay === true ) {
-                number ++
-            }
-        } )
+    // pay(quantityInstallment=1) {
+    //     var number = 0 
+    //     var remainingInstallments = 0
+    //     this.quantity.forEach((installMent) => {
+    //         if ( installMent.pay === true ) {
+    //             number ++
+    //         }
+    //     } )
 
-        number += quantityInstallment
+    //     number += quantityInstallment
 
-        while ( number != 0 ) {
-            this.quantity[number-1].pay = true
-            number --
-        }
+    //     while ( number != 0 ) {
+    //         this.quantity[number-1].pay = true
+    //         number --
+    //     }
 
-        this.quantity.forEach((installMent) => {
-            if ( installMent.pay === true ) {
-                remainingInstallments ++
-            }
+    //     this.quantity.forEach((installMent) => {
+    //         if ( installMent.pay === true ) {
+    //             remainingInstallments ++
+    //         }
 
-        } )
+    //     } )
         
-        remainingInstallments = this.quantity.length - remainingInstallments
-        if ( remainingInstallments === 0 ) {
-            console.log('Todas suas parcelas estão pagas!')
-            return
-        }
-        console.log(`\n[ +${quantityInstallment} parcelas pagas ] Ainda restam ${remainingInstallments} parcelas de $${this.value}\n`)
-    }
+    //     remainingInstallments = this.quantity.length - remainingInstallments
+    //     if ( remainingInstallments === 0 ) {
+    //         console.log('Todas suas parcelas estão pagas!')
+    //         return
+    //     }
+    //     console.log(`\n[ +${quantityInstallment} parcelas pagas ] Ainda restam ${remainingInstallments} parcelas de $${this.value}\n`)
+    // }
 
     get data() {
         return {
+            number:    this.#number,
             value:    this.#value,
-            quantity: this.#quantity,
-            total:    this.#total
+            status:    this.#status,
+            // quantity: this.#quantity,
         }
     }
 }

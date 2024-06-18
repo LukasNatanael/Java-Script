@@ -44,12 +44,12 @@ class App {
         
         console.log('Não foi possível realizar a trânsferencia! Usuário não encontrado.')
     }
-    static takeLoan( user, value, installments ) {
-        const userExists = App.findUserByEmail(user.email)
+    static takeLoan( email, value, installments ) {
+        const userExists = App.findUserByEmail(email)
         if (userExists) {
             const newLoan = new Loan( value, installments )
-            user.account.addLoan( newLoan )
-            console.log(`\n[ New loan ] ${user.fullname} fez um empréstimo de $${value} dividido em ${installments}x.\n`)
+            userExists.account.addLoan( newLoan )
+            console.log(`\n[ New loan ] ${userExists.fullname} fez um empréstimo de $${value} dividido em ${installments}x.\n`)
             return
         }       
         console.log('Não foi possível realizar o empréstimo! Usuário não encontrado.')
@@ -60,7 +60,7 @@ class App {
         return App.#users
     }
 
-    static set changeLoanFee( newFeePercentage ) { Loan.fee = newFeePercentage; console.log(`A taxa de juros foi alterada para ${Loan.fee}%`) }
+    static changeLoanFee( newFeePercentage ) { Loan.fee = newFeePercentage; console.log(`A taxa de juros foi alterada para ${Loan.fee}%`) }
     static get fee()        { console.log(Loan.fee) }
     
 }

@@ -19,7 +19,7 @@ class Account {
     }
 
     get balance()      { return this.#balance } 
-    get holder()       { return this.#owner   } 
+    get owner()       { return this.#owner   } 
     get loans()       { return this.#loans   } 
 
     addDeposit( deposit ) {

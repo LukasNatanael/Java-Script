@@ -18,13 +18,6 @@ class App {
 
     static findUserByEmail( email ) {
         return App.#users.find( u => u.email === email )
-
-        // if ( user instanceof User ) {
-        //     return App.#users.find( u => u.email === user.email )
-        // }
-        // else if ( user instanceof String ) {
-        //     return App.#users.find( u => u.email === user )
-        // }
     }
 
     static createUser( fullname, email ) {

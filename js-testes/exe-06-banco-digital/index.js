@@ -12,9 +12,9 @@ App.deposit( 'lukas@gmail.com', 100 )
 App.transfer( 'lukas@gmail.com', 'talita@gmail.com', 50)
 App.takeLoan( 'telia@gmail.com', 3000, 12 )
 
-console.log(App.users[0].account.data)
-console.log(App.users[1].account.data)
-console.log(App.users[2].account.data)
+console.table(App.users[0].account.data)
+console.table(App.users[1].account.data)
+console.table(App.users[2].account.data)
 
 
 // console.log( App.findUserByEmail( users[0].email ) )

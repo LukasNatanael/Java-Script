@@ -1,16 +1,6 @@
-console.clear()
-class Email {
-    constructor(email) {
-        const fixedString = email.replace(/\s/)
-        this.email  = fixedString.match(/[a-zA-z0-9]+@[a-zA-z0-9].+[a-zA-z0-9]+/)[0]
-        this.prefix = fixedString.match(/.{2,}((?=\@))/)[0]
-        this.server = fixedString.match(/((?<=\@).{2,}(?=\.))/)[0]
-        this.domain = fixedString.match(/((?<=\.).{2,})/g)[0]
-    }
-}
+module.exports = class Password {
+    constructor( password ) {
 
-class Password {
-    constructor(password) {
         if (password === '') {
             console.log('please enter a password')
             return
@@ -44,7 +34,7 @@ class Password {
             return
         }
 
-        this.password    = password.match(/.+/)[0]
+        this.password    = password
         this.numbers     = password.match(/\d/g)
         this.letters     = password.match(/[a-zA-Z]/g)
         this.upperCase   = password.match(/[A-Z]+/g)
@@ -52,7 +42,3 @@ class Password {
         this.specialChar = password.match(/[\W_]/g)
     }
 }
-
-console.log( new Email( 'johnDoe69@gmail.com' ) )
-// console.log( new Email( 'lucas@gmail.com' ) )
-console.log( new Password( '!1B-2a_b3C@' ) )

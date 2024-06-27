@@ -8,16 +8,16 @@ class Email {
         }
         catch ( error ) {
             if (!this.email === '') {
-                return new Error('please enter a email address')
+                return new Error('Please enter a email address')
             }
             else if (!this.prefix) {
-                return new Error('prefix must be at least two character')
+                return new Error('Prefix must be at least two character')
             }
             else if (!this.server) {
-                return new Error('server must be at least two character')
+                return new Error('Server must be at least two character')
             }
             else if (!this.domain) {
-                return new Error('domain must be at least two character')
+                return new Error('Domain must be at least two character')
             }
         }
 

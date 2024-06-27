@@ -9,12 +9,16 @@
 </head>
 <body>
     <form>
-        <label for="email">Email:</label>
-        <input type="text" id="email">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Please insert a name">
+        <span id="nameError" class="invisible">Valid name</span>
+
+        <label for="email">E-mail</label>
+        <input type="text" id="email" placeholder="Please insert a e-mail">
         <span id="emailError" class="invisible">Valid email</span>
         
-        <label for="password">Password:</label>
-        <input type="password" id="password">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Please insert a password">
         <span id="passError" class="invisible">Valid password</span>
 
         <input type="button" id="send" value="Send data">

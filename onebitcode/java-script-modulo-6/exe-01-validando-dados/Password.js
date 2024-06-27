@@ -1,37 +1,28 @@
-module.exports = class Password {
+class Password {
     constructor( password ) {
-
         if (password === '') {
-            console.log('please enter a password')
-            return
+            return new Error('please enter a password')
         }
         else if (password.length <= 0) {
-            console.log('password so short')
-            return
+            return 'password so short'
         }
         else if (password.length < 8) {
-            console.log('password must be at least 8 characters')
-            return
+            return new Error('password must be at least 8 characters')
         }
         else if (!password.match(/[a-zA-Z]/g)) {
-            console.log('password must contain at least one letter')
-            return
+            return new Error('password must contain at least one letter')
         }
         else if (!password.match(/[A-Z]/g)) {
-            console.log('password must contain at least one uppercase letter')
-            return
+            return new Error('password must contain at least one uppercase letter')
         }
         else if (!password.match(/[a-z]/g)) {
-            console.log('password must contain at least one lowercase letter')
-            return
+            return new Error('password must contain at least one lowercase letter')
         }
         else if (!password.match(/\d/g)) {
-            console.log('password must contain at least one number')
-            return
+            return new Error('password must contain at least one number')
         }
         else if (!password.match(/\W/g)) {
-            console.log('password must contain at least one special character')
-            return
+            return new Error('password must contain at least one special character')
         }
 
         this.password    = password
@@ -42,3 +33,5 @@ module.exports = class Password {
         this.specialChar = password.match(/[\W_]/g)
     }
 }
+
+export default Password

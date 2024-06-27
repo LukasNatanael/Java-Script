@@ -12,4 +12,18 @@ form {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
+    width: 250px;
 }
+
+.invisible {
+    color: transparent;
+}
+
+.error {
+    color: rgb(231, 0, 0);
+}
+
+.valid {
+    color: rgb(65, 231, 0);
+}
+

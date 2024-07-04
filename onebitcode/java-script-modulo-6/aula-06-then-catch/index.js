@@ -4,7 +4,7 @@ console.clear()
     resolved
     rejected
 */
-function execute(error=false) {
+function showIMC(error=false) {
    return new Promise(( resolve, reject ) => {
         console.log('Promise is being executed')
         setTimeout(() =>  {
@@ -17,8 +17,10 @@ function execute(error=false) {
     })
 }
 
-const promise = execute()
-console.log(promise)
-setTimeout(() => {
-    console.log(promise)
-}, 1000 * 2)
+showIMC().then( result => {
+    console.log('Promise result:', result)
+}).catch( error => {
+    console.log('Promise error:', error)
+}).finally( () => {
+    console.log('Promise execution finished!')
+})

@@ -2,7 +2,7 @@ console.clear()
 function IMC( weigth, height ) {
     return new Promise(( resolve, reject ) => {
         if( typeof weigth != 'number'|| typeof height != 'number' ) {
-            reject( 'Rguments must be of type number!' )
+            reject( 'Arguments must be of type number!' )
         }
         const imc = ((weigth / (height**2)) * 10**4).toFixed(2)
 

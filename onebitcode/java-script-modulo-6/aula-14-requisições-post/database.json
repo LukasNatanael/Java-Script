@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Olá mundo!",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, architecto ipsa quo voluptates debitis labore, illum et laboriosam provident veniam consequuntur quas est hic error, illo voluptatem odit? Impedit, qui.",
+      "author": "Lorem Smith"
+    },
+    {
+      "id": "2",
+      "title": "Requisições POST",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, architecto ipsa quo voluptates debitis.",
+      "author": "Lukas"
+    },
+    {
+      "id": "6e59",
+      "title": "meu artigo",
+      "author": "lk big black",
+      "content": "jjjj"
+    }
+  ]
+}

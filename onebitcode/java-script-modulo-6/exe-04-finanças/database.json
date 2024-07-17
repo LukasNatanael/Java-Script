@@ -1,19 +1,40 @@
 {
-    "products": [
-        {
-            "id": "1",
-            "title": "Samsung Galaxy S23",
-            "value": "R$ 2.848,00"
-        },
-        {
-            "id": "2",
-            "title": "QCY HT05",
-            "value": "R$ 279,90"
-        },
-        {
-            "id": "3",
-            "title": "Computador Gamer",
-            "value": "R$ 7.450,33"
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "title": "Samsung Galaxy S23",
+      "value": "2.848,00",
+      "situation": "Pago"
+    },
+    {
+      "id": "2",
+      "title": "QCY HT05",
+      "value": "279.9",
+      "situation": "Pago"
+    },
+    {
+      "id": "3",
+      "title": "Computador Gamer",
+      "value": "7.450,33",
+      "situation": "Pago"
+    },
+    {
+      "id": "fff5",
+      "title": "QCY T1C",
+      "value": "106,00",
+      "situation": "Em aberto"
+    },
+    {
+      "id": "5bf6",
+      "title": "QCY T13",
+      "value": "169,90",
+      "situation": "Em aberto"
+    },
+    {
+      "id": "60e3",
+      "title": "Mouse Kobra Wireless",
+      "value": "250,00",
+      "situation": "Em aberto"
+    }
+  ]
 }

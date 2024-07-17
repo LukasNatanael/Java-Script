@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas finanças</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <main>  
+        <form>
+            <h2>Minhas finanças</h2>
+
+            <label for="produt">Produto: </label>
+            <input type="text" id="product">
+            <span id="product-error" class="invisible">Por favor informe o nome do produto</span>
+            
+            <br>
+            <label for="price">Valor R$: </label>
+            <br>
+            <input type="text" id="price">
+            <span id="price-error" class="invisible">Por favor informe o valor do produto</span>
+            <br>
+
+            <span id="situation">
+                <label for="paid-out">
+                    <input type="radio" name="situation" id="paid-out" value="paid-out" checked>
+                    Pago
+                </label>
+                <label for="pending">
+                    <input type="radio" name="situation" id="pending" value="pending">
+                    Em aberto
+                </label>
+            </span>
+
+            <button>Salvar</button>
+
+        </form>
+        <div id="articles">
+            <h2>Gastos</h2>
+            <span id="balance">
+                Saldo: <span id="balance-available">R$ 1.500,00</span>
+                <span id="division">|</span>
+                Dívidas: <span id="debts">R$ 1.500,00</span>
+            </span>
+            <hr>
+            <article class="expenses" id="1">
+                <strong class="item-title">Samsung S23</strong>
+                <p class="item-value" >Valor: R$2.848,00</p>
+            </article>
+
+            <article class="expenses" id="2">
+                <strong class="item-title">Computador Gamer</strong>
+                <p class="item-value" >Valor: R$7.450,33</p>
+            </article>
+
+            <article class="expenses" id="2">
+                <strong class="item-title">QCY HT05</strong>
+                <p class="item-value" >Valor: R$279,90</p>
+            </article>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -21,7 +21,7 @@ class Password {
         else if (!password.match(/\d/g)) {
             return new Error('Password must contain at least one number')
         }
-        else if (!password.match(/\W/g)) {
+        else if (!password.match(/\w/g)) {
             return new Error('Password must contain at least one special character')
         }
 
@@ -30,7 +30,7 @@ class Password {
         this.letters     = password.match(/[a-zA-Z]/g)
         this.upperCase   = password.match(/[A-Z]+/g)
         this.lowerCase   = password.match(/[a-z]+/g)
-        this.specialChar = password.match(/[\W_]/g)
+        this.specialChar = password.match(/[\w]/g)
     }
 }
 

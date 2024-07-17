@@ -1,0 +1,19 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "title": "Samsung Galaxy S23",
+            "value": "R$ 2.848,00"
+        },
+        {
+            "id": "2",
+            "title": "QCY HT05",
+            "value": "R$ 279,90"
+        },
+        {
+            "id": "3",
+            "title": "Computador Gamer",
+            "value": "R$ 7.450,33"
+        }
+    ]
+}

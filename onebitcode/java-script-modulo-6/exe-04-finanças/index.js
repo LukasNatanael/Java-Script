@@ -4,7 +4,7 @@
 function renderArticle(articleData) {
     const article = document.createElement( 'article' )
     article.classList.add('expenses')
-    article.id = `product-${articleData.id}`
+    article.id = articleData.id
     
     const itemTitle = document.createElement('strong')
     itemTitle.classList.add('item-title')
@@ -93,6 +93,11 @@ async function dataDelete(id) {
     const deletedArticle = await response.json()
 
     return deletedArticle
+}
+
+function deleteProduct() {
+    const products = document.querySelectorAll( '.expenses' )
+    
 }
 
 // atualizando site ao carregar página

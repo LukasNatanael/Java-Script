@@ -1,0 +1,14 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Samsung Galaxy S23 5G",
+      "price": 2.248
+    },
+    {
+      "id": "2",
+      "title": "Computador Gamer Pichau",
+      "price": 7433.22
+    }
+  ]
+}

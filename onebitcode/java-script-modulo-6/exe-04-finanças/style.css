@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.invisible {
+    color: transparent;
+}
+
+.error {
+    color: red;
+}
+
 main {
     display: flex;
     gap: 4rem;
@@ -31,14 +39,49 @@ form {
 div {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
+    gap: 3px;
 }
 
+#articles {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 
-.invisible {
-    color: transparent;
 }
 
-.error {
-    color: red;
+.expenses {
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(13, 150, 185, 0.541);
+    border-radius: 10px;
+    padding: .5rem;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: .2rem;
+   
+}
+
+.edit, .delete {
+    padding: 0 .2rem;
+    font-size: .5rem;
+
+    background-color: transparent;
+    border: transparent;
+
+    &:hover {
+        cursor: pointer;
+        color: white;
+    }
+
 }

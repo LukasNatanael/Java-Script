@@ -6,6 +6,7 @@
     <title>Minhas finanças</title>
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
+    <script src="https://kit.fontawesome.com/26a1ab3145.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
     <main>  
@@ -37,7 +38,7 @@
             <button>Salvar</button>
 
         </form>
-        <div id="articles">
+        <div>
             <h2>Gastos</h2>
             <span id="balance">
                 Saldo: <span id="balance-available">R$ 1.500,00</span>
@@ -45,6 +46,18 @@
                 Dívidas: <span id="debts">R$ 1.500,00</span>
             </span>
             <hr>
+            <article id="articles">
+                <article class="expenses">
+                    <strong id="item-title">QCY T1C</strong>
+                    <p id="item-value">R$ 106,00</p>
+                    <p id="item-situation">Situação: Em aberto</p>
+                    <span class="icons">
+                        <i class="edit fa-solid fa-pencil"></i>
+                        <i class="delete fa-solid fa-trash-can"></i>
+                    </span>
+                    
+                </article>
+            </article>
         </div>
     </main>
 

@@ -1,14 +1,5 @@
 console.clear()
 
-async function generateID() {
-    const products = await fetch('http://localhost:3000/products').then( response => response.json() )
-
-    let lastID = parseInt(products[products.length -1].id)
-    products.forEach( (item) => console.log(item) )
-    
-    return lastID ++
-}
-
 async function fetchProducts() {
     const products = await fetch('http://localhost:3000/products').then( response => response.json() )
 } 
@@ -16,13 +7,12 @@ async function fetchProducts() {
 // console.log( generateID() )
 
 const productData = {
-    id:        generateID(),
     title:     'QCY HT05',
     price:     279.90,
     situation: 'Pago'
 }
 
-async function post() {
+async function post(productData) {
 
     const response = await fetch('http://localhost:3000/products', {
         method: 'POST',
@@ -38,7 +28,44 @@ async function post() {
     
 }
 
+async function put(id, { title, price, situation }) {
+    const productData = {
+        title,
+        price,
+        situation
+    }
+    const response = await fetch(`http://localhost:3000/products/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( productData )
+    })
+    
+    const savedArticle = await response.json()
+    
+    console.log(savedArticle)
+    
+}
+
 // post()
 
+const computer = {
+    title:     'PC GAMER',
+    price:     70000,
+    situation: 'Em aberto'
+}
+const iphone = {
+    title:     'Iphone 15 Pro Max',
+    price:     70000,
+    situation: 'Pago'
+}
+const samsung = {
+    title:     'Samsung Galaxy S23 5G',
+    price:     70000,
+    situation: 'Pago'
+}
 
+put(2, computer)
+put(1, samsung)
 // fetchProducts()

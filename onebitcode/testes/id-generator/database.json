@@ -1,14 +1,28 @@
 {
   "products": [
     {
-      "id": "1",
       "title": "Samsung Galaxy S23 5G",
-      "price": 2.248
+      "price": 70000,
+      "situation": "Pago",
+      "id": "1"
     },
     {
-      "id": "2",
-      "title": "Computador Gamer Pichau",
-      "price": 7433.22
+      "title": "PC GAMER",
+      "price": 70000,
+      "situation": "Em aberto",
+      "id": "2"
+    },
+    {
+      "id": "abf4",
+      "title": "QCY HT05",
+      "price": 279.9,
+      "situation": "Pago"
+    },
+    {
+      "id": "7a86",
+      "title": "QCY HT05",
+      "price": 279.9,
+      "situation": "Pago"
     }
   ]
 }

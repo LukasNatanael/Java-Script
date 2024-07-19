@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas finanças</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style1.css">
     <script src="index.js" defer></script>
     <script src="https://kit.fontawesome.com/26a1ab3145.js" crossorigin="anonymous" defer></script>
 </head>
@@ -12,17 +13,17 @@
     <main>  
         <form>
             <h2>Minhas finanças</h2>
-
-            <label for="produt">Produto: </label>
-            <input type="text" id="product">
-            <span id="product-error" class="invisible">Por favor informe o nome do produto</span>
+            <div>
+                <label for="product">Produto</label>
+                <input type="text" id="product">
+                <span id="product-error" class="invisible">Por favor informe o nome do produto</span>
+            </div>
             
-            <br>
-            <label for="price">Valor R$: </label>
-            <br>
-            <input type="text" id="price">
-            <span id="price-error" class="invisible">Por favor informe o valor do produto</span>
-            <br>
+            <div>
+                <label for="price">Valor R$</label>
+                <input type="text" id="price">
+                <span id="price-error" class="invisible">Por favor informe o valor do produto</span>
+            </div>
 
             <span>
                 <label for="paid-out">
@@ -47,41 +48,14 @@
             </span>
             <hr>
             <article id="articles">
-                
                 <article id="0" class="expenses">
                     <input type="text" value="Generic Smart Watch" disabled class="item-title">
                     <span class="priceSpan">
                         <label for="productPrice-0">R$</label>
                         <input type="text" value="200,00" id="productPrice-0" disabled>
                     </span>
-                    
-                    <span class="situationSpan">
-                        <label for="product-0">Situação: </label>
-                        <label for="paid-out">
-                            <input type="radio" name="situation" id="paid-out" value="Pago" checked>
-                            Pago
-                        </label>
-                        <label for="pending">
-                            <input type="radio" name="situation" id="pending" value="Em aberto">
-                            Em aberto
-                        </label>
-                        <!-- not work -->
-                        <span class="icons">
-                            <i class="buttons fa-solid fa-pencil" onclick="editProduct()"></i>
-                            <i class="buttons fa-solid fa-trash-can" onclick="deleteProduct()"></i>
-                        </span>
-                    </span>
-                    
-
-                    <!-- <strong id="item-title">Generic Smart Watch</strong>
-                    <p id="item-value">R$ 200,00</p>
                     <p id="item-situation">Situação: Em aberto</p>
-                    <span class="icons">
-                        <i class="edit fa-solid fa-pencil" onclick="editProduct()"></i>
-                        <i class="delete fa-solid fa-trash-can" onclick="deleteProduct()"></i>
-                    </span> -->
                 </article>
-
             </article>
         </div>
     </main>

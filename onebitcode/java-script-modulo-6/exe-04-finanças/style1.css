@@ -1,0 +1,65 @@
+:root {
+    --error: #EF233C;
+    --pay-out: #67B476;
+    --pending: #FCA311;
+    --bg-color: #8ECAE6;
+}
+
+.error {
+    color: var(--error);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+main {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    background-color: white;
+    padding: 3rem 1rem;
+    border-radius: 1rem;
+
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.082);
+}
+
+form > h2 {
+    text-align: center;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#articles {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+}
+
+.expenses {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: .5rem;
+}

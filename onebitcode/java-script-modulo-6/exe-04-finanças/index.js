@@ -6,15 +6,29 @@ function renderArticle(articleData) {
     article.classList.add('expenses')
     article.id = articleData.id
     
-    const itemTitle = document.createElement('strong')
+    const itemTitle = document.createElement('input')
     itemTitle.classList.add('item-title')
-    itemTitle.textContent = articleData.title
-    
-    const itemValue = document.createElement('p')
+    // itemTitle.textContent = articleData.title
+    itemTitle.value = articleData.title
+    itemTitle.disabled = true
+
+    const priceSpan = document.createElement('span')
+    // situationSpan.classList.add('priceSpan')
+
+    const moneySimbol = document.createElement('span')
+    moneySimbol.textContent = 'R$ '
+    moneySimbol.setAttribute('for', `productPrice-${articleData.id}`)
+        
+    const itemValue = document.createElement('input')
     itemValue.classList.add('item-value')
+    itemValue.setAttribute('id', `productPrice-${articleData.id}`)
     // convertendo valor para real
     // itemValue.textContent = `Valor: R$ ${articleData.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`
-    itemValue.textContent = `Valor: R$ ${articleData.value}`
+    // itemValue.textContent = `Valor: R$ ${articleData.value}`
+    itemValue.value = articleData.value
+    itemValue.disabled = true
+
+    priceSpan.append( moneySimbol, itemValue )
 
     const itemSituation = document.createElement('p')
     itemSituation.classList.add('item-situation')
@@ -27,18 +41,20 @@ function renderArticle(articleData) {
 
 
     const editButton = document.createElement('button')
-    editButton.classList.add('edit')
+    editButton.classList.add('buttons')
     editButton.classList.add('fa-solid')
     editButton.classList.add('fa-pencil')
+    editButton.addEventListener( 'click', editProduct )
 
     const deleteButton = document.createElement('button')
-    deleteButton.classList.add('delete')
+    deleteButton.classList.add('buttons')
     deleteButton.classList.add('fa-solid')
     deleteButton.classList.add('fa-trash-can')
+    deleteButton.addEventListener( 'click', deleteProduct )
 
     iconsSpan.append( editButton, deleteButton )
     
-    article.append(itemTitle, itemValue, itemSituation, iconsSpan)
+    article.append(itemTitle, priceSpan, itemSituation, iconsSpan)
     document.querySelector('#articles').appendChild(article)
 
 }
@@ -81,7 +97,7 @@ async function dataPost(articleData) {
     return savedArticle
 }
 
-// função para deletar do database
+// função para deletar do database e da página
 async function dataDelete(id) {
     const response = await fetch(`http://localhost:3000/products/${id}`, {
         method: 'DELETE',
@@ -96,9 +112,31 @@ async function dataDelete(id) {
 }
 
 function deleteProduct() {
-    const products = document.querySelectorAll( '.expenses' )
-    
+    const currentArticle = event.target.parentElement.parentElement
+    currentArticle.style.display = 'none'
+    dataDelete(currentArticle.id)
 }
+
+
+function editProduct() {
+    const buttons = event.target.parentElement
+    const currentArticle = event.target.parentElement.parentElement
+    const productTitle = currentArticle.children[0]
+    const productPrice = currentArticle.children[1].children[1]
+    const productSituation = currentArticle.children[2]
+
+
+    console.log( `EDIT ${currentArticle.id}` )
+    productTitle.disabled = false
+    // removendo classe apenas para tirar negrito
+    productTitle.classList.remove('item-title')
+
+    productPrice.disabled = false
+    // console.log(productPrice)
+    // console.log(productSituation)
+    console.log(buttons)
+}
+
 
 // atualizando site ao carregar página
 document.addEventListener( 'DOMContentLoaded', () => {
@@ -143,13 +181,12 @@ form.addEventListener( 'submit', async (event) => {
             situation: situation.value
         }
         
-        form.reset()
-        // console.log( articleData )
-
         const savedArticle = dataPost( articleData )
-        // console.log(savedArticle)
-
         savedArticle.forEach( fetchArticle )
+
+        form.reset()
+        renderArticle(savedArticle)
+
     }
     catch (error) {
         console.log( error.message )
@@ -159,4 +196,4 @@ form.addEventListener( 'submit', async (event) => {
 })
 
 
-dataFind( '1' ).then( result => console.log( result ) )
+// dataFind( '1' ).then( result => console.log( result ) )

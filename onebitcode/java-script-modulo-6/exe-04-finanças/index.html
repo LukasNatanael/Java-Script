@@ -47,16 +47,41 @@
             </span>
             <hr>
             <article id="articles">
-                <article class="expenses">
-                    <strong id="item-title">QCY T1C</strong>
-                    <p id="item-value">R$ 106,00</p>
-                    <p id="item-situation">Situação: Em aberto</p>
-                    <span class="icons">
-                        <i class="edit fa-solid fa-pencil"></i>
-                        <i class="delete fa-solid fa-trash-can"></i>
+                
+                <article id="0" class="expenses">
+                    <input type="text" value="Generic Smart Watch" disabled class="item-title">
+                    <span class="priceSpan">
+                        <label for="productPrice-0">R$</label>
+                        <input type="text" value="200,00" id="productPrice-0" disabled>
                     </span>
                     
+                    <span class="situationSpan">
+                        <label for="product-0">Situação: </label>
+                        <label for="paid-out">
+                            <input type="radio" name="situation" id="paid-out" value="Pago" checked>
+                            Pago
+                        </label>
+                        <label for="pending">
+                            <input type="radio" name="situation" id="pending" value="Em aberto">
+                            Em aberto
+                        </label>
+                        <!-- not work -->
+                        <span class="icons">
+                            <i class="buttons fa-solid fa-pencil" onclick="editProduct()"></i>
+                            <i class="buttons fa-solid fa-trash-can" onclick="deleteProduct()"></i>
+                        </span>
+                    </span>
+                    
+
+                    <!-- <strong id="item-title">Generic Smart Watch</strong>
+                    <p id="item-value">R$ 200,00</p>
+                    <p id="item-situation">Situação: Em aberto</p>
+                    <span class="icons">
+                        <i class="edit fa-solid fa-pencil" onclick="editProduct()"></i>
+                        <i class="delete fa-solid fa-trash-can" onclick="deleteProduct()"></i>
+                    </span> -->
                 </article>
+
             </article>
         </div>
     </main>

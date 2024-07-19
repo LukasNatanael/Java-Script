@@ -59,6 +59,10 @@ div {
     padding: .5rem;
 }
 
+.item-title {
+    font-weight: 600;
+}
+
 .input-box {
     display: flex;
     justify-content: space-around;
@@ -72,7 +76,7 @@ div {
    
 }
 
-.edit, .delete {
+.buttons {
     padding: 0 .2rem;
     font-size: .5rem;
 
@@ -84,4 +88,12 @@ div {
         color: white;
     }
 
+}
+
+/* .situationSpan > input {} */
+
+input:disabled {
+    color: black;
+    background-color: transparent;
+    border: transparent;
 }

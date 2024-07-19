@@ -1,6 +1,12 @@
 {
   "products": [
     {
+      "id": "0",
+      "title": "QCY T1C",
+      "value": "106,00",
+      "situation": "Pago"
+    },
+    {
       "id": "1",
       "title": "Samsung Galaxy S23",
       "value": "2.848,00",
@@ -9,7 +15,7 @@
     {
       "id": "2",
       "title": "QCY HT05",
-      "value": "279.9",
+      "value": "279,90",
       "situation": "Pago"
     },
     {

@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": "0",
-      "title": "QCY T1C",
-      "value": "106,00",
-      "situation": "Pago"
-    },
-    {
       "id": "1",
       "title": "Samsung Galaxy S23",
       "value": "2.848,00",
@@ -34,6 +28,18 @@
       "id": "60e3",
       "title": "Mouse Kobra Wireless",
       "value": "250,00",
+      "situation": "Em aberto"
+    },
+    {
+      "id": "b1c1",
+      "title": "Teclado Wireless",
+      "value": "750,00",
+      "situation": "Em aberto"
+    },
+    {
+      "id": "abc5",
+      "title": "Teclado Wireless",
+      "value": "750,00",
       "situation": "Em aberto"
     }
   ]

@@ -4,43 +4,50 @@
       "id": "1",
       "title": "Samsung Galaxy S23",
       "value": "2.848,00",
-      "situation": "Pago"
+      "situation": "Pago",
+      "image": "https://samsungbrshop.vtexassets.com/arquivos/ids/219667-600-auto?v=638514816133800000&width=600&height=auto&aspect=true"
     },
     {
       "id": "2",
       "title": "QCY HT05",
       "value": "279,90",
-      "situation": "Pago"
+      "situation": "Pago",
+      "image": ""
     },
     {
       "id": "3",
       "title": "Computador Gamer",
       "value": "7.450,33",
-      "situation": "Pago"
+      "situation": "Pago",
+      "image": ""
     },
     {
       "id": "5bf6",
       "title": "QCY T13",
       "value": "169,90",
-      "situation": "Em aberto"
+      "situation": "Em aberto",
+      "image": ""
     },
     {
       "id": "60e3",
       "title": "Mouse Kobra Wireless",
       "value": "250,00",
-      "situation": "Em aberto"
+      "situation": "Em aberto",
+      "image": ""
     },
     {
       "id": "b1c1",
       "title": "Teclado Wireless",
       "value": "750,00",
-      "situation": "Em aberto"
+      "situation": "Em aberto",
+      "image": ""
     },
     {
       "id": "abc5",
       "title": "Teclado Wireless",
       "value": "750,00",
-      "situation": "Em aberto"
+      "situation": "Em aberto",
+      "image": ""
     }
   ]
 }

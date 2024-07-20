@@ -2,60 +2,119 @@
 
 // renderizando article
 function renderArticle(articleData) {
-    const article = document.createElement( 'article' )
-    article.classList.add('expenses')
-    article.id = articleData.id
+    // const article = document.createElement( 'article' )
+    // article.classList.add('expenses')
+    // article.id = articleData.id
     
+    // const itemTitle = document.createElement('input')
+    // itemTitle.classList.add('item-title')
+    // // itemTitle.textContent = articleData.title
+    // itemTitle.value = articleData.title
+    // itemTitle.disabled = true
+
+    // const priceSpan = document.createElement('span')
+    // // situationSpan.classList.add('priceSpan')
+
+    // const moneySimbol = document.createElement('span')
+    // moneySimbol.textContent = 'R$ '
+    // moneySimbol.setAttribute('for', `productPrice-${articleData.id}`)
+        
+    // const itemValue = document.createElement('input')
+    // itemValue.classList.add('item-value')
+    // itemValue.setAttribute('id', `productPrice-${articleData.id}`)
+    // // convertendo valor para real
+    // // itemValue.textContent = `Valor: R$ ${articleData.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`
+    // // itemValue.textContent = `Valor: R$ ${articleData.value}`
+    // itemValue.value = articleData.value
+    // itemValue.disabled = true
+
+    // priceSpan.append( moneySimbol, itemValue )
+
+    // const itemSituation = document.createElement('p')
+    // itemSituation.classList.add('item-situation')
+    // itemSituation.textContent = `Situação: ${articleData.situation}`
+    // itemSituation.value = articleData.situation
+
+    // const iconsSpan = document.createElement('span')
+    // iconsSpan.classList.add('icons')
+    // iconsSpan.id = `icons-${articleData.id}`
+
+
+    // const editButton = document.createElement('button')
+    // editButton.classList.add('buttons')
+    // editButton.classList.add('fa-solid')
+    // editButton.classList.add('fa-pencil')
+    // editButton.addEventListener( 'click', editProduct )
+
+    // const deleteButton = document.createElement('button')
+    // deleteButton.classList.add('buttons')
+    // deleteButton.classList.add('fa-solid')
+    // deleteButton.classList.add('fa-trash-can')
+    // deleteButton.addEventListener( 'click', deleteProduct )
+
+    // iconsSpan.append( editButton, deleteButton )
+    
+    // article.append(itemTitle, priceSpan, itemSituation, iconsSpan)
+    // document.querySelector('#articles').appendChild(article)
+
+
+    const expensesArticle = document.createElement('article')
+    expensesArticle.classList.add('expenses')
+    expensesArticle.id = articleData.id
+
+    const infoSpan = document.createElement('span')
+    infoSpan.classList.add('info')
+
     const itemTitle = document.createElement('input')
     itemTitle.classList.add('item-title')
-    // itemTitle.textContent = articleData.title
-    itemTitle.value = articleData.title
     itemTitle.disabled = true
+    itemTitle.id = `product-${articleData.id}`
+    itemTitle.value = articleData.title
 
     const priceSpan = document.createElement('span')
-    // situationSpan.classList.add('priceSpan')
+    priceSpan.classList.add('price-span')
 
-    const moneySimbol = document.createElement('span')
-    moneySimbol.textContent = 'R$ '
-    moneySimbol.setAttribute('for', `productPrice-${articleData.id}`)
-        
-    const itemValue = document.createElement('input')
-    itemValue.classList.add('item-value')
-    itemValue.setAttribute('id', `productPrice-${articleData.id}`)
-    // convertendo valor para real
-    // itemValue.textContent = `Valor: R$ ${articleData.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`
-    // itemValue.textContent = `Valor: R$ ${articleData.value}`
-    itemValue.value = articleData.value
-    itemValue.disabled = true
+    const priceLabel = document.createElement('label')
+    priceLabel.setAttribute('for', `productPrice-${articleData.id}`)
+    priceLabel.textContent = 'R$ '
 
-    priceSpan.append( moneySimbol, itemValue )
+    const priceInput = document.createElement('input')
+    priceInput.id = `productPrice-${articleData.id}`
+    priceInput.value = articleData.value
+    priceInput.disabled = true
 
-    const itemSituation = document.createElement('p')
-    itemSituation.classList.add('item-situation')
-    itemSituation.textContent = `Situação: ${articleData.situation}`
-    itemSituation.value = articleData.situation
+    priceSpan.append( priceLabel, priceInput )
 
-    const iconsSpan = document.createElement('span')
-    iconsSpan.classList.add('icons')
-    iconsSpan.id = `icons-${articleData.id}`
+    const situation = document.createElement('p')
+    situation.textContent = articleData.situation
 
+    infoSpan.append( itemTitle, priceSpan, situation )
 
-    const editButton = document.createElement('button')
-    editButton.classList.add('buttons')
-    editButton.classList.add('fa-solid')
-    editButton.classList.add('fa-pencil')
-    editButton.addEventListener( 'click', editProduct )
+    const divImage = document.createElement('div')
+    divImage.classList.add('image-box')
 
-    const deleteButton = document.createElement('button')
+    const image = document.createElement('img')
+    image.classList.add('image')
+    image.src = articleData.image
+    image.alt = articleData.title
+
+    const icons = document.createElement('span')
+    icons.classList.add('icons')
+
+    const deleteButton = document.createElement('i')
     deleteButton.classList.add('buttons')
     deleteButton.classList.add('fa-solid')
     deleteButton.classList.add('fa-trash-can')
-    deleteButton.addEventListener( 'click', deleteProduct )
 
-    iconsSpan.append( editButton, deleteButton )
-    
-    article.append(itemTitle, priceSpan, itemSituation, iconsSpan)
-    document.querySelector('#articles').appendChild(article)
+    const editButton = document.createElement('i')
+    editButton.classList.add('buttons')
+    editButton.classList.add('fa-solid')
+    editButton.classList.add('fa-pencil')
+
+    icons.append( deleteButton, editButton )
+
+    expensesArticle.append( infoSpan, image, icons )
+    document.querySelector('#articles').appendChild(expensesArticle)
 
 }
 

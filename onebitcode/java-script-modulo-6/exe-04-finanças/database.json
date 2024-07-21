@@ -12,42 +12,14 @@
       "title": "QCY HT05",
       "value": "279,90",
       "situation": "Pago",
-      "image": ""
-    },
-    {
-      "id": "3",
-      "title": "Computador Gamer",
-      "value": "7.450,33",
-      "situation": "Pago",
-      "image": ""
+      "image": "https://qcybrasil.com/cdn/shop/files/01_178ae03f-ac94-4916-97ec-91ff2acf3b3b.png?v=1696623815"
     },
     {
       "id": "5bf6",
       "title": "QCY T13",
       "value": "169,90",
       "situation": "Em aberto",
-      "image": ""
-    },
-    {
-      "id": "60e3",
-      "title": "Mouse Kobra Wireless",
-      "value": "250,00",
-      "situation": "Em aberto",
-      "image": ""
-    },
-    {
-      "id": "b1c1",
-      "title": "Teclado Wireless",
-      "value": "750,00",
-      "situation": "Em aberto",
-      "image": ""
-    },
-    {
-      "id": "abc5",
-      "title": "Teclado Wireless",
-      "value": "750,00",
-      "situation": "Em aberto",
-      "image": ""
+      "image": "https://qcybrasil.com/cdn/shop/files/01_5c0faa72-c26b-46f8-9748-55b033ae6a53.png?v=1696531599"
     }
   ]
 }

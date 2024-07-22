@@ -4,7 +4,9 @@
     --error: #EF233C;
     --paid-out: #67B476;
     --pending: #FCA311;
+    --save: #0077b6;
     --bg-color: #8ECAE6;
+    --bg-color-50: #8ecae6c0;
 }
 
 * {
@@ -41,10 +43,36 @@ input:disabled {
     border: transparent;
 }
 
+body {
+    position: relative;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  
+    display: block;
+    background: url('https://static.vecteezy.com/system/resources/previews/025/791/244/non_2x/pattern-hipster-abstract-form-geometric-line-shapes-fashion-style-seamless-background-banner-poster-illustration-black-white-design-vector.jpg');
+
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+  
+    -webkit-filter: blur(3px);
+    -moz-filter:    blur(3px);
+    -o-filter:      blur(3px);
+    -ms-filter:     blur(3px);
+    filter:         blur(3px);
+}
+
 
 main {
     height: 100vh;
-    background-color: var(--bg-color);
+    background: linear-gradient(to bottom, #8ecae6af, #4f7d92b4);
 
     display: flex;
     justify-content: center;
@@ -63,13 +91,17 @@ form {
     padding: 3rem 2rem;
     border-radius: 1rem;
     margin-top: 2rem;
-    height: 36rem;
+    height: 40rem;
 
     justify-content: center;
 
     box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.082);
 }
 
+
+label:hover {
+    cursor: pointer;
+}
 
 form > h1 {
     text-align: center;
@@ -95,13 +127,19 @@ form > span {
 
 }
 
+input[type="radio"] {
+    accent-color: var(--bg-color) ;
+
+}
+
 form > button {
     background-color: black;
     color: white;
+    font-size: 1.2rem;
 
     border-radius: 1rem;
     border: 1px solid black;
-    padding: .2rem;
+    padding: .3rem .2rem;
 
     margin-top: 1rem;
 
@@ -124,6 +162,8 @@ form > button {
 #div-expenses > h1 {
     text-align: center;
     color: white;
+    
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.233);
 
 }
 
@@ -142,6 +182,7 @@ form > button {
     /* width: 50%; */
 
     background-color: white;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.082);
 
     margin: .5rem 0;
 }
@@ -246,5 +287,10 @@ form > button {
 }
 .fa-pencil:hover {
     color: var(--pending);
+    cursor: pointer;
+}
+
+.fa-floppy-disk:hover {
+    color: var(--save);
     cursor: pointer;
 }

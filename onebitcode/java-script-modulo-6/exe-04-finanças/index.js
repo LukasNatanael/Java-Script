@@ -1,7 +1,20 @@
 // é necessário iniciar o banco de dados antes de rodar o código
 
+let totalDebts = [] 
 // renderizando article
+
 function renderArticle(articleData) {
+
+    const debts = document.querySelector('#debts')
+
+    debts.textContent = 'R$ 1.500,00'
+    
+    totalDebts.push(
+        parseFloat(String(articleData.value).replace(',', '.'))
+    )
+
+    // totalDebts.forEach( num => console.log(num) )
+    // console.log( totalDebts )
 
     const expensesArticle = document.createElement('article')
     expensesArticle.classList.add('expenses')
@@ -40,7 +53,6 @@ function renderArticle(articleData) {
     }
     else {
         situation.classList.add('pending')
-
     }
 
     infoSpan.append( itemTitle, priceSpan, situation )
@@ -67,10 +79,18 @@ function renderArticle(articleData) {
     editButton.classList.add('buttons')
     editButton.classList.add('fa-solid')
     editButton.classList.add('fa-pencil')
+    
+    editButton.addEventListener( 'click', editProduct )
 
-    editButton.addEventListener( 'click', editButton )
+    const saveButton = document.createElement('i')
+    saveButton.classList.add('buttons')
+    saveButton.classList.add('fa-solid')
+    saveButton.classList.add('fa-floppy-disk')
+    saveButton.addEventListener('click', saveProduct)
 
-    icons.append( deleteButton, editButton )
+    saveButton.style.display = 'none'
+
+    icons.append( deleteButton, editButton, saveButton )
 
     divImage.append( image, icons )
 
@@ -131,6 +151,28 @@ async function dataDelete(id) {
     return deletedArticle
 }
 
+async function dataSave(id, { title, value, situation, image }) {
+    const productData = {
+        title,
+        value,
+        situation,
+        image
+    }
+    const response = await fetch(`http://localhost:3000/products/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( productData )
+    })
+    
+    const savedArticle = await response.json()
+    
+    console.log(savedArticle)
+    
+}
+
+
 function deleteProduct() {
     const currentArticle = event.target.parentElement.parentElement.parentElement
     console.log(currentArticle)
@@ -142,6 +184,7 @@ function deleteProduct() {
 function editProduct() {
     const buttons = event.target.parentElement
     const currentArticle = event.target.parentElement.parentElement.parentElement
+    const saveBtn = buttons.children[2]
 
     const info = currentArticle.children[0].children
 
@@ -160,6 +203,7 @@ function editProduct() {
         productTitle.disabled = true
         productTitle.classList.add('enableInput')
         productTitle.classList.add('item-title')
+        saveBtn.style.display = 'none'
 
         productPrice.disabled = true
         productPrice.classList.add('enableInput')
@@ -171,6 +215,8 @@ function editProduct() {
         // productTitle.classList.remove('enableInput')
 
         productPrice.disabled = false
+        saveBtn.style.display = 'block'
+
         // productPrice.classList.remove('enableInput')
 
 
@@ -180,9 +226,42 @@ function editProduct() {
     // console.log(productTitle)
     // console.log(productPrice)
     // console.log(productSituation)
-    // console.log(buttons)
 }
 
+function saveProduct() {
+    const currentArticle = event.target.parentElement.parentElement.parentElement
+    const info = currentArticle.children[0].children
+
+    const productTitle = info[0]
+    const productPrice = info[1].children[1]
+    const productSituation = info[2]
+    const productImage = currentArticle.children[1].children[0].src
+
+
+    console.log( 
+       {
+            id: currentArticle.id,
+            title: productTitle.value,
+            value: productPrice.value,
+            situation: productSituation.textContent,
+            image: productImage
+        }
+    )
+    
+    dataSave(
+        currentArticle.id,{
+            title: productTitle.value,
+            value: productPrice.value,
+            situation: productSituation.textContent,
+            image: productImage
+        }
+    )
+
+    productTitle.disabled = true
+    productPrice.disabled = true
+    // productSituation
+    // productImage
+}
 
 // atualizando site ao carregar página
 document.addEventListener( 'DOMContentLoaded', () => {

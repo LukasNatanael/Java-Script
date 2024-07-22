@@ -1,18 +1,11 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "Samsung Galaxy S23",
-      "value": "2.848,00",
-      "situation": "Pago",
-      "image": "https://samsungbrshop.vtexassets.com/arquivos/ids/219667-600-auto?v=638514816133800000&width=600&height=auto&aspect=true"
-    },
-    {
-      "id": "2",
       "title": "QCY HT05",
       "value": "279,90",
-      "situation": "Pago",
-      "image": "https://qcybrasil.com/cdn/shop/files/01_178ae03f-ac94-4916-97ec-91ff2acf3b3b.png?v=1696623815"
+      "situation": "Em aberto",
+      "image": "https://qcybrasil.com/cdn/shop/files/01_183fcba7-e122-4248-a8c1-c29db9e8de5e.png?v=1696535245",
+      "id": "2"
     },
     {
       "id": "5bf6",
@@ -20,6 +13,20 @@
       "value": "169,90",
       "situation": "Em aberto",
       "image": "https://qcybrasil.com/cdn/shop/files/01_5c0faa72-c26b-46f8-9748-55b033ae6a53.png?v=1696531599"
+    },
+    {
+      "id": "a497",
+      "title": "Smartwatch QCY GTC S1",
+      "value": "200",
+      "situation": "Em aberto",
+      "image": "https://qcybrasil.com/cdn/shop/files/01_42f49275-5b09-40cc-a56e-fc0f90b12b69.png?v=1696602859"
+    },
+    {
+      "id": "095b",
+      "title": "Headset  H3 ANC",
+      "value": "250,90",
+      "situation": "Pago",
+      "image": "https://qcybrasil.com/cdn/shop/files/PRETO_01_a004fb0f-e39a-4ea6-9522-e3b87170e421.png?v=1704486194"
     }
   ]
 }

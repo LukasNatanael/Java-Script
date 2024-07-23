@@ -1,5 +1,5 @@
-import { dataPost, fetchArticles } from './database_functions.js'
-import { deleteProduct, editProduct, saveProduct } from './product_functions.js'
+import { dataPost, fetchArticles } from './entities/database_functions.js'
+import { deleteProduct, editProduct, saveProduct } from './entities/product_functions.js'
 
 // é necessário iniciar o banco de dados antes de rodar o código
 let debts = [ [], [] ]

@@ -1,4 +1,4 @@
-import { renderArticle } from "./index.js"
+import { renderArticle } from "../index.js"
 
 // pegando informações do database
 export async function fetchArticles() {

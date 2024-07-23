@@ -149,9 +149,11 @@ form.addEventListener( 'submit', async (event) => {
         
         const savedArticle = await dataPost( articleData )
         form.reset()
-        savedArticle.forEach( fetchArticles )
+        console.log(savedArticle)
 
         renderArticle(savedArticle)
+        savedArticle.forEach( fetchArticles )
+
 
     }
     catch (error) {

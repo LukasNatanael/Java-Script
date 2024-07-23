@@ -52,6 +52,8 @@ export function editProduct() {
     // console.log(productTitle)
     // console.log(productPrice)
     // console.log(productSituation)
+
+    getRadioText()
 }
 
 export function saveProduct() {
@@ -88,4 +90,12 @@ export function saveProduct() {
     productPrice.disabled = true
     // productSituation
     // productImage
+}
+
+
+function getRadioText() {
+    const situationSpan = document.querySelectorAll('.expenses > .info > .situation-article')
+    const situationValue = document.querySelector('.expenses > .info > .situation-article input[type="radio"]:checked').value
+
+    situationSpan.textContent = situationValue
 }

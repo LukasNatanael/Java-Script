@@ -1,18 +1,11 @@
 {
   "products": [
     {
-      "title": "QCY HT05",
-      "value": "279,90",
-      "situation": "Em aberto",
-      "image": "https://qcybrasil.com/cdn/shop/files/01_183fcba7-e122-4248-a8c1-c29db9e8de5e.png?v=1696535245",
-      "id": "2"
-    },
-    {
-      "id": "5bf6",
-      "title": "QCY T13",
+      "title": "Fone QCY T13 ANC",
       "value": "169,90",
       "situation": "Em aberto",
-      "image": "https://qcybrasil.com/cdn/shop/files/01_5c0faa72-c26b-46f8-9748-55b033ae6a53.png?v=1696531599"
+      "image": "https://qcybrasil.com/cdn/shop/files/01_5c0faa72-c26b-46f8-9748-55b033ae6a53.png?v=1696531599",
+      "id": "5bf6"
     },
     {
       "title": "Smartwatch QCY GTC S1",
@@ -41,6 +34,13 @@
       "value": "296,35",
       "situation": "Em aberto",
       "image": "https://imgs.casasbahia.com.br/1563739719/1xg.jpg"
+    },
+    {
+      "title": "QCY HT05 ANC",
+      "value": "279,90",
+      "situation": "Em aberto",
+      "image": "https://qcybrasil.com/cdn/shop/files/01_178ae03f-ac94-4916-97ec-91ff2acf3b3b.png?v=1696623815",
+      "id": "fa11"
     }
   ]
 }

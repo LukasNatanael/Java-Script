@@ -63,6 +63,7 @@ export function saveProduct() {
     const productSituation = info[2]
     const productImage = currentArticle.children[1].children[0].src
 
+    productTitle.classList.add('item-title')
 
     console.log( 
        {

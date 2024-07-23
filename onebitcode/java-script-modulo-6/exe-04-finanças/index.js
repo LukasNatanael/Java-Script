@@ -2,20 +2,13 @@ import { dataPost, fetchArticles } from './database_functions.js'
 import { deleteProduct, editProduct, saveProduct } from './product_functions.js'
 
 // é necessário iniciar o banco de dados antes de rodar o código
-let totalDebts = []
+let debts = [ [], [] ]
 // renderizando article
 
 export function renderArticle(articleData) {
 
-    const debts = document.querySelector('#debts')
-
-    // totalDebts.push(
-    //     parseFloat(String(articleData.value).replace('.', '').replace(',', '.'))
-    // )
-
-    // const total = totalDebts.reduce( (num, total) => num += total )
-    // debts.textContent = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-    // console.log(total)
+    const totalDebts = document.querySelector('#total-debts')
+    const openDebts = document.querySelector('#open-debts')
 
     const expensesArticle = document.createElement('article')
     expensesArticle.classList.add('expenses')
@@ -49,19 +42,25 @@ export function renderArticle(articleData) {
     const situation = document.createElement('p')
     situation.textContent = articleData.situation
 
+    debts[0].push(
+        parseFloat(String(articleData.value).replace('.', '').replace(',', '.'))
+    )
+
     if (articleData.situation === 'Pago') {
         situation.classList.add('paid-out')
     }
     else {
         situation.classList.add('pending')
-        totalDebts.push(
+        debts[1].push(
             parseFloat(String(articleData.value).replace('.', '').replace(',', '.'))
         )
-    
     }
-    const total = totalDebts.reduce( (num, total) => num += total )
-    debts.textContent = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-    console.log(total)
+
+    const total          = debts[0].reduce( (num, total) => num += total )
+    const openTotalDebts = debts[1].reduce( (num, total) => num += total )
+
+    totalDebts.textContent = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+    openDebts.textContent = openTotalDebts.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
     infoSpan.append( itemTitle, priceSpan, situation )
 

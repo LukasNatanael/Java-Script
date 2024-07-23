@@ -249,9 +249,9 @@ form > button {
     font-size: 1.5rem;
 }
 
-.item-situation {
+/* .item-situation {
     margin-top: .5rem;
-}
+} */
 
 .image-div, .price-span {
     display: flex;

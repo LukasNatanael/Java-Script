@@ -1,20 +1,21 @@
-// é necessário iniciar o banco de dados antes de rodar o código
+import { dataPost, fetchArticles } from './database_functions.js'
+import { deleteProduct, editProduct, saveProduct } from './product_functions.js'
 
-let totalDebts = [] 
+// é necessário iniciar o banco de dados antes de rodar o código
+let totalDebts = []
 // renderizando article
 
-function renderArticle(articleData) {
+export function renderArticle(articleData) {
 
     const debts = document.querySelector('#debts')
 
-    debts.textContent = 'R$ 1.500,00'
-    
-    totalDebts.push(
-        parseFloat(String(articleData.value).replace(',', '.'))
-    )
+    // totalDebts.push(
+    //     parseFloat(String(articleData.value).replace('.', '').replace(',', '.'))
+    // )
 
-    // totalDebts.forEach( num => console.log(num) )
-    // console.log( totalDebts )
+    // const total = totalDebts.reduce( (num, total) => num += total )
+    // debts.textContent = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+    // console.log(total)
 
     const expensesArticle = document.createElement('article')
     expensesArticle.classList.add('expenses')
@@ -53,7 +54,14 @@ function renderArticle(articleData) {
     }
     else {
         situation.classList.add('pending')
+        totalDebts.push(
+            parseFloat(String(articleData.value).replace('.', '').replace(',', '.'))
+        )
+    
     }
+    const total = totalDebts.reduce( (num, total) => num += total )
+    debts.textContent = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+    console.log(total)
 
     infoSpan.append( itemTitle, priceSpan, situation )
 
@@ -98,175 +106,6 @@ function renderArticle(articleData) {
     document.querySelector('#articles').appendChild(expensesArticle)
 
 }
-
-// pegando informações do database
-async function fetchArticles() {
-    const article = await fetch('http://localhost:3000/products').then( data => data.json() )
-
-    article.forEach( renderArticle )
-    // response.forEach( (item) => console.log(item) )
-}
-
-// função para pesquisar no database
-async function dataFind(id) {
-    const response = await fetch(`http://localhost:3000/products/${id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-
-    // const foundArticle = await response.json()
-    const foundArticle = await response.json()
-    return foundArticle
-}
-
-
-// função para salvar no database
-async function dataPost(articleData) {
-    const response = await fetch('http://localhost:3000/products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( articleData )
-    })
-
-    const savedArticle = await response.json()
-
-    return savedArticle
-}
-
-// função para deletar do database e da página
-async function dataDelete(id) {
-    const response = await fetch(`http://localhost:3000/products/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-
-    const deletedArticle = await response.json()
-
-    return deletedArticle
-}
-
-async function dataSave(id, { title, value, situation, image }) {
-    const productData = {
-        title,
-        value,
-        situation,
-        image
-    }
-    const response = await fetch(`http://localhost:3000/products/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( productData )
-    })
-    
-    const savedArticle = await response.json()
-    
-    console.log(savedArticle)
-    
-}
-
-
-function deleteProduct() {
-    const currentArticle = event.target.parentElement.parentElement.parentElement
-    console.log(currentArticle)
-    document.querySelector('#articles').removeChild(currentArticle)
-    dataDelete(currentArticle.id)
-}
-
-
-function editProduct() {
-    const buttons = event.target.parentElement
-    const currentArticle = event.target.parentElement.parentElement.parentElement
-    const saveBtn = buttons.children[2]
-
-    const info = currentArticle.children[0].children
-
-    const productTitle = info[0]
-    const productPrice = info[1].children[1]
-    const productSituation = info[2]
-
-
-    // console.log( `EDIT ${currentArticle.id}` )
-
-    productTitle.classList.add('enableInput')
-    productPrice.classList.add('enableInput')
-
-
-    if (productTitle.disabled === false) {
-        productTitle.disabled = true
-        productTitle.classList.add('enableInput')
-        productTitle.classList.add('item-title')
-        saveBtn.style.display = 'none'
-
-        productPrice.disabled = true
-        productPrice.classList.add('enableInput')
-        
-    }
-    else {
-        productTitle.disabled = false
-        productTitle.classList.remove('item-title')
-        // productTitle.classList.remove('enableInput')
-
-        productPrice.disabled = false
-        saveBtn.style.display = 'block'
-
-        // productPrice.classList.remove('enableInput')
-
-
-    }
-    
-    // console.log(currentArticle)
-    // console.log(productTitle)
-    // console.log(productPrice)
-    // console.log(productSituation)
-}
-
-function saveProduct() {
-    const currentArticle = event.target.parentElement.parentElement.parentElement
-    const info = currentArticle.children[0].children
-
-    const productTitle = info[0]
-    const productPrice = info[1].children[1]
-    const productSituation = info[2]
-    const productImage = currentArticle.children[1].children[0].src
-
-
-    console.log( 
-       {
-            id: currentArticle.id,
-            title: productTitle.value,
-            value: productPrice.value,
-            situation: productSituation.textContent,
-            image: productImage
-        }
-    )
-    
-    dataSave(
-        currentArticle.id,{
-            title: productTitle.value,
-            value: productPrice.value,
-            situation: productSituation.textContent,
-            image: productImage
-        }
-    )
-
-    productTitle.disabled = true
-    productPrice.disabled = true
-    // productSituation
-    // productImage
-}
-
-// atualizando site ao carregar página
-document.addEventListener( 'DOMContentLoaded', () => {
-    fetchArticles()
-} )
 
 // adicionando produtos ao database
 const form = document.querySelector('form')
@@ -319,7 +158,6 @@ form.addEventListener( 'submit', async (event) => {
     catch (error) {
         console.log( error.message )
     }
-    
 
 })
 
